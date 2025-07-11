@@ -204,7 +204,7 @@ Trong đó, $\lambda$ biểu thị cho hệ số suy giảm theo thời gian (ti
 \vspace{1em}
 \subsection{Điểm số từ dự đoán của mô hình học sâu theo phương pháp nhúng đồ thị}
 
-Do hạn chế về đầu ra, danh sách ứng viên được tạo ra bởi LLM có thể không có khả năng để khớp với đáp án của toàn bộ câu truy vấn. Để nâng cao độ chính xác của kết quả cuối cùng, MSKGen có tích hợp thêm kết quả của mô hình học sâu được huấn luyện trên đồ thị. Điểm số của ứng cử viên $c_i$ có từ mô hình học sâu được huấn luyện trên đồ thị kí hiệu là $\text{score}_G^{c_i}$
+Do hạn chế về đầu ra, danh sách ứng viên được tạo ra bởi LLM có thể không có khả năng để khớp với đáp án của toàn bộ câu truy vấn. Để nâng cao độ chính xác của kết quả cuối cùng, MSKGen có tích hợp thêm kết quả của mô hình học sâu theo phương pháp nhúng đồ thị. Điểm số của ứng cử viên $c_i$ có từ mô hình học sâu theo phương pháp nhúng kí hiệu là $\text{score}_G^{c_i}$
 
 \vspace{1em}
 \subsection{Điểm số cuối cùng}
@@ -216,5 +216,5 @@ Do hạn chế về đầu ra, danh sách ứng viên được tạo ra bởi LL
     \tag{x}
 \end{equation}
 
-Trong đó $\alpha$ và $1 - \alpha$ lần lượt kí hiệu cho trọng số dự đoán của LLM và trọng số dự đoán của mô hình học sâu huấn luyện trên đồ thị.
+Trong đó $\alpha$ và $1 - \alpha$ lần lượt kí hiệu cho trọng số dự đoán của LLM và trọng số dự đoán của mô hình học sâu theo phương pháp nhúng.
 

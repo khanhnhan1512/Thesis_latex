@@ -83,24 +83,24 @@ Trong khóa luận này, chúng tôi sẽ sử dụng thiết lập bộ lọc n
 \section{Các mô hình cơ sở}
 Để đánh giá hiệu quả của mô hình FTPComplEx, chúng tôi tiến hành so sánh một cách khách quan với 3 nhóm mô hình: nhóm mô hình học sâu được huấn luyện trên đồ thị, nhóm mô hình suy luận dựa trên luật và nhóm mô hình suy luận nhờ LLM. Việc lựa chọn các mô hình đối chiếu này được thực hiện dựa trên sự đa dạng về kỹ thuật và cách tiếp cận, giúp việc so sánh với MSKGen trở nên đầy thuyết phục hơn. 
 
-Nhóm mô hình học sâu được huấn luyện trên đồ thị bao gồm:
+Nhóm mô hình học sâu theo phương pháp nhúng đồ thị bao gồm:
 \begin{itemize}
-    \item \textbf{RE-NET}
-    \item \textbf{RE-GCN}
-    \item \textbf{TiRGN}
-    \item \textbf{HGLS}
+    \item \textbf{RE-NET:} là mô hình autoregressive được thiết kế để dự đoán sự kiện tương lai trên đồ thị tri thức theo thời gian. Mô hình kết hợp Recurrent Event Encoder để mã hóa chuỗi sự kiện quá khứ và Neighborhood Aggregator để tổng hợp thông tin cùng thời điểm. RE-NET có khả năng suy luận đa bước, cho phép dự đoán liên tiếp các sự kiện tương lai qua nhiều thời điểm.
+    \item \textbf{RE-GCN:} là mô hình kết hợp GCN và RNN để dự đoán sự kiện tương lai trên đồ thị tri thức theo thời gian. Mô hình sử dụng relation-aware GCN để nắm bắt các phụ thuộc cấu trúc trong mỗi đồ thị con tại từng thời điểm, và gate recurrent components để mô hình hóa các mẫu tuần tự của chuỗi đồ thị theo thời gian một cách auto-regressive. RE-GCN còn tích hợp thông tin tĩnh của thực thể thông qua static graph constraint component.
+    \item \textbf{TiRGN:}  là mô hình học biểu diễn cho suy luận đồ thị tri thức theo thời gian, tập trung vào việc khai thác các mẫu lịch sử cục bộ-toàn cục. Mô hình kết hợp local recurrent graph encoder để mô hình hóa phụ thuộc lịch sử giữa các sự kiện tại các thời điểm liền kề, và global history encoder để thu thập các sự kiện lịch sử lặp lại. TiRGN còn sử dụng decoder có tính chu kỳ để thực hiện suy luận cuối cùng, nhằm nắm bắt các mẫu tuần tự, lặp lại và chu kỳ trong dữ liệu lịch sử.
+    \item \textbf{HGLS:} là mô hình giải quyết bài toán suy luận đồ thị tri thức theo thời gian bằng cách mô hình hóa rõ ràng các phụ thuộc thời gian dài hạn và tích hợp thích ứng thông tin ngắn hạn-dài hạn. Mô hình chuyển đổi TKG thành đồ thị toàn cục và sử dụng Hierarchical Relational GNN hoạt động trên hai cấp độ: cấp sub-graph để nắm bắt phụ thuộc ngữ nghĩa trong các sự kiện đồng thời, và cấp global-graph để mô hình hóa phụ thuộc thời gian giữa các thực thể. Thông tin dài hạn và ngắn hạn được trích xuất từ hai cấp độ này và kết hợp thông qua Gating Integration để dự đoán thực thể.
 \end{itemize}
 
 Nhóm mô hình suy luận dựa trên luật bao gồm:
 \begin{itemize}
-    \item \textbf{TLogic}
+    \item \textbf{TLogic:} là mô hình có thể giải thích được cho bài toán dự đoán liên kết trên đồ thị tri thức theo thời gian, khắc phục hạn chế về tính giải thích của các phương pháp nhúng đồ thị truyền thống. Mô hình dựa trên các quy tắc logic theo thời gian được trích xuất thông qua temporal random walks để thực hiện dự đoán liên kết cho các sự kiện tương lai.
 \end{itemize}
 
 Nhóm mô hình suy luận nhờ LLM bao gồm:
 \begin{itemize}
-    \item \textbf{GPT-Neox-ICL}
-    \item \textbf{TiRGN-CoH}
-    \item \textbf{GenTKG}
+    \item \textbf{GPT-Neox-ICL:} là phương pháp đầu tiên sử dụng LLMs cho bài toán suy luận trên đồ thị tri thức thời gian bằng cách áp dụng học trong ngữ cảnh với các mô hình ngôn ngữ lớn.
+    \item \textbf{TiRGN-CoH:} là phương pháp suy luận được thiết kế để khắc phục các hạn chế của mô hình dựa trên LLM trong dự đoán đồ thị tri thức theo thời gian. CoH giải quyết ba vấn đề chính: (1) chỉ tập trung vào lịch sử bậc nhất, (2) hiệu suất suy luận kém với tải thông tin lịch sử nặng, và (3) khả năng suy luận thời gian hạn chế của LLM. Mô hình đề xuất cơ chế suy luận từng bước để khám phá lịch sử bậc cao một cách hiệu quả, giúp LLM tận dụng tốt hơn thông tin lịch sử đa cấp. CoH được thiết kế như một module plug-and-play có thể tích hợp vào các mô hình dựa trên đồ thị để nâng cao hiệu suất dự đoán TKG.
+    \item \textbf{GenTKG:} là mô hình đề xuất chiến lược truy xuất dựa trên quy tắc logic thời gian và few-shot parameter-efficient instruction tuning để khắc phục chi phí tính toán lớn khi fine-tune LLM trên dữ liệu đồ thị tri thức theo thời gian khổng lồ. Giúp mở ra hướng tiếp cận mới sử dụng LLM làm foundation model cho dự đoán quan hệ thời gian.
 \end{itemize}
 
 \section{Cài đặt siêu tham số thực nghiệm}
@@ -109,12 +109,12 @@ tốt nhất của từng giai đoạn ở mỗi tập dữ liệu:
 \begin{itemize}
     \item Trong giai đoạn trích xuất sự kiện dựa theo luật, số lượng vòng lặp để cập nhật luật được thực hiện là 5, 
 ngưỡng điểm để lọc ra các luật có chất lượng cao là $\gamma = 0.15$ trên cả ba tập dữ liệu.
-    \item Trong giai đoạn trích xuất sự kiện theo ngữ nghĩa, MSKGen sử dụng mô hình \textbf{GPT-4o-mini} cho việc suy luận. 
+    \item Trong giai đoạn trích xuất sự kiện theo ngữ nghĩa, MSKGen sử dụng mô hình \textbf{GPT-4o} cho việc suy luận. 
     Hệ số suy giảm theo thời gian $\lambda$, trọng số của xếp hạng các thực thể ứng viên được dự đoán bởi LLM $\alpha$ và
     số lượng ứng cử viên tối đa mà LLM có thể trả về $k$ lần lượt là 0.1, 0.5 và 10 trên cả ba tập dữ liệu. 
-    \item Ở bước tổng hợp kết quả dự đoán cuối cùng, \textbf{TiRGN} là mô hình được chọn để lấy điểm số từ dự đoán của mô hình học sâu 
-    huấn luyện trên đồ thị $score_{G}^{c_i}$. Trọng số cho điểm số từ dự đoán của LLM $\alpha$ và của TiRGN $1 - \alpha$
-    trong điểm số cuối cùng trên từng tập dữ liệu được thể hiện trong bảng~\ref{tab:table53}:
+    \item Ở bước tổng hợp kết quả dự đoán cuối cùng, \textbf{TiRGN} là mô hình theo phương pháp nhúng được chọn để lấy điểm số $score_{G}^{c_i}$. 
+    Trọng số cho điểm số từ dự đoán của LLM $\alpha$ và của TiRGN $1 - \alpha$
+    trong điểm số cuối cùng trên từng tập dữ liệu được thể hiện trong bảng~\ref{tab:table53}.
 \end{itemize}
 
 \begin{table}[H]
@@ -138,7 +138,7 @@ Bảng ~\ref{tab:table54},~\ref{tab:table55} và~\ref{tab:table56} trình bày k
 các mô hình cơ sở khác trong việc suy luận trên đồ thị tri thức thời gian trên ba tập dữ liệu tiêu chuẩn bao gồm 
 ICEWS14, GDELT và YAGO.
 
-\begin{table}
+\begin{table}[H]
 \caption{Kết quả thực nghiệm của MSKGen và các mô hình khác trên tập dữ liệu ICEWS14 với thiết lập bộ lọc nhận thức thời gian. 
 Điểm số cao nhất được \textbf{bôi đen} và điểm số tốt thứ hai được \underline{gạch chân}.}
 \label{tab:table54}
@@ -161,7 +161,7 @@ ICEWS14, GDELT và YAGO.
 \hline
 \multicolumn{1}{|c|}{\multirow{2}{*}{Phương pháp}}     & \multirow{2}{*}{Mô hình} & \multicolumn{4}{c|}{ICEWS14}                                                                        \\ \cline{3-6} 
 \multicolumn{1}{|c|}{}                                 &                          & \multicolumn{1}{c|}{MRR} & \multicolumn{1}{c|}{Hit@1} & \multicolumn{1}{c|}{Hit@3} & Hit@10         \\ \hline
-\multicolumn{1}{|c|}{\multirow{4}{*}{Dựa trên đồ thị}} & RE-NET                   & 0.457                    & 0.301                      & 0.440                      & 0.582          \\ \cline{2-2}
+\multicolumn{1}{|c|}{\multirow{4}{*}{Dựa trên nhúng đồ thị}} & RE-NET                   & 0.457                    & 0.301                      & 0.440                      & 0.582          \\ \cline{2-2}
 \multicolumn{1}{|c|}{}                                 & RE-GCN                   & 0.415                    & 0.313                      & 0.470                      & 0.613          \\ \cline{2-2}
 \multicolumn{1}{|c|}{}                                 & TiRGN                    & 0.440                    & 0.338                      & {\ul 0.497}                & 0.650          \\ \cline{2-2}
 \multicolumn{1}{|c|}{}                                 & HGLS                     & {\ul 0.470}              & 0.350                      & 0.490                      & {\ul 0.704}    \\ \hline
@@ -175,10 +175,14 @@ ICEWS14, GDELT và YAGO.
 \end{table}
 \vspace{-5mm}
 
-Trên tập dữ liệu ICEWS14 và GDELT, MSKGen đều đạt được kết quả tốt nhất (state-of-the-art) trong tất cả độ đo 
-đánh giá, bao gồm 
+Kết quả của MSKGen(TiRGN) cho thấy mô hình này đạt được kết quả tốt nhất (state-of-the-art) trên cả ba tập dữ liệu: ICEWS14, GDELT và YAGO, so
+với các mô hình cơ sở thuộc các phương pháp khác ở cả bốn chỉ số MRR, Hit@1, Hit@3 và Hit@10. Điều này chứng tỏ sự hiệu quả của quá trình 
+trích xuất luật và các sự kiện ngữ nghĩa của MSKGen. Cụ thể, ở hai tập dữ liệu có nhiều thực thể và quan hệ như ICEWS14 và GDELT, MSKGen vẫn đạt
+được chỉ số Hit@1 cao nhất lần lượt là 38.4\% và 14.5\%, cho thấy khả năng dự đoán chính xác của mô hình dù số lượng thực thể ứng viên và không gian tìm kiếm các mối quan hệ tương đồng về ngữ nghĩa là rất lớn.
+Ở tập dữ liệu có ít mối quan hệ như YAGO, MSKGen có tất cả chỉ số đều cao nhất và đều trên 85\% chứng tỏ việc có ít mối quan hệ sẽ còn giúp cho quá trình trích xuất luật 
+và các sự kiện ngữ nghĩa của MSKGen trở nên hiệu quả hơn.
 
-\begin{table}
+\begin{table}[H]
 \caption{Kết quả thực nghiệm của MSKGen và các mô hình khác trên tập dữ liệu GDELT với thiết lập bộ lọc nhận thức thời gian. 
 Điểm số cao nhất được \textbf{bôi đen} và điểm số tốt thứ hai được \underline{gạch chân}.}
 \label{tab:table55}
@@ -187,7 +191,7 @@ Trên tập dữ liệu ICEWS14 và GDELT, MSKGen đều đạt được kết q
 \hline
 \multicolumn{1}{|c|}{\multirow{2}{*}{Phương pháp}}     & \multirow{2}{*}{Mô hình} & \multicolumn{4}{c|}{GDELT}                                                                          \\ \cline{3-6} 
 \multicolumn{1}{|c|}{}                                 &                          & \multicolumn{1}{c|}{MRR} & \multicolumn{1}{c|}{Hit@1} & \multicolumn{1}{c|}{Hit@3} & Hit@10         \\ \hline
-\multicolumn{1}{|c|}{\multirow{4}{*}{Dựa trên đồ thị}} & RE-NET                   & 0.105                    & 0.081                      & 0.158                      & 0.261          \\ \cline{2-2}
+\multicolumn{1}{|c|}{\multirow{4}{*}{Dựa trên nhúng đồ thị}} & RE-NET                   & 0.105                    & 0.081                      & 0.158                      & 0.261          \\ \cline{2-2}
 \multicolumn{1}{|c|}{}                                 & RE-GCN                   & 0.146                    & 0.084                      & 0.171                      & 0.299          \\ \cline{2-2}
 \multicolumn{1}{|c|}{}                                 & TiRGN                    & {\ul 0.216}              & {\ul 0.136}                & {\ul 0.233}                & {\ul 0.376}    \\ \cline{2-2}
 \multicolumn{1}{|c|}{}                                 & HGLS                     & 0.190                    & 0.118                      & 0.217                      & 0.332          \\ \hline
@@ -201,7 +205,10 @@ Trên tập dữ liệu ICEWS14 và GDELT, MSKGen đều đạt được kết q
 \end{table}
 \vspace{-5mm}
 
-\begin{table}
+\textbf{So sánh với phương pháp dựa trên nhúng đồ thị:} MSKGen hoàn toàn vượt trội hai mô hình tốt nhất của phương pháp nhúng đồ thị là TiRGN 
+trên cả ba tập dữ liệu ở mọi chỉ số đánh giá. Cụ thể ở chỉ số Hit@1, MSKGen cao hơn TiRGN 4.6\% trên ICEWS14, 0.9\% trên GDELT và 1.3\% trên YAGO.
+
+\begin{table}[H]
 \caption{Kết quả thực nghiệm của MSKGen và các mô hình khác trên tập dữ liệu YAGO với thiết lập bộ lọc nhận thức thời gian. 
 Điểm số cao nhất được \textbf{bôi đen} và điểm số tốt thứ hai được \underline{gạch chân}.}
 \label{tab:table56}
@@ -210,7 +217,7 @@ Trên tập dữ liệu ICEWS14 và GDELT, MSKGen đều đạt được kết q
 \hline
 \multicolumn{1}{|c|}{\multirow{2}{*}{Phương pháp}}     & \multirow{2}{*}{Mô hình} & \multicolumn{4}{c|}{YAGO}                                                                           \\ \cline{3-6} 
 \multicolumn{1}{|c|}{}                                 &                          & \multicolumn{1}{c|}{MRR} & \multicolumn{1}{c|}{Hit@1} & \multicolumn{1}{c|}{Hit@3} & Hit@10         \\ \hline
-\multicolumn{1}{|c|}{\multirow{4}{*}{Dựa trên đồ thị}} & RE-NET                   & 0.478                    & 0.404                      & 0.530                      & 0.629          \\ \cline{2-2}
+\multicolumn{1}{|c|}{\multirow{4}{*}{Dựa trên nhúng đồ thị}} & RE-NET                   & 0.478                    & 0.404                      & 0.530                      & 0.629          \\ \cline{2-2}
 \multicolumn{1}{|c|}{}                                 & RE-GCN                   & 0.558                    & 0.468                      & 0.607                      & 0.729          \\ \cline{2-2}
 \multicolumn{1}{|c|}{}                                 & TiRGN                    & {\ul 0.879}              & {\ul 0.843}                & {\ul 0.913}                & {\ul 0.929}    \\ \cline{2-2}
 \multicolumn{1}{|c|}{}                                 & HGLS                     & 0.817                    & 0.806                      & 0.901                      & 0.919          \\ \hline
@@ -224,6 +231,108 @@ Trên tập dữ liệu ICEWS14 và GDELT, MSKGen đều đạt được kết q
 \end{table}
 \vspace{-5mm}
 
+\textbf{So sánh với phương pháp suy luận dựa trên luật:} So sánh với mô hình của phương pháp suy luận dựa trên luật là TLogic,
+MSKGen đều có các chỉ số cao hơn một cách vượt trội trên cả ba tập dữ liệu. Điều này chứng tỏ MSKGen có khả năng tổng quát hóa tốt
+hơn và độ chính xác cao hơn.
+
+\textbf{So sánh với phương pháp suy luận nhờ LLM:} Việc so sánh với các mô hình suy luận nhờ LLM cho thấy sự vượt trội của MSKGen, chứng
+tỏ rằng việc kết hợp thêm LLMs vào quá trình xây dựng luật và áp dụng kĩ thuật RAG vào quá trình truy xuất sự kiện tương đồng ngữ nghĩa đã giúp việc suy luận
+trên đồ thị tri thức thời gian trở nên hiệu quả hơn so với các phương pháp sử dụng LLMs truyền thống.
 \subsection{Nghiên cứu loại bỏ}
 
-\subsection{Một số nghiên cứu khác}
+Trong khóa luận này, chúng tôi sẽ tiến hành thí nghiệm loại bỏ trên tập dữ liệu ICEWS14 để đánh giá mức độ ảnh hưởng của từng thành phần trong mô hình MSKGen. Cụ thể
+sẽ có 2 biến thể của MSKGen và với mỗi biến thể, chúng tôi sẽ so sánh độ chính xác của nó với các mô hình sử dụng cùng phương pháp:
+\begin{itemize}
+    \item \textbf{MSKGen w/o rule-based facts:} Đây là biến thể của MSKGen mà không có giai đoạn xây dựng luật và sử dụng các sự kiện được
+    trích xuất dựa trên luật trong quá trình suy luận. Biến thể này sẽ chỉ sử dụng các sự kiện tương đồng về mặt ngữ nghĩa trong quá trình 
+    suy luận nhằm đánh giá mức độ ảnh hưởng của các sự kiện được trích xuất dựa trên luật cũng như so sánh khả năng suy luận của MSKGen sẽ như thế 
+    nào so với các mô hình theo phương pháp suy luận dựa trên LLM nếu chỉ sử dụng các sự kiện tương đồng về ngữ nghĩa được truy xuất thông qua kĩ thuật RAG.
+    \item \textbf{MSKGen w/o semantic facts:} Đây là biến thể của MSKGen không có giai đoạn truy xuất các sự kiện tương đồng về ngữ nghĩa.
+    Biến thể này chỉ sử dụng các sự kiện được trích xuất dựa trên luật trong quá trình suy luận, điều này sẽ giúp đánh giá hiệu quả của MSKGen
+    với các mô hình suy luận dựa trên luật trong việc xây dựng luật cũng như trích xuất các sự kiện dựa theo luật.
+\end{itemize}
+
+\begin{figure}[ht] 
+    \centering  
+    \begin{minipage}[b]{0.48\textwidth}  
+        \centering
+        \includegraphics[width=\textwidth]{images/abl_study_1.png}  
+        \caption{Hit@k (k=1,3,10) của MSKGen w/o rule-based facts với các mô hình sử dụng phương pháp suy luận dựa vào LLMs}
+        \label{fig1: ablation study} 
+    \end{minipage}  
+    \hfill  
+    \begin{minipage}[b]{0.48\textwidth}  
+        \centering
+        \includegraphics[width=\textwidth]{images/abl_study_2.png}  
+        \caption{Hit@k (k=1,3,10) của MSKGen w/o semantic facts với các mô hình sử dụng phương pháp suy luận dựa vào luật}
+        \label{fig2: ablation study}
+    \end{minipage}  
+     
+\end{figure} 
+
+Quan sát kết quả từ hình~\ref{fig1: ablation study} và~\ref{fig2: ablation study}, MSKGen w/o rule-based facts vẫn có kết quả
+vượt trội so với những mô hình trước đây sử dụng phương pháp suy luận dựa vào LLMs, điều này chứng tỏ tính hiệu quả của việc 
+trích xuất các sự kiện tương đồng về ngữ nghĩa thông qua kĩ thuật RAG so với kĩ thuật trích xuất "cứng" mà các mô hình trước 
+đây sử dụng. Ngoài ra, MSKGen w/o semantics facts cũng có kết quá tốt hơn hoàn toàn so với các mô hình suy luận dựa trên luật.
+Điều này chứng tỏ những luật được MSKGen xây dựng có chất lượng cao hơn và có tính tổng quát hơn nhờ vào lớp ngữ nghĩa của LLMs, thứ mà 
+các mô hình suy luận dựa trên luật không có.
+
+% \begin{figure}[ht] 
+%     \centering  
+%     \begin{subfigure}[b]{0.48\textwidth}  
+%         \includegraphics[width=\textwidth]{img/abl_study_1.png}  
+%     \end{subfigure}  
+%     \hfill  
+%     \begin{subfigure}[b]{0.48\textwidth}  
+%         \includegraphics[width=\textwidth]{img/abl_study_2.png}  
+%     \end{subfigure}  
+%     \caption{Ablation studies.}  
+%     \label{fig2: ablation study}  
+% \end{figure} 
+\subsection{Một số phân tích khác}
+\vspace{1em}
+\textbf{So sánh hiệu năng của MSKGen khi sử dụng các LLM khác nhau}
+
+Trong khóa luận này, chúng tôi sẽ phân tích hiệu năng của MSKGen khi sử dụng các mô hình ngôn ngữ lớn khác nhau để 
+đánh giá xem chất lượng của mô hình ngôn ngữ lớn có ảnh hưởng nhiều đến kết quả suy luận của MSKGen hay không.
+
+\begin{table}[H]
+\caption{Hit@1 của MSKGen với các LLM khác nhau trên ba bộ dữ liệu tiêu chuẩn}
+\label{tab:table57}
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{|l|l|l|l|}
+\hline
+               & ICEWS14 & GDELT & YAGO  \\ \hline
+GPT-3.5-turbo  & 0.379   & 0.140 & 0.838 \\ \hline
+GPT-4o         & 0.384   & 0.145 & 0.856 \\ \hline
+Gemini 2.5 pro & 0.386   & 0.145 & 0.861 \\ \hline
+\end{tabular}
+\end{adjustbox}  
+\end{table}
+\vspace{-5mm}
+
+Từ bảng~\ref{tab:table57}, việc thay đổi mô hình ngôn ngữ lớn sử dụng trong MSKGen không có ảnh hưởng quan trọng
+đến kết quả suy luận của MSKGen, bởi vì độ chính xác của dự đoán cho một câu truy vấn phụ thuộc nhiều vào các thông
+tin, ngữ cảnh (ở đây là các sự kiện truy xuất được dựa trên luật hoặc RAG) cung cấp cho LLM. Nếu như các sự kiện
+được cung cấp không có ý nghĩa, thì dù mô hình ngôn ngữ lớn sử dụng có tốt thế nào cũng không thể đưa ra những dự
+đoán chính xác. Điều này nhấn mạnh tầm quan trọng của phương pháp truy xuất sự kiện tương đồng về ngữ nghĩa thông qua RAG
+được áp dụng trong MSKGen.
+
+\vspace{1em}
+\textbf{Sự ảnh hưởng của số lượng sự kiện tối đa cung cấp cho LLM khi suy luận}
+
+Số lượng tối đa các sự kiện được truy xuất L có ảnh hưởng đáng kể đến kết quả dự đoán của LLM, phản ánh lượng thông
+tin được cung cấp cho các LLM. Chúng tôi tiến hành thí nghiệm với số lượng tối đa các sự kiện được truy xuất biến 
+đổi từ việc truy xuất RAG và trích xuất dựa trên luật (L = 30, 40, 50, 60, 70, 80) cho các dự đoán, trong khi
+giữ nguyên các thiết lập khác.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/max_number_retrieved_facts.png}
+    \caption{Ảnh hưởng của số lượng sự kiện tối đa cung cấp cho LLM khi suy luận}
+    \label{fig3: num_semantic_facts}
+\end{figure}
+
+Quan sát biểu đồ~\ref{fig3: num_semantic_facts}, ta thấy được chỉ số Hit@1 thể hiện xu hướng tăng lên sau đó
+ổn định khi L tăng trên tập dữ liệu ICEWS14. Điều này cho thấy số lượng tối đa các sự kiện được cung cấp cho
+LLM sẽ ảnh hưởng đến độ chính xác của nó. Trong trường hợp này, số lượng tối đa các sự kiện tốt nhất mà chúng ta nên cung cấp cho LLM là 60.

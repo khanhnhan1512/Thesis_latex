@@ -60,21 +60,21 @@
 \contentsline {section}{\numberline {5.2}Độ đo đánh giá}{52}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Thiết lập đánh giá}{53}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Các mô hình cơ sở}{54}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Cài đặt siêu tham số thực nghiệm}{54}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Kết quả thí nghiệm}{55}{section.5.6}%
-\contentsline {subsection}{\numberline {5.6.1}Kết quả chính}{55}{subsection.5.6.1}%
-\contentsline {subsection}{\numberline {5.6.2}Nghiên cứu loại bỏ}{57}{subsection.5.6.2}%
-\contentsline {subsection}{\numberline {5.6.3}Một số nghiên cứu khác}{57}{subsection.5.6.3}%
-\contentsline {chapter}{\numberline {6}KẾT LUẬN}{58}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Kết luận chung}{58}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Hạn chế và thách thức}{59}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Hạn chế về chi phí tính toán}{59}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Phụ thuộc vào chất lượng LLMs}{60}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Thách thức trong triển khai hệ thống}{60}{subsection.6.2.3}%
-\contentsline {section}{\numberline {6.3}Hướng nghiên cứu tiềm năng}{60}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Tối ưu hóa mô hình đồ thị}{60}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Cải tiến quy trình LLMs}{61}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Tự động hóa hệ thống}{61}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {6.3.4}Mở rộng nguồn tri thức}{61}{subsection.6.3.4}%
-\contentsline {chapter}{List of authors' works}{63}{subsection.6.3.4}%
-\contentsline {chapter}{Bibliography}{64}{Item.1}%
+\contentsline {section}{\numberline {5.5}Cài đặt siêu tham số thực nghiệm}{56}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Kết quả thí nghiệm}{57}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Kết quả chính}{57}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.6.2}Nghiên cứu loại bỏ}{59}{subsection.5.6.2}%
+\contentsline {subsection}{\numberline {5.6.3}Một số phân tích khác}{61}{subsection.5.6.3}%
+\contentsline {chapter}{\numberline {6}KẾT LUẬN}{64}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Kết luận chung}{64}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Hạn chế và thách thức}{65}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Hạn chế về chi phí tính toán}{65}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Phụ thuộc vào chất lượng LLMs}{66}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Thách thức trong triển khai hệ thống}{66}{subsection.6.2.3}%
+\contentsline {section}{\numberline {6.3}Hướng nghiên cứu tiềm năng}{66}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Tối ưu hóa mô hình đồ thị}{66}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Cải tiến quy trình LLMs}{67}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Tự động hóa hệ thống}{67}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Mở rộng nguồn tri thức}{67}{subsection.6.3.4}%
+\contentsline {chapter}{List of authors' works}{69}{subsection.6.3.4}%
+\contentsline {chapter}{Bibliography}{70}{Item.1}%
