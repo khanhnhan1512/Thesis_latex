@@ -1,0 +1,296 @@
+\chapter{KIẾN THỨC NỀN TẢNG}
+\label{Chapter3}
+
+% Phần này trình bày các khái niệm cơ bản và nền tảng lý thuyết cho nghiên cứu về suy luận đồ thị tri thức thời gian thông qua phương pháp tạo sinh từ tri thức đa nguồn. Mô hình MSKGen được phát triển trong nghiên cứu này đại diện cho một cách tiếp cận ngoại suy nhằm dự đoán các sự kiện tương lai dựa trên thông tin lịch sử, kết hợp sức mạnh của các mô hình ngôn ngữ lớn với khả năng truy xuất tri thức từ nhiều nguồn khác nhau.
+
+\section{Các khái niệm chung}
+
+\textbf{Bộ Tứ}
+
+Bộ tứ (quadruple) là đơn vị cấu trúc cơ bản trong đồ thị tri thức thời gian, mở rộng từ khái niệm bộ ba truyền thống trong đồ thị tri thức tĩnh. Một bộ tứ được định nghĩa như sau: với thực thể đầu $h$ và thực thể đuôi $t$ thuộc tập các thực thể $E$, nếu tồn tại một quan hệ $r$ nằm trong tập các quan hệ $R$ nối kết hai thực thể này tại đúng thời điểm $\tau$ trong tập thời gian $T$, ta có một bộ tứ $(h, r, t, \tau)$. Ý nghĩa ngữ nghĩa của bộ tứ $(s, r, o, t)$ là thực thể $s$ có quan hệ $r$ với thực thể $o$ tại thời điểm $t$.
+
+Bộ tứ cho phép biểu diễn các sự kiện có tính thời gian, ví dụ như sau: $(\text{Malaysia}, \text{Make\_a\_visit}, \text{Thailand}, 2014-9-12)$ thể hiện sự kiện Malaysia thực hiện chuyến thăm Thailand vào ngày 12 tháng 9 năm 2014. Cấu trúc này cung cấp khả năng nắm bắt không chỉ mối quan hệ tĩnh giữa các thực thể mà còn cả bối cảnh thời gian khi mối quan hệ đó xảy ra. Tập hợp nhiều bộ tứ $Q$ thể hiện tất cả các quan hệ bên trong một đồ thị tri thức thời gian, tạo thành cơ sở dữ liệu tri thức động có thể phản ánh sự thay đổi theo thời gian.
+
+\vspace{1em}
+\textbf{Đồ Thị Tri Thức Thời Gian}
+
+Đồ thị tri thức thời gian (Temporal Knowledge Graph - TKG) là một cấu trúc đồ thị mở rộng từ đồ thị tri thức truyền thống bằng cách tích hợp thông tin thời gian. Một TKG có thể được xem như một chuỗi các ảnh chụp có dấu thời gian 
+\[
+G = \{G_1, G_2, ..., G_t, ...\}
+\]
+trong đó mỗi ảnh chụp $G_t = (E, R, T)$ chứa các sự kiện xảy ra tại thời điểm $t$. Đơn vị cấu thành nên đồ thị bao gồm các thực thể tượng trưng cho các nút, quan hệ giữa chúng thể hiện cho các cạnh và thông tin thời gian được tích hợp vào nút hoặc cạnh tùy bài toán được đề cập.
+
+TKG được biểu diễn như tập các bộ tứ $G = \{Q|E, R, T\}$ được cấu thành từ ba tập thực thể, quan hệ và thời gian tương ứng. Khác với đồ thị tri thức tĩnh, TKG có khả năng nắm bắt cách các mối quan hệ giữa các thực thể phát triển theo thời gian, cho phép hệ thống hiểu được sự động thái của thế giới thực. Điều này đặc biệt quan trọng vì một lượng lớn tri thức có cấu trúc chỉ tồn tại trong một khoảng thời gian cụ thể.
+
+\vspace{1em}
+\textbf{Suy Luận Đồ Thị Tri Thức Thời Gian}
+
+Suy luận đồ thị tri thức thời gian (Temporal Knowledge Graph Reasoning - TKGR) tập trung vào việc tận dụng thông tin lịch sử trong TKG để dự báo các sự kiện tương lai. Bài toán suy luận này có thể được chia thành các tác vụ con dựa trên thành phần bị thiếu trong bộ tứ:
+
+\begin{itemize}
+    \item \textbf{Dự đoán thực thể đuôi}
+    \begin{itemize}
+        \item \textbf{Dạng chung:} $(h, r, ?, \tau)$
+        \item \textbf{Yêu cầu:} Xác định thực thể đuôi thiếu dựa trên thực thể đầu $(h)$, quan hệ $(r)$ và thời điểm $(\tau)$ đã biết.
+        \item \textbf{Ví dụ:} $(\text{Marie Curie}, \text{receivedAward}, ?, 1911)$, nhiệm vụ là dự đoán thực thể đuôi \textit{Nobel Prize in Chemistry} sao cho khớp với thời điểm năm 1911. Quá trình này đánh giá tính hợp lý của các ứng viên thông qua hàm tính điểm $\theta(h, r, t, \tau)$, xem xét cả yếu tố lịch sử (ví dụ: Marie Curie từng nhận giải Nobel Hóa học năm 1911) và mối quan hệ ngữ nghĩa giữa các thực thể.
+    \end{itemize}
+    \item \textbf{Dự đoán thực thể đầu}
+    \begin{itemize}
+        \item \textbf{Dạng chung:} $(?, r, t, \tau)$
+        \item \textbf{Yêu cầu:} Xác định thực thể đầu thiếu khi biết quan hệ $(r)$, thực thể đuôi $(t)$ và thời điểm $(\tau)$.
+        \item \textbf{Ví dụ:} Với bộ tứ $(?, \text{isCEOOf}, \text{Apple Inc.}, 2011)$, hệ thống cần suy luận thực thể đầu là \textit{Steve Jobs} dựa trên dữ liệu lịch sử (Steve Jobs làm CEO Apple đến tháng 8/2011). Tác vụ này thường sử dụng phương pháp xếp hạng để so sánh điểm số giữa các ứng viên tiềm năng (Tim Cook, Jonathan Ive, ...) và xác định kết quả chính xác nhất.
+    \end{itemize}
+    \item \textbf{Dự đoán mối quan hệ}
+    \begin{itemize}
+        \item \textbf{Dạng chung:} $(h, ?, t, \tau)$
+        \item \textbf{Yêu cầu:} Xác định quan hệ thiếu giữa hai thực thể $(h, t)$ trong khoảng thời gian $\tau$.
+        \item \textbf{Ví dụ:} Cho bộ tứ $(\text{Bill Gates}, ?, \text{Microsoft}, [1975][2000])$, mục tiêu là dự đoán quan hệ \textit{foundedBy} dựa trên ngữ cảnh thời gian (Bill Gates đồng sáng lập Microsoft năm 1975 và rời công ty năm 2000). Đây là tác vụ phức tạp do đòi hỏi hiểu biết sâu về:
+        \begin{itemize}
+            \item \textbf{Ngữ nghĩa quan hệ:} Phân biệt giữa \textit{foundedBy}, \textit{investedIn}, \textit{acquiredBy}, ...
+            \item \textbf{Ràng buộc thời gian:} Quan hệ \textit{foundedBy} chỉ hợp lệ trong giai đoạn 1975-2000.
+            \item \textbf{Tính nhất quán logic:} Loại bỏ các quan hệ trái ngược (ví dụ: \textit{dissolvedBy} trong cùng khoảng thời gian).
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\vspace{1em}
+\textbf{Mô Hình Ngôn Ngữ Lớn (Large Language Models)}
+
+Mô hình ngôn ngữ lớn (Large Language Models - LLMs) như GPT, LLaMA, và DeepSeek đã thể hiện khả năng đáng kể trong việc hiểu các mối quan hệ ngữ nghĩa và thực hiện các tác vụ suy luận phức tạp. GPT (Generative Pre-trained Transformer) là một dòng mô hình mạng nơ-ron sử dụng kiến trúc transformer và là một tiến bộ quan trọng trong lĩnh vực trí tuệ nhân tạo. Các mô hình GPT được đào tạo trước trên các tập dữ liệu lớn bằng phương pháp không giám sát để tạo văn bản, sử dụng kiến trúc transformer và được đào tạo trước sử dụng mục tiêu tự giám sát để dự đoán từ tiếp theo trong một chuỗi.
+
+LLaMA (Large Language Model Meta AI) là một họ mô hình ngôn ngữ lớn được phát hành bởi Meta AI bắt đầu từ tháng 2 năm 2023. Các mô hình LLaMA có nhiều kích thước khác nhau, từ 1 tỷ đến 2 nghìn tỷ tham số, và được thiết kế để cung cấp hiệu suất cao với chi phí tính toán thấp hơn. DeepSeek là một mô hình ngôn ngữ lớn tiên tiến được xây dựng để giải quyết các tác vụ phát triển phần mềm, xử lý ngôn ngữ tự nhiên và tự động hóa kinh doanh. DeepSeek sử dụng hệ thống Mixture-of-Experts (MoE), chỉ kích hoạt 37 tỷ trong số 671 tỷ tham số cho bất kỳ tác vụ nào, giúp giảm chi phí tính toán.
+
+Khả năng xử lý thông tin ngữ cảnh và hiểu các mối quan hệ phức tạp của LLMs làm cho chúng đặc biệt phù hợp cho các tác vụ đồ thị tri thức. Những mô hình này xuất sắc trong việc hiểu các kết nối ngữ nghĩa và các mẫu thời gian trong dữ liệu, cung cấp các giải pháp tiềm năng cho những thách thức về khả năng diễn giải trong TKGR.
+
+\vspace{1em}
+\textbf{LangChain}
+
+LangChain là một framework mã nguồn mở được viết bằng Python vào năm 2022 nhằm hỗ trợ việc 
+
+
+% \section{Suy luận dựa trên luật logic thời gian}
+
+% \textbf{Công thức tổng quát:} Luật logic thời gian $\rho$ được định nghĩa:
+
+% \[
+% \rho := r(e_s, e_o, t_l) \Leftarrow \bigwedge_{i=1}^{l-1} r_i(e_s, e_o, t_i)
+% \]
+
+% với ràng buộc thời gian $t_1 \leq t_2 \leq ... \leq t_{l-1} < t_l$.
+
+% \textbf{Ví dụ:} 
+% \begin{equation}
+% \begin{aligned}
+% \text{Make\_a\_visit}(X_0, X_2, T_3) \Leftarrow\ &\text{inv\_Consult}(X_0, X_1, T_0) \\
+% &\land\ \text{Engage\_in\_negotiation}(X_1, X_0, T_1) \\
+% &\land\ \text{inv\_Host\_a\_visit}(X_0, X_2, T_2)
+% \end{aligned}
+% \notag
+% \label{rule3}
+% \end{equation}
+
+% \textit{Tiền tố "inv" biểu thị quan hệ đảo ngược:} \texttt{inv\_Host\_a\_visit($X_0$, $X_2$, $T_2$)} có nghĩa là \texttt{Host\_a\_visit($X_2$, $X_0$, $T_2$)}.
+
+% \textit{Kết quả được suy ra từ khớp các sự kiện theo luật:} \texttt{Thailand inv\_Consult China on $T_0$, China Engage\_in\_negotiation Thailand on $T_1$, Thailand inv\_host\_a\_visit Malaysia on $T_2$} => \texttt{Thailand make\_a\_visit Malaysia on $T_3$}.
+
+
+
+
+\section{Suy luận dựa trên những sự kiện được trích xuất từ luật logic thời gian}
+
+Suy luận dựa trên những sự kiện được trích xuất từ luật logic thời gian là phương pháp cốt lõi cho phép mô hình MSKGen thực hiện dự đoán các sự kiện tương lai một cách có giải thích và logic. Thay vì chỉ dựa vào việc học các mẫu ẩn từ dữ liệu, phương pháp này tận dụng các quy luật logic có cấu trúc để thiết lập mối quan hệ nhân quả giữa các sự kiện trong quá khứ và hiện tại với các sự kiện có thể xảy ra trong tương lai.
+
+\textbf{Luật Logic Thời Gian}
+
+Luật logic thời gian (Temporal Logical Rule) đóng vai trò quan trọng trong framework của chúng tôi. Một luật logic thời gian $\rho$ được định nghĩa theo công thức:
+
+\[
+\rho := r(e_s, e_o, t_l) \Leftarrow \bigwedge_{i=1}^{l-1} r_i(e_s, e_o, t_i)
+\]
+
+trong đó vế trái biểu diễn đầu luật (rule head) với quan hệ $r$ có thể được suy ra bởi thân luật (rule body) ở vế phải. Thân luật bao gồm một phép hội (conjunction) của các quan hệ $r_i$ với các ràng buộc thời gian $t_1 \leq t_2 \leq ... \leq t_{l-1} < t_l$.
+
+% Vế trái biểu diễn đầu luật (rule head) với quan hệ $r$ có thể được suy ra bởi rule body ở vế phải. Rule body bao gồm một phép hội của các quan hệ $r_i$ với các ràng buộc thời gian $t_1 \leq t_2 \leq ... \leq t_{l-1} < t_l$.
+
+Cấu trúc này đảm bảo tính nhất quán về mặt thời gian, trong đó các sự kiện trong thân luật phải xảy ra theo một trình tự thời gian hợp lý trước khi sự kiện kết luận trong đầu luật có thể được suy ra. Điều kiện ràng buộc thời gian $t_{l-1} < t_l$ đặc biệt quan trọng vì nó đảm bảo rằng sự kiện dự đoán phải xảy ra sau tất cả các sự kiện tiền đề.
+
+\textbf{Ví Dụ Về Các Luật Logic Thời Gian}
+
+Để minh họa cách thức hoạt động của các luật logic thời gian, chúng tôi xem xét những luật được tổng hợp từ dữ liệu có dạng:\begin{equation}
+\text{Make\_a\_visit}(X_0, X_1, T_1) \Leftarrow \text{inv\_Host\_a\_visit}(X_0, X_1, T_0)
+\tag{1}
+\label{rule1}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\text{Make\_a\_visit}(X_0, X_1, T_3) \Leftarrow\ &\text{Praise\_or\_endorse}(X_0, X_1, T_0) \\
+&\land\ \text{inv\_Make\_a\_visit}(X_1, X_0, T_1) \\
+&\land\ \text{inv\_Host\_a\_visit}(X_0, X_1, T_2)
+\end{aligned}
+\tag{2}
+\label{rule2}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\text{Make\_a\_visit}(X_0, X_2, T_3) \Leftarrow\ &\text{inv\_Consult}(X_0, X_1, T_0) \\
+&\land\ \text{Engage\_in\_negotiation}(X_1, X_0, T_1) \\
+&\land\ \text{inv\_Host\_a\_visit}(X_0, X_2, T_2)
+\end{aligned}
+\tag{3}
+\label{rule3}
+\end{equation}
+
+
+Luật đầu tiên thể hiện một quy luật đơn giản: nếu thực thể $X_0$ từng được thực thể $X_1$ đón tiếp tại thời điểm $T_0$, thì $X_0$ có khả năng thực hiện chuyến thăm $X_1$ tại thời điểm tương lai $T_1$. Đây là một mẫu phổ biến trong quan hệ ngoại giao, nơi các chuyến thăm qua lại thường có tính chất đối ứng.
+
+Luật thứ hai phức tạp hơn, bao gồm ba điều kiện tiền đề: thực thể $X_0$ khen ngợi $X_1$, sau đó $X_1$ thực hiện chuyến thăm $X_0$, và cuối cùng $X_0$ đón tiếp $X_1$. Chuỗi sự kiện này tạo nên một mẫu tương tác tích cực dẫn đến chuyến thăm trong tương lai.
+
+Luật thứ ba minh họa cách các mối quan hệ tam giác có thể ảnh hưởng đến các sự kiện tương lai: $X_0$ tham vấn $X_1$, $X_1$ đàm phán với $X_0$, và $X_0$ đón tiếp $X_2$, dẫn đến $X_0$ thăm $X_2$.
+
+\textbf{Quan Hệ Đảo Ngược (Inverse Relations)}
+
+Một khái niệm quan trọng trong các luật logic thời gian là sử dụng tiền tố "inv" để biểu thị quan hệ đảo ngược. Khi một quan hệ được đánh dấu với "inv", nó thể hiện hướng ngược lại của quan hệ gốc. Ví dụ, quan hệ \texttt{inv\_host\_a\_visit(X, Y, T)} có nghĩa là \texttt{host\_a\_visit(Y, X, T)}.
+
+Cụ thể, khi ta có sự kiện:
+\begin{center}
+\texttt{Thailand inv\_host\_a\_visit Malaysia on T0}
+\end{center}
+
+Điều này có nghĩa là:
+\begin{center}
+\texttt{Malaysia host\_a\_visit Thailand on T0}
+\end{center}
+
+Cách biểu diễn này cho phép mô hình nắm bắt được cả hai hướng của một mối quan hệ mà không cần định nghĩa explicit các quan hệ riêng biệt, từ đó tăng tính linh hoạt và khả năng tổng quát hóa của các luật logic.
+
+\textbf{Các Sự Kiện Thỏa Mãn Luật Logic}
+
+Những sự kiện thực tế thỏa mãn các luật logic được trình bày ở trên có dạng:
+
+\begin{itemize}
+    \item \texttt{Thailand inv\_host\_a\_visit Malaysia on T0} - thỏa mãn luật đầu tiên
+    \item \texttt{Thailand praise\_or\_endorse China on T0, China inv\_make\_visit Thailand on T1, Thailand inv\_host\_a\_visit China on T2} - thỏa mãn luật thứ hai
+    \item \texttt{Thailand inv\_Consult China on T0, China Engage\_in\_negotiation Thailand T1, Thailand inv\_host\_a\_visit Malaysia on T2} - thỏa mãn luật thứ ba
+\end{itemize}
+
+Mỗi tập sự kiện này đại diện cho một chuỗi thời gian có cấu trúc, trong đó các sự kiện xảy ra theo một trình tự logic nhất định. Khi tất cả các điều kiện tiền đề được thỏa mãn, luật logic cho phép suy ra sự kiện tương lai tương ứng.
+
+\textbf{Phân Đoạn Dữ Liệu Thời Gian}
+
+Để thực hiện suy luận hiệu quả, chúng tôi làm việc với ba phân đoạn dữ liệu thời gian riêng biệt. Dữ liệu lịch sử (Historical data) tương ứng với tập huấn luyện, chứa các sự kiện từ quá khứ được sử dụng để học các luật logic thời gian. Dữ liệu hiện tại (Current data) tương ứng với tập validation, được sử dụng để điều chỉnh và kiểm tra độ chính xác của các luật đã học. Dữ liệu tương lai (Future data) tương ứng với tập kiểm tra, đại diện cho các sự kiện cần được dự đoán.
+
+Việc phân chia này đảm bảo rằng mô hình được đánh giá một cách công bằng và chính xác, không có thông tin rò rỉ từ tương lai vào quá trình huấn luyện. Đồng thời, nó phản ánh tình huống thực tế trong đó hệ thống phải dựa vào kiến thức từ quá khứ để dự đoán các sự kiện chưa xảy ra.
+
+\textbf{Quá Trình Suy Luận}
+
+Quá trình suy luận diễn ra theo các bước có cấu trúc: đầu tiên, hệ thống xác định các luật logic thời gian phù hợp từ kho luật đã học. Tiếp theo, nó kiểm tra xem các điều kiện tiền đề của luật có được thỏa mãn trong dữ liệu lịch sử hay không. Cuối cùng, nếu tất cả điều kiện được đáp ứng và ràng buộc thời gian được tuân thủ, hệ thống suy ra sự kiện tương lai tương ứng.
+
+Phương pháp này không chỉ cung cấp khả năng dự đoán chính xác mà còn tạo ra các giải thích có thể hiểu được cho mỗi dự đoán, giúp hiểu được lý do tại sao một sự kiện cụ thể được dự đoán sẽ xảy ra.
+
+
+\section{Tạo Sinh Tăng Cường Truy Xuất (Retrieval-Augmented Generation)}
+
+Tạo sinh tăng cường truy xuất, hay còn gọi tắt là RAG, là một kĩ thuật giúp tăng cường khả năng tạo sinh của mô hình ngôn ngữ lớn bằng cách truy xuất các thông tin liên quan từ những nguồn dữ liệu ngoại. Các nguồn dữ liệu này có thể là dữ liệu cá nhân hoặc từ internet.
+
+Việc "truy xuất rồi tạo sinh" lần đầu được xuất hiện trong bài báo "Reading Wikipedia to Answer Open-Domain Questions" (trích dẫn). Trong công trình này, hệ thống của tác giả đầu tiên sẽ truy xuất 5 trang Wikipedia liên quan nhất đến câu hỏi đầu vào, sau đó một mô hình sẽ sử dụng thông tin từ 5 trang này để tạo ra câu trả lời.
+
+Thuật ngữ tạo sinh tăng cường truy xuất được đặt ra trong bài báo "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks" (trích dẫn). Bài báo đã đề xuất RAG như là một giải pháp cho các nhiệm vụ đòi hỏi nhiều nguồn kiến thức trong khi các kiến thức có sẵn lại không thể được đưa toàn bộ vào mô hình một cách trực tiếp. Với RAG thì chỉ những thông tin liên quan nhất với câu truy vấn  mới được truy xuất và đưa vào mô hình bởi bộ truy xuất (retriever). Điều này sẽ giúp mô hình ngôn ngữ lớn có thể tạo ra câu trả lời chi tiết và giảm thiểu hiện tượng "ảo giác" ở các mô hình ngôn ngữ lớn.
+
+Cụ thể hơn, RAG là một kĩ thuật xây dựng ngữ cảnh cụ thể cho mỗi câu truy vấn thay vì sử dụng cùng một ngữ cảnh cho tất cả câu truy vấn. Điều này giúp quản lí dữ liệu người dùng bởi vì nó cho phép chúng ta đưa những dữ liệu cụ thể của một người dùng vào mô hình khi mô hình cần giải quyết những câu truy vấn liên quan trực tiếp đến người dùng này.
+
+\vspace{1em}
+\subsection{Cấu trúc của hệ thống RAG}
+
+Một hệ thống RAG có 2 bộ phận chính: 
+\begin{itemize}
+    \item Một bộ truy xuất (retriever) thực hiện việc truy xuất thông tin từ những nguồn dữ liệu ngoại.
+    \item Bộ tạo sinh (generator) thực hiện việc sinh ra câu phản hồi dựa trên những thông tin được truy xuất.
+\end{itemize}
+
+Sự hiệu quả của một hệ thống RAG dựa vào chất lượng của bộ truy xuất. Một bộ truy xuất có 2 chức năng chính: lập chỉ mục (indexing) và truy vấn (querying). Lập chỉ mục bao gồm việc xử lý dữ liệu sao cho có thể được truy xuất nhanh chóng sau này, còn việc gửi một yêu cầu để lấy dữ liệu liên quan đến nó gọi là truy vấn.
+
+Xét một ví dụ về cách hoạt động của hệ thống RAG. Giả sử nguồn dữ liệu ngoại sẽ là cơ sở dữ liệu chứa những tài liệu mật của công ty. Một tài liệu có thể có kích thước 10 hoặc 1 triệu token vì vậy nếu truy xuất toàn bộ những tài liệu này sẽ làm cho ngữ cảnh mà ta cung cấp cho mô hình ngôn ngữ lớn cực kì dài. Để tránh điều này, hệ thống RAG sẽ chia những tài liệu này thành nhiều phần nhỏ hơn gọi là chunk hoặc document. Với mỗi câu truy vấn, mục tiêu của hệ thống RAG sẽ là truy xuất các chunk chứa dữ liệu liên quan nhất đến câu truy vấn. Cuối cùng hệ thống sẽ kết hợp dữ liệu được truy xuất và yêu cầu của người dùng thành một \textit{prompt} và gửi đến mô hình tạo sinh để tạo ra câu trả lời. Thuật ngữ prompt bắt đầu được sử dụng phổ biến khi các mô hình ngôn ngữ lớn ra đời, cụ thể prompt là một hướng dẫn được cung cấp đến mô hình ngôn ngữ lớn để yêu cầu thực hiện một nhiệm vụ.
+
+\vspace{1em}
+\subsection{Các thuật toán truy xuất}
+Việc truy xuất dữ liệu không phải chỉ xuất hiện trong một hệ thống RAG mà là một ý tưởng đã có từ rất lâu. Nó đã xuất hiện trong các công cụ tìm kiếm, hệ thống gợi ý,... Truy xuất hoạt động bằng cách xếp hạng các tài liệu truy xuất được dựa trên mức độ liên quan giữa chúng với câu truy vấn đầu vào. Có 2 cơ chế truy xuất cơ bản, phổ biến nhất là: truy xuất dựa trên thuật ngữ (term-based retrieval) và truy xuất dựa trên nhúng (embedding-based retrieval).
+
+\vspace{1em}
+\textbf{Truy xuất dựa trên thuật ngữ} 
+
+Với một câu truy vấn đầu vào, cách đơn giản nhất là tìm kiếm các tài liệu (document) liên quan thông qua từ khóa (key word). Phương pháp này còn có tên gọi khác là truy xuất từ vựng (lexical retrieval). Ví dụ với câu truy vấn "đồ thị tri thức", mô hình sẽ truy xuất các tài liệu có chứa cụm từ "đồ thị tri thức". Tuy nhiên phương pháp này có 2 điểm yếu:
+\begin{itemize}
+    \item Tồn tại nhiều tài liệu chứa thuật ngữ này và mô hình của ta không đủ không gian ngữ cảnh để chứa toàn bộ tài liệu truy xuất được.
+    \item Một số câu truy vấn có thể dài và chứa nhiều thuật ngữ. Một số thuật ngữ có vai trò quan trọng hơn các thuật ngữ còn lại. Ví dụ với câu truy vấn "Công thức nấu món ăn Việt Nam ngon tại nhà" chứa rất nhiều thuật ngữ tuy nhiên ta sẽ chỉ muốn tập trung vào các thuật ngữ mang nhiều thông tin như "công thức", "món ăn", "Việt Nam" thay vì "làm", "tại".
+\end{itemize}
+
+Để khắc phục các điểm yếu này, chúng ta sẽ có độ đo để xác định xem thuật ngữ nào quan trọng hơn các thuật ngữ còn lại: \textbf{Tần suất nghịch của tài liệu (Inverse document frequency - IDF)}. IDF thể hiện tầm quan trọng của một thuật ngữ sẽ tỉ lệ nghịch với số lượng tài liệu mà nó xuất hiện vì các từ "làm", "tại" thông thường sẽ có khả năng xuất hiện trong hầu hết các tài liệu, do đó chúng ít thông tin hơn. IDF của một thuật ngữ được tính bằng cách lấy tổng số lượng tài liệu chia cho số lượng tài liệu chứa thuật ngữ này. IDF càng cao chứng tỏ thuật ngữ càng quan trọng.
+
+Để xếp hạng mức độ liên quan của mỗi tài liệu với một câu truy vấn đầu vào, chúng ta sẽ có một độ đo phổ biến là \textit{TF-IDF}. TF-IDF là một thuật toán kết hợp hai chỉ số \textit{tuần suất của thuật ngữ} và \textit{tần suất nghịch của tài liệu}. Giá trị TF-IDF của tài liệu $\mathcal{D}$ đối với câu truy vấn $\mathcal{Q}$ được tính như sau:
+\begin{equation}
+    \text{TF-IDF}(\mathcal{D, Q}) = \sum_{i=1}^{q} IDF(t_i) \times f(t_i, \mathcal{D})
+\end{equation}
+Trong công thức trên, $t_1, t_2,..., t_q$ lần lượt là các thuật ngữ trong câu truy vấn $\mathcal{Q}$. $f(t, \mathcal{D})$ là tần suất xuất hiện của thuật ngữ $t$ trong tài liệu $\mathcal{D}$. Với $\mathcal{N}$ là số tổng số tài liệu và $C(t)$ là số lượng tài liệu chứa thuật ngữ $t$, giá trị IDF của thuật ngữ $t$ được tính bằng $\text{IDF}(t) = log \frac{\mathcal{N}}{C(t)}$.
+
+\vspace{1em}
+\textbf{Truy xuất dựa trên nhúng} 
+
+Phương pháp truy xuất dựa trên thuật ngữ (term-based retrieval) chỉnh tính toán sự liên quan ở cấp độ từ vựng thay vì ngữ nghĩa. Điều này có thể dẫn đến việc trả về các tài liệu không liên quan đến câu truy vấn. Ví dụ việc truy vấn các tài liệu về "kiến trúc mô hình transformer" có thể trả về các thông tin liên quan về bộ phim khoa học viễn tưởng nổi tiếng "Transformer" của Mỹ. Phương pháp truy xuất dựa trên nhúng ra đời nhằm khắc phục vấn đề này bằng cách xếp hạng các tài liệu dựa trên mức độ ý nghĩa của chúng phù hợp với câu truy vấn. Cách tiếp cận này còn được gọi là truy xuất ngữ nghĩa (semantic retrieval).
+
+Ở phương pháp truy xuất dựa trên nhúng này, việc lập chỉ mục (indexing) sẽ có thêm một chức năng khác là chuyển đổi các tài liệu gốc thành các embedding (vector nhúng). Embedding là một vector nhằm mục đích bảo toàn các thuộc tính quan trọng của dữ liệu gốc. Ngoài ra, cơ sở dữ liệu nơi mà các embedding được tạo ra và lưu trữ được gọi là cơ sở dữ liệu vector (vector database). Quá trình truy vấn (querying) sau đó gồm hai bước:
+\begin{itemize}
+    \item Chuyển đổi câu truy vấn thành một embedding bằng cách sử dụng chính mô hình embedding đã được sử dụng trong quá trình lập chỉ mục cho các tài liệu.
+    \item Lấy ra $k$ tài liệu có embedding tương đồng nhất với embedding của câu truy vấn.
+\end{itemize}
+
+\vspace{1em}
+\subsection{Cơ sở dữ liệu vector}
+Truy xuất dựa trên nhúng cũng giới thiệu thêm một thành phần mới trong hệ thống RAG: cơ sở dữ liệu vector (vector database). Một cơ sở dữ liệu vector không chỉ hỗ trợ lưu trữ các vector nhúng mà còn hỗ trợ việc tìm kiếm vector (vector search). Với một embedding của truy vấn đầu vào, cơ sở dữ liệu vector sẽ chịu trách nhiệm tìm kiếm các vector gần giống với vector embedding của truy vấn và trả về chúng.
+
+Tìm kiếm vector thường được định hình như một bài toán tìm kiếm lân cận gần nhất (nearest-neightbor search):
+\begin{itemize}
+    \item Tính toán độ tương đồng giữa embedding của truy vấn với tất cả vector trong cơ sở dữ liệu, sử dụng các chỉ số như độ tương đồng cosine (cosine similarity).
+    \item Xếp hạng các vector theo điểm tương đồng của chúng với embedding truy vấn.
+    \item Trả về $k$ vector có điểm tương đồng cao nhất.
+\end{itemize}
+Hiện nay có nhiều vector database phổ biến có thể kể đến như Chroma, Faiss, Pinecone,...
+
+\vspace{1em}
+\subsection{Các phương pháp tối ưu quá trình truy xuất}
+Dựa vào tùy tác vụ sẽ có phương pháp khác nhau để làm tăng khả năng tìm ra được các tài liệu liên quan. Cụ thể ở đây có 4 phương pháp: chia đoạn (chunking), xếp hạng lại tài liệu (reranking), viết lại truy vấn (query rewriting) và truy xuất theo ngữ cảnh (contextual retrieval).
+
+\vspace{1em}
+\textbf{Chia đoạn (chunking)}
+
+Đây là chiến lược chia nhỏ tài liệu lớn thành các đoạn có độ dài bằng nhau dựa trên một đơn vị nhất định. Các đơn vị này có thể là kí tự, từ, câu, đoạn văn. Ví dụ ta có thể chia mỗi tài liệu thành các đoạn 2048 kí tự hoặc 512 từ. Tuy nhiên, nếu thực hiện việc chia nhỏ một cách "cứng nhắc" như vậy có thể dẫn đến việc các đoạn bị cắt giữa chừng, gây mất mát thông tin quan trọng. Vì vậy có một phương pháp gọi là chia cắt đoạn chồng lắp (overlap chunking). Đây là phương pháp chia cắt sao cho đoạn ở giữa sẽ có một phần nhỏ chồng lắp với phần cuối của đoạn trước nó và một phần nhỏ chồng lắp với phần đầu của đoạn sau nó. Điều này đảm bảo thông tin thiết yếu ở biên của các đoạn văn vẫn có mặt trong ít nhất một đoạn.
+
+Dù chiến lược chia đoạn có là gì thì cũng phải xem xét đến dữ liệu cần chia đoạn là gì, độ dài ngữ cảnh tối đa mà mô hình ngôn ngữ lớn đang sử dụng cho phép mà từ đó đưa ra chiến lược chia đoạn cũng như kích thước mỗi đoạn sao cho hợp lý.
+
+\vspace{1em}
+\textbf{Xếp hạng lại tài liệu (reranking)}
+
+Thứ hạng ban đầu của các tài liệu do bộ truy xuất (retriever) trả về có thể được xếp hạng lại để trở nên chính xác hơn. Reranking đặc biệt hữu ích khi ta cần giảm số lượng tài liệu được truy xuất nhằm vừa với độ dài ngữ cảnh cho phép. Việc xếp hạng lại tài liệu có thể dựa trên thời gian, tài liệu nào gần với hiện tại hơn thì sẽ được ưu tiên cao hơn.
+
+\vspace{1em}
+\textbf{Viết lại truy vấn (query rewriting)}
+
+Viết lại truy vấn còn được gọi với nhiều tên khác như là tái diễn đạt truy vấn, chuẩn hóa truy vấn hoặc là mở rộng truy vấn. Đây là thao tác mà ta sẽ thay đổi câu truy vấn ban đầu để giúp cho việc truy xuất dữ liệu cũng như tạo sinh câu trả lời đạt được hiệu quả tốt nhất. Xét ví dụ: 
+\begin{promptbox}{Ví dụ về đoạn hội thoại với LLM cần thay đổi truy vấn}
+\textbf{Người dùng:}
+Lần gần nhất đội tuyển bóng đá nam Argentina vô địch World Cup là khi nào?
+
+\textbf{AI:} Đội tuyển bóng đá nam Argentina vô địch World Cup lần gần nhất vào năm 2022 tại Qatar.
+
+\textbf{Người dùng:} Thế còn Đức?
+\end{promptbox}
+
+Câu hỏi cuối cùng "Thế còn Đức?" khá mơ hồ nếu không có ngữ cảnh trước đó. Nếu ta dùng nguyên câu này để truy xuất tài liệu thì khả năng cao ta sẽ lấy được những kết quả không liên quan. Vì vậy ta cần phải viết lại câu truy vấn để phản ánh đúng ý định của người dùng. Trong trường hợp này nên viết lại thành "Lần gần nhất mà đội tuyển bóng đá nam Đức vô địch World Cup là khi nào?".
+
+\vspace{1em}
+\textbf{Truy xuất theo ngữ cảnh (contextual retrieval)}
+
+Ý tưởng đằng sau truy xuất theo ngữ cảnh là bổ sung cho mỗi đoạn (chunk) thông tin ngữ cảnh liên quan để giúp bộ truy xuất dễ dàng tìm được các đoạn liên quan nhất đến câu truy vấn. Một kỹ thuật đơn giản là bổ sung cho các đoạn đó các metadata như nhãn (tag) và từ khóa (keyword). Ngoài ra ta có thể bổ sung cho mỗi đoạn với các câu hỏi mà nội dung trong đoạn đó có thể trả lời. 
+
+Nếu một tài liệu được chia thành nhiều đoạn, một số đoạn có thể thiếu thông tin ngữ cảnh cần thiết để người truy xuất hiểu được đoạn đó chứa nội dung về gì. Để tránh việc này, ta có thể bổ sung cho từng đoạn ngữ cảnh từ liệu gốc hoặc dùng mô hình AI để tạo ra một đoạn tóm tắt ngắn về nội dung mà đoạn đó đang chứa, thường đoạn tóm tắt này sẽ ngắn chỉ khoảng vài chục token.

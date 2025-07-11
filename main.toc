@@ -1,0 +1,80 @@
+\contentsline {chapter}{Lời cảm ơn}{i}{section*.1}%
+\contentsline {chapter}{Đề cương chi tiết}{ii}{chapter*.2}%
+\contentsline {chapter}{Mục lục}{ii}{chapter*.2}%
+\contentsline {chapter}{Danh sách hình ảnh}{vi}{section*.4}%
+\contentsline {chapter}{Danh sách bảng}{viii}{section*.6}%
+\contentsline {chapter}{Tóm tắt}{ix}{section*.8}%
+\contentsline {chapter}{Danh sách các từ viết tắt}{xi}{section*.10}%
+\contentsline {chapter}{\numberline {1}GIỚI THIỆU}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Giới thiệu tổng quan}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Thách thức của bài toán}{5}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Hạn chế trong khai thác ngữ nghĩa của LLMs}{5}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Thiếu tính cá nhân hóa trong suy luận}{6}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Khó khăn trong xử lý thông tin thời gian đa tầng}{6}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Giới hạn trong tích hợp tri thức đa nguồn}{7}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}Thách thức về tính giải thích}{7}{subsection.1.2.5}%
+\contentsline {section}{\numberline {1.3}Động lực và hướng tiếp cận}{7}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Động lực nghiên cứu}{7}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Hướng tiếp cận}{8}{subsection.1.3.2}%
+\contentsline {section}{\numberline {1.4}Mục tiêu và đóng góp của đề tài}{9}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Mục tiêu đề tài}{9}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Đóng góp của đề tài}{10}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}Bố cục trình bày}{11}{subsection.1.4.3}%
+\contentsline {chapter}{\numberline {2}CÁC CÔNG TRÌNH \\ LIÊN QUAN}{12}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Tóm tắt các ký hiệu và định nghĩa chung}{12}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Hoàn thiện dựa trên nội suy}{13}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Hoàn thiện dựa trên ngoại suy}{15}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Phương pháp lựa chọn}{18}{section.2.4}%
+\contentsline {chapter}{\numberline {3}KIẾN THỨC NỀN TẢNG}{20}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Các khái niệm chung}{20}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Suy luận dựa trên những sự kiện được trích xuất từ luật logic thời gian}{24}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Tạo Sinh Tăng Cường Truy Xuất (Retrieval-Augmented Generation)}{27}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Cấu trúc của hệ thống RAG}{28}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Các thuật toán truy xuất}{29}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Cơ sở dữ liệu vector}{31}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Các phương pháp tối ưu quá trình truy xuất}{32}{subsection.3.3.4}%
+\contentsline {chapter}{\numberline {4}Phương pháp đề xuất}{35}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Trích xuất sự kiện dựa trên luật}{37}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Trích xuất các luật lịch sử điểm cao và các quan hệ liên quan top k}{37}{subsection.4.1.1}%
+\contentsline {paragraph}{Lấy mẫu luật lịch sử.}{37}{subsection.4.1.1}%
+\contentsline {paragraph}{Đánh giá chất lượng luật.}{37}{equation.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Sinh luật và tinh chỉnh lặp}{39}{subsection.4.1.2}%
+\contentsline {paragraph}{Sinh luật mới.}{39}{subsection.4.1.2}%
+\contentsline {paragraph}{Đánh giá và xếp hạng luật.}{41}{subsection.4.1.2}%
+\contentsline {paragraph}{Tinh chỉnh tập quan hệ liên quan: Cập nhật tập quan hệ liên quan Top k của mỗi đầu luật.}{41}{subsection.4.1.2}%
+\contentsline {paragraph}{Cải tiến lặp.}{42}{equation.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.3}Trích xuất sự kiện dựa trên luật}{42}{subsection.4.1.3}%
+\contentsline {paragraph}{Quá trình trích xuất sự kiện dựa trên luật.}{42}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}Trích xuất sự kiện theo ngữ nghĩa}{43}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Tiền xử lý dữ liệu}{43}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Xây dựng cơ sở dữ liệu vector}{44}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Phương pháp truy xuất ngữ nghĩa}{45}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Chiến lược truy xuất sự kiện}{45}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}Suy luận tri thức đa nguồn}{47}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Cách tính điểm các ứng viên}{47}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Điểm số dự đoán của LLM}{48}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Điểm số từ dự đoán của mô hình học sâu theo phương pháp nhúng đồ thị}{48}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Điểm số cuối cùng}{49}{subsection.4.4.3}%
+\contentsline {chapter}{\numberline {5}Kết quả thí nghiệm}{50}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Bộ dữ liệu}{50}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Độ đo đánh giá}{52}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Thiết lập đánh giá}{53}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Các mô hình cơ sở}{54}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Cài đặt siêu tham số thực nghiệm}{54}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Kết quả thí nghiệm}{55}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Kết quả chính}{55}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.6.2}Nghiên cứu loại bỏ}{57}{subsection.5.6.2}%
+\contentsline {subsection}{\numberline {5.6.3}Một số nghiên cứu khác}{57}{subsection.5.6.3}%
+\contentsline {chapter}{\numberline {6}KẾT LUẬN}{58}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Kết luận chung}{58}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Hạn chế và thách thức}{59}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Hạn chế về chi phí tính toán}{59}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Phụ thuộc vào chất lượng LLMs}{60}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Thách thức trong triển khai hệ thống}{60}{subsection.6.2.3}%
+\contentsline {section}{\numberline {6.3}Hướng nghiên cứu tiềm năng}{60}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Tối ưu hóa mô hình đồ thị}{60}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Cải tiến quy trình LLMs}{61}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Tự động hóa hệ thống}{61}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Mở rộng nguồn tri thức}{61}{subsection.6.3.4}%
+\contentsline {chapter}{List of authors' works}{63}{subsection.6.3.4}%
+\contentsline {chapter}{Bibliography}{64}{Item.1}%

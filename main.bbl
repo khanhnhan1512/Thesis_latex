@@ -1,0 +1,258 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{ref_article01}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{hash=2a1b9fbcbb732f00a45a7f83b45ff274}{%
+           family={Hogan},
+           familyi={H\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=8c67b6743454a2f5b452ec956bf3896a}{%
+           family={Blomqvist},
+           familyi={B\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+        {{hash=5500f459e03e04910ee65005f6a1313a}{%
+           family={Cochez},
+           familyi={C\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{687f2efa8d91b14cfb3065e129b35cef}
+      \strng{fullhash}{687f2efa8d91b14cfb3065e129b35cef}
+      \strng{bibnamehash}{687f2efa8d91b14cfb3065e129b35cef}
+      \strng{authorbibnamehash}{687f2efa8d91b14cfb3065e129b35cef}
+      \strng{authornamehash}{687f2efa8d91b14cfb3065e129b35cef}
+      \strng{authorfullhash}{687f2efa8d91b14cfb3065e129b35cef}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM Computing Surveys}
+      \field{number}{4}
+      \field{title}{Knowledge Graphs}
+      \field{volume}{54}
+      \field{year}{2021}
+      \field{pages}{1\bibrangedash 37}
+      \range{pages}{37}
+    \endentry
+    \entry{ref_article02}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{hash=774376ab3fd1a37acbfd458eec959b7b}{%
+           family={Ji},
+           familyi={J\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=0b0db095bef5ff65a44f4f2ddb81da5e}{%
+           family={Pan},
+           familyi={P\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=24fe910944f1b7a2547d238e9d52ae6b}{%
+           family={Cambria},
+           familyi={C\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{61374554aedf8b0faf44e77175be5ef6}
+      \strng{fullhash}{61374554aedf8b0faf44e77175be5ef6}
+      \strng{bibnamehash}{61374554aedf8b0faf44e77175be5ef6}
+      \strng{authorbibnamehash}{61374554aedf8b0faf44e77175be5ef6}
+      \strng{authornamehash}{61374554aedf8b0faf44e77175be5ef6}
+      \strng{authorfullhash}{61374554aedf8b0faf44e77175be5ef6}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Neural Networks and Learning Systems}
+      \field{number}{2}
+      \field{title}{A Survey on Knowledge Graphs: Representation, Acquisition, and Applications}
+      \field{volume}{33}
+      \field{year}{2022}
+      \field{pages}{494\bibrangedash 514}
+      \range{pages}{21}
+    \endentry
+    \entry{ref_article03}{inproceedings}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{hash=4b60b22795bd57964a53b1e32e975bf7}{%
+           family={Peng},
+           familyi={P\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f29effe391f71e68756a19ab272a6123}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=786af77513e12c05e5d39eb6e8c541e1}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{bce9ac8c2ce450d0480d22cf6cee6f25}
+      \strng{fullhash}{bce9ac8c2ce450d0480d22cf6cee6f25}
+      \strng{bibnamehash}{bce9ac8c2ce450d0480d22cf6cee6f25}
+      \strng{authorbibnamehash}{bce9ac8c2ce450d0480d22cf6cee6f25}
+      \strng{authornamehash}{bce9ac8c2ce450d0480d22cf6cee6f25}
+      \strng{authorfullhash}{bce9ac8c2ce450d0480d22cf6cee6f25}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Findings of the North American Chapter of the Association for Computational Linguistics (NAACL)}
+      \field{title}{Deja vu: Contrastive Historical Modeling with Prefix-tuning for Temporal Knowledge Graph Reasoning}
+      \field{year}{2024}
+      \field{pages}{1234\bibrangedash 1245}
+      \range{pages}{12}
+    \endentry
+    \entry{ref_article04}{inproceedings}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{hash=0a51ba5d8e7a6dadadec1b86c05a4f5f}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=b0a1adc90b3646e7a27c97298f2b5ad0}{%
+           family={Mann},
+           familyi={M\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=7c04264c6ca5f6f8a88ca32400ff922a}{%
+           family={Ryder},
+           familyi={R\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{d5e9cd24c94f899d7ec303ec8df200bc}
+      \strng{fullhash}{d5e9cd24c94f899d7ec303ec8df200bc}
+      \strng{bibnamehash}{d5e9cd24c94f899d7ec303ec8df200bc}
+      \strng{authorbibnamehash}{d5e9cd24c94f899d7ec303ec8df200bc}
+      \strng{authornamehash}{d5e9cd24c94f899d7ec303ec8df200bc}
+      \strng{authorfullhash}{d5e9cd24c94f899d7ec303ec8df200bc}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Advances in Neural Information Processing Systems 33 (NeurIPS 2020)}
+      \field{title}{Language Models are Few-Shot Learners}
+      \field{year}{2020}
+      \field{pages}{1877\bibrangedash 1901}
+      \range{pages}{25}
+    \endentry
+    \entry{ref_article05}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=2698525e977dec3fea3e4860ce51f47d}{%
+           family={Kalyan},
+           familyi={K\bibinitperiod},
+           given={K.S.},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{2698525e977dec3fea3e4860ce51f47d}
+      \strng{fullhash}{2698525e977dec3fea3e4860ce51f47d}
+      \strng{bibnamehash}{2698525e977dec3fea3e4860ce51f47d}
+      \strng{authorbibnamehash}{2698525e977dec3fea3e4860ce51f47d}
+      \strng{authornamehash}{2698525e977dec3fea3e4860ce51f47d}
+      \strng{authorfullhash}{2698525e977dec3fea3e4860ce51f47d}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A Survey of GPT-3 Family Large Language Models Including ChatGPT and GPT-4}
+      \field{year}{2023}
+    \endentry
+    \entry{ref_article06}{misc}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{hash=add607e79baa779232e9b73061ed36e6}{%
+           family={Touvron},
+           familyi={T\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=b42256760f826b82c0d7f5f6de663b7e}{%
+           family={Lavril},
+           familyi={L\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=788d8f8d7085737f02b9c1f842e8b53f}{%
+           family={Izacard},
+           familyi={I\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{0ab47434b83065da935de3267470ad6b}
+      \strng{fullhash}{0ab47434b83065da935de3267470ad6b}
+      \strng{bibnamehash}{0ab47434b83065da935de3267470ad6b}
+      \strng{authorbibnamehash}{0ab47434b83065da935de3267470ad6b}
+      \strng{authornamehash}{0ab47434b83065da935de3267470ad6b}
+      \strng{authorfullhash}{0ab47434b83065da935de3267470ad6b}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{LLaMA: Open and Efficient Foundation Language Models}
+      \field{year}{2023}
+    \endentry
+    \entry{ref_article07}{article}{}
+      \name{author}{3}{}{%
+        {{hash=8afab9bdc9b292debbeb136dfd97036c}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=c67619924cd2ecb1e99e1432d09d6dbd}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=39856f0439f35f79a8eed8b12d26166c}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{17e90d95252e5dc5f071174b3b92d4c0}
+      \strng{fullhash}{17e90d95252e5dc5f071174b3b92d4c0}
+      \strng{bibnamehash}{17e90d95252e5dc5f071174b3b92d4c0}
+      \strng{authorbibnamehash}{17e90d95252e5dc5f071174b3b92d4c0}
+      \strng{authornamehash}{17e90d95252e5dc5f071174b3b92d4c0}
+      \strng{authorfullhash}{17e90d95252e5dc5f071174b3b92d4c0}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{DeepSeek: Large-Scale Knowledge Graph Reasoning with Deep Reinforcement Learning}
+      \field{year}{2025}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

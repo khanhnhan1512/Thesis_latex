@@ -1,0 +1,69 @@
+\chapter{KẾT LUẬN}
+\label{Chapter6}
+
+Chương này trình bày những kết quả nghiên cứu đạt được, những đóng góp mới, chỉ ra những hạn chế và thách thức còn tồn đọng, từ đó đưa ra những đề xuất, kiến nghị cho các hướng nghiên cứu tiếp theo, nhằm mở rộng và ứng dụng hiệu quả hơn các kết quả nghiên cứu trong thực tế.
+
+\section{Kết luận chung}
+Trong nghiên cứu này, chúng tôi đã giới thiệu MSKGen - một phương pháp tiếp cận mới cho bài toán suy luận đồ thị tri thức thời gian (TKGR) với khả năng tích hợp đa nguồn tri thức để tạo ra các dự đoán chính xác. Framework của chúng tôi bắt đầu bằng quá trình trích xuất sự kiện dựa trên luật logic thời gian, nơi chúng tôi áp dụng kỹ thuật temporal random walk để lấy mẫu các luật lịch sử, sau đó đánh giá chất lượng thông qua thước đo Kulczynski để xác định các luật có điểm số cao. Thông qua cơ chế lựa chọn quan hệ được hướng dẫn bởi các mô hình ngôn ngữ lớn (LLMs) và quá trình tinh chỉnh luật lặp đi lặp lại, chúng tôi đã tạo ra các luật có tính nhất quán thời gian, nắm bắt được các mẫu quan hệ phức tạp giữa các loại quan hệ khác nhau.
+
+Bổ sung cho phương pháp trên, quá trình truy xuất sự kiện ngữ nghĩa của chúng tôi tận dụng kỹ thuật embedding vector để xây dựng cơ sở dữ liệu toàn diện về các sự kiện lịch sử, cho phép truy xuất thông minh các nguồn tri thức đa dạng. Các nguồn sự kiện này được kết hợp trong mô-đun suy luận đa nguồn, nơi LLMs tổng hợp các câu trả lời đặc thù cho từng truy vấn bằng cách tích hợp các sự kiện có cấu trúc đa dạng trong khi vẫn duy trì tính mạch lạc về mặt ngữ nghĩa. Kết quả thực nghiệm trên nhiều bộ dữ liệu chuẩn cho thấy MSKGen đạt được sự cải thiện đáng kể về hiệu suất so với các phương pháp tiên tiến hiện nay, khẳng định tính hiệu quả của cách tiếp cận tích hợp tri thức đa nguồn trong các nhiệm vụ suy luận đồ thị tri thức thời gian.
+
+Cụ thể, MSKGen đã giải quyết thành công ba thách thức chính trong lĩnh vực TKGR: (1) Khả năng kết hợp giữa suy luận dựa trên luật có cấu trúc và hiểu biết ngữ nghĩa sâu từ LLMs, (2) Xử lý hiệu quả khối lượng thông tin lớn thông qua cơ chế truy xuất thông minh dựa trên RAG, và (3) Duy trì tính giải thích được trong khi vẫn đảm bảo độ chính xác cao. Các kết quả trên tập dữ liệu đã chứng minh ưu thế vượt trội của MSKGen so với các phương pháp dựa trên đồ thị, luật thuần túy và LLMs đơn thuần.
+
+\section{Hạn chế và thách thức}
+Nghiên cứu này vẫn tồn tại một số hạn chế cần được giải quyết trong tương lai:
+
+\subsection{Hạn chế về chi phí tính toán}
+Việc sử dụng các mô hình ngôn ngữ lớn như GPT-4 và GPT-4o dẫn đến chi phí vận hành đáng kể. Cụ thể:
+\begin{itemize}
+\item Chi phí cho GPT-4 là \$30 cho mỗi triệu token đầu vào và \$60 cho mỗi triệu token đầu ra
+\item Ví dụ: Một truy vấn với 1000 token đầu vào và 1000 token đầu ra sẽ tốn \$0.09
+\item Tổng chi phí cho các thí nghiệm quy mô lớn có thể lên đến hàng trăm USD, hạn chế khả năng tối ưu hóa LLMs.
+\end{itemize}
+
+\subsection{Phụ thuộc vào chất lượng LLMs}
+\begin{itemize}
+\item Hiệu suất hệ thống chịu ảnh hưởng trực tiếp từ khả năng suy luận của LLMs, đặc biệt về vấn đề hallucination và bias
+\item Việc tối ưu chủ yếu tập trung vào prompt engineering mà chưa khai thác hết tiềm năng của các mô hình đồ thị
+\item Mô hình graph-based reasoning hiện tại (TiRGN) được sử dụng ở dạng "black-box" chưa qua tối ưu hóa
+\end{itemize}
+
+\subsection{Thách thức trong triển khai hệ thống}
+\begin{itemize}
+\item Quy trình xử lý chưa hoàn toàn tự động hóa, đòi hỏi điều chỉnh thủ công khi thay đổi dataset
+\item Việc xây dựng thủ công các prompt tốn khoảng 10\% thời gian phát triển
+\item Thiếu phân tích chi tiết về resource allocation và timing trong quá trình vận hành
+\end{itemize}
+
+\section{Hướng nghiên cứu tiềm năng}
+Để khắc phục các hạn chế và mở rộng phạm vi ứng dụng, các hướng nghiên cứu sau được đề xuất:
+
+\subsection{Tối ưu hóa mô hình đồ thị}
+\begin{itemize}
+\item Phát triển kiến trúc deep learning mới kết hợp temporal graph neural networks với cơ chế attention để cải thiện graph-based scoring
+\item Thử nghiệm các phương pháp ensemble learning để kết hợp dự đoán từ nhiều mô hình đồ thị khác nhau
+\item Áp dụng kỹ thuật knowledge distillation để thu gọn mô hình đồ thị mà vẫn giữ được hiệu suất
+\end{itemize}
+
+\subsection{Cải tiến quy trình LLMs}
+\begin{itemize}
+\item Nghiên cứu cơ chế dynamic LLM selection để tự động chọn mô hình phù hợp dựa trên độ phức tạp của truy vấn
+\item Phát triển pipeline fine-tuning hiệu quả cho các LLMs mã nguồn mở (LLaMA, DeepSeek) để giảm chi phí
+\item Triển khai cơ chế cache cho các truy vấn lặp để tối ưu hóa việc sử dụng token
+\end{itemize}
+
+\subsection{Tự động hóa hệ thống}
+\begin{itemize}
+\item Xây dựng framework tự động điều chỉnh prompt dựa trên đặc trưng của dataset
+\item Phát triển công cụ tự sinh template prompt sử dụng reinforcement learning
+\item Thiết kế module tiền xử lý dữ liệu thông minh có khả năng nhận biết schema tự động
+\end{itemize}
+
+\subsection{Mở rộng nguồn tri thức}
+\begin{itemize}
+\item Khảo sát khả năng tích hợp thêm các nguồn tri thức phi cấu trúc (văn bản, hình ảnh)
+\item Nghiên cứu cơ chế đa phương thức (multimodal) để xử lý các sự kiện phức hợp
+\item Thử nghiệm với các cơ chế truy xuất lai (hybrid retrieval) kết hợp semantic search và symbolic reasoning
+\end{itemize}
+
+Những hướng phát triển này không chỉ giải quyết các hạn chế hiện tại mà còn mở ra khả năng ứng dụng MSKGen trong các lĩnh vực mới như dự báo khủng hoảng chính trị, phân tích xu hướng thị trường tài chính, và hệ thống hỗ trợ ra quyết định y tế dựa trên dữ liệu lịch sử. 

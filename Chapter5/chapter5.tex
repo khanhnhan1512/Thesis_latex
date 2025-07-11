@@ -1,0 +1,229 @@
+\chapter{Kết quả thí nghiệm}
+\label{Chapter5}
+Chương này sẽ bắt đầu bằng việc giới thiệu chi tiết về các tập dữ liệu
+chuẩn được sử dụng trong quá trình thí nghiệm. Tiếp theo, khóa luận sẽ
+trình bày các độ đo được sử dụng để đánh giá hiệu quả của mô hình dự
+đoán liên kết đã được đề xuất. Để so sánh hiệu quả của mô hình được
+đề xuất với các phương pháp đã có, khóa luận tiếp tục tóm tắt những mô
+hình cơ sở được lựa chọn. Sau đó, khóa luận sẽ tiến hành các thí nghiệm liên quan để so sánh hiệu suất của mô hình được đề xuất với các mô hình cơ sở này. Quá trình so sánh này sẽ giúp đánh giá hiệu quả của mô hình MSKGen trong bối cảnh chung của nghiên cứu suy luận trên đồ thị tri thức thời gian.
+
+\section{Bộ dữ liệu}
+Khóa luận này tập trung vào việc đánh giá hiệu quả của các mô hình suy luận trên đồ thị tri thức thời gian ở 3 tập dữ liệu: ICEWS14, GDELT và YAGO. 
+
+ICEWS14, được trích xuất từ bộ dữ liệu ICEWS (Integrated Crisis Early Warning System), là tập các thông tin liên quan đến vấn đề chính trị. Nó tập chung vào các mối quan hệ giữa các thực thể như thủ tướng, người hoặc nhóm người, các quốc gia, tổ chức chính trị... Các mối quan hệ này được cập nhật hằng ngày, liên quan đến những hành động cụ thể. Các nghiên cứu trước đây đã sử dụng ICEWS nói chung và ICEWS14 nói riêng cho các tác vụ dưới dòng trong lĩnh vực khai thác dữ liệu đồ thị, tiêu biểu là dự đoán liên kết. Là một tập con của tập ICEWS, ICEWS14, như tên của nó, chỉ tập trung vào các sự kiện xảy ra vào năm 2014.
+
+YAGO là một cơ sở dữ liệu lớn kết hợp WordNet (cơ sở dữ liệu về từ vựng) và thông tin từ Wikipedia. YAGO miêu tả đa dạng các thực thể
+trong thế giới thực và các mối quan hệ giữa chúng. Cấu trúc của bộ dữ liệu này có hơi khác biệt khi thay vì cung cấp các thông tin thời gian như trong bộ bốn, các thông tin thời gian của YAGO được biểu diễn bằng 2 thông tin riêng biệt: bắt đầu lúc (occurFrom) và kết thúc lúc (occurUntil). Vì thế, các dữ liệu trong tập này thường được biểu diễn dưới dạng bộ năm và điều này đòi hỏi các bước tiền xử lí dữ liệu để có thể ánh xạ bộ dữ liệu này về định dạng các bộ tứ.
+
+ GDELT được chiết xuất từ tập GDELT (Global Database of Events, Language, and Tone) và cả hai tập này dù giống tên nhưng không hề giống nhau. Khi sử dụng trong lĩnh vực khai thác dữ liệu đồ thị GDEL sẽ tự được hiểu là một tập con của tập GDELT lớn hơn. Tập GDELT lớn thực chất là tên của một dự án dữ liệu mở nhằm theo dõi và thu thập hành vi của con người qua các nền tảng truyền thông. Nó bao gồm thông tin của sự kiện, những cảm xúc, vị trí hay những người có liên quan đến sự kiện đó. Bộ dữ liệu đã có những dữ liệu đầu tiên vào năm 1979 và được cập nhật thường xuyên cho đến hiện tại.
+
+ Chi tiết của từng bộ dữ liệu sẽ được mô tả ở 2 bảng~\ref{tab:table51} và~\ref{tab:table52}:
+
+\begin{table}[H]
+\caption{Thông số huấn luyện, kiểm thử và xác thực của ba bộ dữ liệu
+ tiêu chuẩn}
+\label{tab:table51}
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{|l|l|l|l|}
+\hline
+Tập dữ  liệu & Kích thước tập train & Kích thước tập valid & Kích thước tập test \\ \hline
+ICEWS14      & 74854                & 8514                 & 7371                \\ \hline
+GDELT        & 79319                & 9957                 & 9715                \\ \hline
+YAGO         & 220393               & 28948                & 22765               \\ \hline
+\end{tabular}
+\end{adjustbox} 
+\end{table}
+
+\begin{table}[H]
+\caption{Thông số về cấu trúc của ba bộ dữ liệu tiêu chuẩn}
+\label{tab:table52}
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{|l|l|l|l|}
+\hline
+Tập dữ  liệu & Số lượng thực thể & Số lượng quan hệ & Chênh lệch thời gian \\ \hline
+ICEWS14      & 7128              & 230              & 1 ngày               \\ \hline
+GDELT        & 5850              & 238              & 15 phút              \\ \hline
+YAGO         & 10778             & 23               & 1 năm                \\ \hline
+\end{tabular}
+\end{adjustbox} 
+\end{table}
+
+\section{Độ đo đánh giá}
+Để đánh giá độ hiệu quả của MSKGen trong khả năng suy luận trên đồ thị tri thức theo thời gian, chúng tôi sẽ áp dụng một số độ đo tiêu chuẩn cho lĩnh vực dự đoán liên kết trong đồ thị tri thức thời gian. Những độ đo này cung cấp cái nhìn sâu sắc về hiệu suất của mô hình, bao gồm độ chính xác và khả năng dự đoán. Hơn nữa, chúng là nền tảng để so sánh và chứng minh hiệu quả của MSKGen so với các mô hình khác. Hai độ đo chính được sử dụng là Mean Reciprocal Rank (MRR) và Hits@k.
+
+Mean Rank (MR) phản ánh thứ hạng trung bình của các bộ tứ được dự đoán. MR càng cao, mô hình càng có khả năng dự đoán chính xác. Tuy
+nhiên, một bộ tứ có điểm thấp bị ảnh hưởng quá lớn đến giá trị của MR. Để khắc phục hạn chế này, MRR được sử dụng. MRR ưu tiên những lần 
+dự đoán có kết quả tốt bằng cách lấy giá trị nghịch đảo của điểm xếp hạng. Điều này giúp giảm thiểu ảnh hưởng tiêu cực của những lần dự đoán kém 
+chính xác, tăng cường sự phản ánh hiệu quả chung của mô hình.
+\begin{equation}
+    \label{eq:MRR}
+    MRR = \frac{1}{|p|} \sum_{r \in p} r^{-1}
+\end{equation}
+
+Hits@k cung cấp thông tin về khả năng đoán đúng của mô hình trong phạm vị k kết quả cao nhất. Ví dụ, Hits@10 là xác suất có xuất hiện kết quả đúng trong 10 phần tử có điểm xếp hạng cao nhất của mô hình. Độ đo này không quan tâm tới vị trí chính xác của đáp án mà chỉ quan tâm là nó có nằm trong k phần tử đầu tiên hay không mà thôi. Giá trị Hits@k càng cao thì khả năng dự đoán của mô hình càng cao. Giá trị của k thường được sử dụng là 1, 3 và 10 để biểu diễn khả năng dự đoán ở các giới hạn tương ứng.
+\begin{equation}
+    \label{eq:hit@k}
+    Hits@k = \frac{1}{|p|} \sum_{r \in p} (1 \text{ if } r \leq k \text{ else } 0)
+    \tag{x}
+\end{equation}
+
+\section{Thiết lập đánh giá}
+
+Theo bài báo ..., có hai thiết lập đánh giá:
+\begin{itemize}
+    \item \textbf{Thiết lập thô (Raw)}: Thiết lập này sẽ đơn giản là truy xuất thứ hạng của các thực thể ứng viên đã được sắp xếp theo điểm số
+    dự đoán và từ đó tính toán độ đo đánh giá dựa theo thứ hạng của thực thể chính xác cho câu truy vấn. 
+    \item \textbf{Thiết lập bộ lọc nhận thức thời gian (Time-aware filter)}: Thiết lập này cũng sẽ truy xuất điểm số của các thực thể ứng viên đã được sắp xếp 
+    và loại bỏ các dự đoán hợp lệ nhưng không chính xác với câu truy vấn hiện tại trước khi xếp hạng, giúp ngăn chặn việc có nhiều hơn một thực thể chính xác cho một câu truy vấn.
+    Ví dụ, với truy vấn \textit{(Malaysia, Make\_visit, ?, 2014-1-12)} và đáp án đúng là \textit{Thailand}, các dự đoán hợp lệ khác như 
+    \textit{China} hay \textit{Vietnam} sẽ bị loại bỏ để đảm bảo rằng chỉ có một thực thể chính xác duy nhất được xếp hạng.
+\end{itemize}
+
+Trong khóa luận này, chúng tôi sẽ sử dụng thiết lập bộ lọc nhận thức thời gian để đánh giá mô hình MSKGen. Thiết lập này giúp đảm bảo rằng các dự đoán được đánh giá là chính xác và phù hợp với ngữ cảnh thời gian của câu truy vấn, từ đó cung cấp cái nhìn rõ ràng hơn về hiệu suất của mô hình trong việc suy luận trên đồ thị tri thức thời gian.
+\section{Các mô hình cơ sở}
+Để đánh giá hiệu quả của mô hình FTPComplEx, chúng tôi tiến hành so sánh một cách khách quan với 3 nhóm mô hình: nhóm mô hình học sâu được huấn luyện trên đồ thị, nhóm mô hình suy luận dựa trên luật và nhóm mô hình suy luận nhờ LLM. Việc lựa chọn các mô hình đối chiếu này được thực hiện dựa trên sự đa dạng về kỹ thuật và cách tiếp cận, giúp việc so sánh với MSKGen trở nên đầy thuyết phục hơn. 
+
+Nhóm mô hình học sâu được huấn luyện trên đồ thị bao gồm:
+\begin{itemize}
+    \item \textbf{RE-NET}
+    \item \textbf{RE-GCN}
+    \item \textbf{TiRGN}
+    \item \textbf{HGLS}
+\end{itemize}
+
+Nhóm mô hình suy luận dựa trên luật bao gồm:
+\begin{itemize}
+    \item \textbf{TLogic}
+\end{itemize}
+
+Nhóm mô hình suy luận nhờ LLM bao gồm:
+\begin{itemize}
+    \item \textbf{GPT-Neox-ICL}
+    \item \textbf{TiRGN-CoH}
+    \item \textbf{GenTKG}
+\end{itemize}
+
+\section{Cài đặt siêu tham số thực nghiệm}
+Các thực nghiệm được thực hiện trên NVIDIA GeForce RTX 3070 8GB VRAM. MSKGen được chạy thực nghiệm nhiều lần để tìm ra các siêu tham số
+tốt nhất của từng giai đoạn ở mỗi tập dữ liệu:
+\begin{itemize}
+    \item Trong giai đoạn trích xuất sự kiện dựa theo luật, số lượng vòng lặp để cập nhật luật được thực hiện là 5, 
+ngưỡng điểm để lọc ra các luật có chất lượng cao là $\gamma = 0.15$ trên cả ba tập dữ liệu.
+    \item Trong giai đoạn trích xuất sự kiện theo ngữ nghĩa, MSKGen sử dụng mô hình \textbf{GPT-4o-mini} cho việc suy luận. 
+    Hệ số suy giảm theo thời gian $\lambda$, trọng số của xếp hạng các thực thể ứng viên được dự đoán bởi LLM $\alpha$ và
+    số lượng ứng cử viên tối đa mà LLM có thể trả về $k$ lần lượt là 0.1, 0.5 và 10 trên cả ba tập dữ liệu. 
+    \item Ở bước tổng hợp kết quả dự đoán cuối cùng, \textbf{TiRGN} là mô hình được chọn để lấy điểm số từ dự đoán của mô hình học sâu 
+    huấn luyện trên đồ thị $score_{G}^{c_i}$. Trọng số cho điểm số từ dự đoán của LLM $\alpha$ và của TiRGN $1 - \alpha$
+    trong điểm số cuối cùng trên từng tập dữ liệu được thể hiện trong bảng~\ref{tab:table53}:
+\end{itemize}
+
+\begin{table}[H]
+\caption{Trọng số của mỗi điểm số thành phần trong điểm số cuối cùng trên từng tập dữ liệu}
+\label{tab:table53}
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{|l|l|l|l|}
+\hline
+           & ICEWS14 & GDELT & YAGO \\ \hline
+$\alpha$   & 0.6     & 0.6   & 0.85 \\ \hline
+$1-\alpha$ & 0.4     & 0.4   & 0.15 \\ \hline
+\end{tabular}
+\end{adjustbox}  
+\end{table}
+  
+
+\section{Kết quả thí nghiệm}
+\subsection{Kết quả chính}
+
+Bảng ~\ref{tab:table54},~\ref{tab:table55} và~\ref{tab:table56} trình bày kết quả thực nghiệm chính của MSKGen và 
+các mô hình cơ sở khác trong việc suy luận trên đồ thị tri thức thời gian trên ba tập dữ liệu tiêu chuẩn bao gồm 
+ICEWS14, GDELT và YAGO.
+
+\begin{table}
+\caption{Kết quả thực nghiệm của MSKGen và các mô hình khác trên tập dữ liệu ICEWS14 với thiết lập bộ lọc nhận thức thời gian. 
+Điểm số cao nhất được \textbf{bôi đen} và điểm số tốt thứ hai được \underline{gạch chân}.}
+\label{tab:table54}
+\begin{adjustbox}{width=\textwidth}
+% \begin{tabular}{|cc|ccc|ccc|ccc|}
+% \hline
+% \multicolumn{1}{|c|}{\multirow{2}{*}{Method}}      & \multirow{2}{*}{Model} & \multicolumn{3}{c|}{ICEWS14}                                             & \multicolumn{3}{c|}{GDELT}                                               & \multicolumn{3}{c|}{YAGO}                                                \\ \cline{3-11} 
+% \multicolumn{1}{|c|}{}                             &                        & \multicolumn{1}{c|}{Hit@1} & \multicolumn{1}{c|}{Hit@3} & Hit@10         & \multicolumn{1}{c|}{Hit@1} & \multicolumn{1}{c|}{Hit@3} & Hit@10         & \multicolumn{1}{c|}{Hit@1} & \multicolumn{1}{c|}{Hit@3} & Hit@10         \\ \hline
+% \multicolumn{1}{|c|}{\multirow{5}{*}{Graph-based}} & RE-NET~\cite{ref_article12}                 & 0.301                      & 0.440                      & 0.582          & 0.081                      & 0.158                      & 0.261          & 0.404                      & 0.530                      & 0.629          \\ \cline{2-2}
+% \multicolumn{1}{|c|}{}                             & RE-GCN~\cite{ref_article13}                 & 0.313                      & 0.470                      & 0.613          & 0.084                      & 0.171                      & 0.299          & 0.468                      & 0.607                      & 0.729          \\ \cline{2-2}
+% \multicolumn{1}{|c|}{}                             & TiRGN~\cite{ref_article22}                  & 0.338                      & {\ul 0.497}                & 0.650          & 0.136                      & {\ul 0.233}             & {\ul 0.376}    & {\ul 0.843}             & {\ul 0.913}             & {\ul 0.929}    \\ \cline{2-2}
+% \multicolumn{1}{|c|}{}                             & HGLS~\cite{ref_article14}                   & 0.350                      & 0.490                      & {\ul 0.704}    & 0.118                      & 0.217                      & 0.332          & 0.806                      & 0.901                      & 0.919          \\ \hline
+% \multicolumn{1}{|c|}{Rule-based}                   & TLogic~\cite{ref_article23}                 & 0.326                      & 0.483                      & 0.612          & 0.113                      & 0.212                      & 0.351          & 0.740                      & 0.789                      & 0.791          \\ \hline
+% \multicolumn{1}{|c|}{\multirow{3}{*}{LLM-based}}   & GPT-Neox-ICL~\cite{ref_article08}           & 0.295                      & 0.406                      & 0.475          & 0.068                      & 0.120                      & 0.211          & 0.720                      & 0.810                      & 0.846          \\ \cline{2-2}
+% \multicolumn{1}{|c|}{}                             & TiRGN-CoH~\cite{ref_article09}              & 0.330                      & 0.496                      & 0.649          & -                          & -                          & -              & -                          & -                          & -              \\ \cline{2-2}
+% \multicolumn{1}{|c|}{}                             & GenTKG~\cite{ref_article10}                 & {\ul 0.363}                & 0.473                      & 0.528          & {\ul 0.134}                & 0.220                      & 0.300          & 0.792                      & 0.830                      & 0.843          \\ \hline
+% \multicolumn{2}{|c|}{MSKGen (TiRGN)}                                        & \textbf{0.384}             & \textbf{0.525}             & \textbf{0.710} & \textbf{0.145}             & \textbf{0.235}                & \textbf{0.402} & \textbf{0.856}                & \textbf{0.929}                & \textbf{0.947} \\ \hline
+% \end{tabular}
+\begin{tabular}{|cc|cccc|}
+\hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{Phương pháp}}     & \multirow{2}{*}{Mô hình} & \multicolumn{4}{c|}{ICEWS14}                                                                        \\ \cline{3-6} 
+\multicolumn{1}{|c|}{}                                 &                          & \multicolumn{1}{c|}{MRR} & \multicolumn{1}{c|}{Hit@1} & \multicolumn{1}{c|}{Hit@3} & Hit@10         \\ \hline
+\multicolumn{1}{|c|}{\multirow{4}{*}{Dựa trên đồ thị}} & RE-NET                   & 0.457                    & 0.301                      & 0.440                      & 0.582          \\ \cline{2-2}
+\multicolumn{1}{|c|}{}                                 & RE-GCN                   & 0.415                    & 0.313                      & 0.470                      & 0.613          \\ \cline{2-2}
+\multicolumn{1}{|c|}{}                                 & TiRGN                    & 0.440                    & 0.338                      & {\ul 0.497}                & 0.650          \\ \cline{2-2}
+\multicolumn{1}{|c|}{}                                 & HGLS                     & {\ul 0.470}              & 0.350                      & 0.490                      & {\ul 0.704}    \\ \hline
+\multicolumn{1}{|c|}{Dựa trên luật}                    & TLogic                   & 0.430                    & 0.326                      & 0.483                      & 0.612          \\ \hline
+\multicolumn{1}{|c|}{\multirow{3}{*}{Dựa trên LLM}}    & GPT-Neox-ICL             & 0.322                    & 0.295                      & 0.406                      & 0.475          \\ \cline{2-2}
+\multicolumn{1}{|c|}{}                                 & TiRGN-CoH                & 0.439                    & 0.330                      & 0.496                      & 0.649          \\ \cline{2-2}
+\multicolumn{1}{|c|}{}                                 & GenTKG                   & -                        & {\ul 0.368}                & 0.479                      & 0.535          \\ \hline
+\multicolumn{2}{|c|}{MSKGen}                                                      & \textbf{0.481}           & \textbf{0.384}             & \textbf{0.525}             & \textbf{0.710} \\ \hline
+\end{tabular}
+\end{adjustbox}  
+\end{table}
+\vspace{-5mm}
+
+Trên tập dữ liệu ICEWS14 và GDELT, MSKGen đều đạt được kết quả tốt nhất (state-of-the-art) trong tất cả độ đo 
+đánh giá, bao gồm 
+
+\begin{table}
+\caption{Kết quả thực nghiệm của MSKGen và các mô hình khác trên tập dữ liệu GDELT với thiết lập bộ lọc nhận thức thời gian. 
+Điểm số cao nhất được \textbf{bôi đen} và điểm số tốt thứ hai được \underline{gạch chân}.}
+\label{tab:table55}
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{|cc|cccc|}
+\hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{Phương pháp}}     & \multirow{2}{*}{Mô hình} & \multicolumn{4}{c|}{GDELT}                                                                          \\ \cline{3-6} 
+\multicolumn{1}{|c|}{}                                 &                          & \multicolumn{1}{c|}{MRR} & \multicolumn{1}{c|}{Hit@1} & \multicolumn{1}{c|}{Hit@3} & Hit@10         \\ \hline
+\multicolumn{1}{|c|}{\multirow{4}{*}{Dựa trên đồ thị}} & RE-NET                   & 0.105                    & 0.081                      & 0.158                      & 0.261          \\ \cline{2-2}
+\multicolumn{1}{|c|}{}                                 & RE-GCN                   & 0.146                    & 0.084                      & 0.171                      & 0.299          \\ \cline{2-2}
+\multicolumn{1}{|c|}{}                                 & TiRGN                    & {\ul 0.216}              & {\ul 0.136}                & {\ul 0.233}                & {\ul 0.376}    \\ \cline{2-2}
+\multicolumn{1}{|c|}{}                                 & HGLS                     & 0.190                    & 0.118                      & 0.217                      & 0.332          \\ \hline
+\multicolumn{1}{|c|}{Dựa trên luật}                    & TLogic                   & 0.175                    & 0.113                      & 0.212                      & 0.351          \\ \hline
+\multicolumn{1}{|c|}{\multirow{3}{*}{Dựa trên LLM}}    & GPT-Neox-ICL             & 0.103                    & 0.068                      & 0.120                      & 0.211          \\ \cline{2-2}
+\multicolumn{1}{|c|}{}                                 & TiRGN-CoH                & -                        & -                          & -                          & -              \\ \cline{2-2}
+\multicolumn{1}{|c|}{}                                 & GenTKG                   & -                        & 0.134                      & 0.220                      & 0.300          \\ \hline
+\multicolumn{2}{|c|}{MSKGen}                                                      & \textbf{0.218}           & \textbf{0.145}             & \textbf{0.235}             & \textbf{0.402} \\ \hline
+\end{tabular}
+\end{adjustbox}  
+\end{table}
+\vspace{-5mm}
+
+\begin{table}
+\caption{Kết quả thực nghiệm của MSKGen và các mô hình khác trên tập dữ liệu YAGO với thiết lập bộ lọc nhận thức thời gian. 
+Điểm số cao nhất được \textbf{bôi đen} và điểm số tốt thứ hai được \underline{gạch chân}.}
+\label{tab:table56}
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{|cc|cccc|}
+\hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{Phương pháp}}     & \multirow{2}{*}{Mô hình} & \multicolumn{4}{c|}{YAGO}                                                                           \\ \cline{3-6} 
+\multicolumn{1}{|c|}{}                                 &                          & \multicolumn{1}{c|}{MRR} & \multicolumn{1}{c|}{Hit@1} & \multicolumn{1}{c|}{Hit@3} & Hit@10         \\ \hline
+\multicolumn{1}{|c|}{\multirow{4}{*}{Dựa trên đồ thị}} & RE-NET                   & 0.478                    & 0.404                      & 0.530                      & 0.629          \\ \cline{2-2}
+\multicolumn{1}{|c|}{}                                 & RE-GCN                   & 0.558                    & 0.468                      & 0.607                      & 0.729          \\ \cline{2-2}
+\multicolumn{1}{|c|}{}                                 & TiRGN                    & {\ul 0.879}              & {\ul 0.843}                & {\ul 0.913}                & {\ul 0.929}    \\ \cline{2-2}
+\multicolumn{1}{|c|}{}                                 & HGLS                     & 0.817                    & 0.806                      & 0.901                      & 0.919          \\ \hline
+\multicolumn{1}{|c|}{Dựa trên luật}                    & TLogic                   & 0.767                    & 0.740                      & 0.789                      & 0.791          \\ \hline
+\multicolumn{1}{|c|}{\multirow{3}{*}{Dựa trên LLM}}    & GPT-Neox-ICL             & 0.783                    & 0.720                      & 0.810                      & 0.846          \\ \cline{2-2}
+\multicolumn{1}{|c|}{}                                 & TiRGN-CoH                & -                        & -                          & -                          & -              \\ \cline{2-2}
+\multicolumn{1}{|c|}{}                                 & GenTKG                   & 0.804                    & 0.792                      & 0.830                      & 0.843          \\ \hline
+\multicolumn{2}{|c|}{MSKGen}                                                      & \textbf{0.902}           & \textbf{0.856}             & \textbf{0.929}             & \textbf{0.947} \\ \hline
+\end{tabular}
+\end{adjustbox}  
+\end{table}
+\vspace{-5mm}
+
+\subsection{Nghiên cứu loại bỏ}
+
+\subsection{Một số nghiên cứu khác}

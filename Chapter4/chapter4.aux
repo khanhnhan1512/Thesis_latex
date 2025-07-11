@@ -1,0 +1,202 @@
+\relax 
+\providecommand{\transparent@use}[1]{}
+\providecommand\hyper@newdestlabel[2]{}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Phương pháp đề xuất}{35}{chapter.4}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{Chapter4}{{4}{35}{Phương pháp đề xuất}{chapter.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces MSKGen bắt đầu với hai quá trình song song: Trích xuất sự kiện dựa trên luật (Rule-based Facts Extraction) liên tục sử dụng LLMs để tạo luật từ các luật lịch sử được lấy mẫu, tinh chỉnh lặp đi lặp lại các luật mới dựa trên đánh giá từ dữ liệu hiện tại, và trích xuất các sự kiện chất lượng cao từ các luật đã tinh chỉnh; và Truy xuất sự kiện ngữ nghĩa (Semantic Facts Retrieval) nhúng các sự kiện vào cơ sở dữ liệu vector và truy xuất các sự kiện tương đồng ngữ nghĩa, sự kiện tương đồng chủ thể, và sự kiện chân lý nền sử dụng khái niệm RAG. Các sự kiện này được kết hợp trong Suy luận đa nguồn (Multi-Source Reasoning), nơi LLMs tổng hợp câu trả lời đặc thù cho truy vấn bằng cách tích hợp thông tin đa dạng và đồng bộ về mặt ngữ nghĩa.}}{36}{figure.4.1}\protected@file@percent }
+\newlabel{fig1}{{4.1}{36}{MSKGen bắt đầu với hai quá trình song song: Trích xuất sự kiện dựa trên luật (Rule-based Facts Extraction) liên tục sử dụng LLMs để tạo luật từ các luật lịch sử được lấy mẫu, tinh chỉnh lặp đi lặp lại các luật mới dựa trên đánh giá từ dữ liệu hiện tại, và trích xuất các sự kiện chất lượng cao từ các luật đã tinh chỉnh; và Truy xuất sự kiện ngữ nghĩa (Semantic Facts Retrieval) nhúng các sự kiện vào cơ sở dữ liệu vector và truy xuất các sự kiện tương đồng ngữ nghĩa, sự kiện tương đồng chủ thể, và sự kiện chân lý nền sử dụng khái niệm RAG. Các sự kiện này được kết hợp trong Suy luận đa nguồn (Multi-Source Reasoning), nơi LLMs tổng hợp câu trả lời đặc thù cho truy vấn bằng cách tích hợp thông tin đa dạng và đồng bộ về mặt ngữ nghĩa}{figure.4.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Trích xuất sự kiện dựa trên luật}{37}{section.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Trích xuất các luật lịch sử điểm cao và các quan hệ liên quan top k}{37}{subsection.4.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Lấy mẫu luật lịch sử.}{37}{subsection.4.1.1}\protected@file@percent }
+\newlabel{eq2}{{{2}}{37}{Lấy mẫu luật lịch sử}{equation.4.1.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Đánh giá chất lượng luật.}{37}{equation.4.1.1}\protected@file@percent }
+\newlabel{eq3}{{{3}}{38}{Đánh giá chất lượng luật}{equation.4.1.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Sinh luật và tinh chỉnh lặp}{39}{subsection.4.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Sinh luật mới.}{39}{subsection.4.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Đánh giá và xếp hạng luật.}{41}{subsection.4.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Tinh chỉnh tập quan hệ liên quan: Cập nhật tập quan hệ liên quan Top k của mỗi đầu luật.}{41}{subsection.4.1.2}\protected@file@percent }
+\newlabel{eq4}{{{4}}{41}{Tinh chỉnh tập quan hệ liên quan: Cập nhật tập quan hệ liên quan Top k của mỗi đầu luật}{equation.4.1.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Cải tiến lặp.}{42}{equation.4.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}Trích xuất sự kiện dựa trên luật}{42}{subsection.4.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Quá trình trích xuất sự kiện dựa trên luật.}{42}{subsection.4.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Trích xuất sự kiện theo ngữ nghĩa}{43}{section.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Tiền xử lý dữ liệu}{43}{subsection.4.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Xây dựng cơ sở dữ liệu vector}{44}{subsection.4.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Phương pháp truy xuất ngữ nghĩa}{45}{subsection.4.2.3}\protected@file@percent }
+\newlabel{eq:query-embed}{{{?}}{45}{Phương pháp truy xuất ngữ nghĩa}{equation.4.2.1}{}}
+\newlabel{eq:cos-sim}{{{x}}{45}{Phương pháp truy xuất ngữ nghĩa}{equation.4.2.1}{}}
+\newlabel{eq:top-sim}{{{x}}{45}{Phương pháp truy xuất ngữ nghĩa}{equation.4.2.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Chiến lược truy xuất sự kiện}{45}{subsection.4.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Suy luận tri thức đa nguồn}{47}{section.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Cách tính điểm các ứng viên}{47}{section.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Điểm số dự đoán của LLM}{48}{subsection.4.4.1}\protected@file@percent }
+\newlabel{eq:score-llm}{{{x}}{48}{Điểm số dự đoán của LLM}{equation.4.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Điểm số từ dự đoán của mô hình học sâu theo phương pháp nhúng đồ thị}{48}{subsection.4.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}Điểm số cuối cùng}{49}{subsection.4.4.3}\protected@file@percent }
+\newlabel{eq:final-score}{{{x}}{49}{Điểm số cuối cùng}{equation.4.4.1}{}}
+\@setckpt{Chapter4/chapter4}{
+\setcounter{page}{50}
+\setcounter{equation}{0}
+\setcounter{enumi}{0}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{0}
+\setcounter{mpfootnote}{0}
+\setcounter{part}{0}
+\setcounter{chapter}{4}
+\setcounter{section}{4}
+\setcounter{subsection}{3}
+\setcounter{subsubsection}{0}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{figure}{1}
+\setcounter{table}{0}
+\setcounter{tabx@nest}{0}
+\setcounter{listtotal}{0}
+\setcounter{listcount}{0}
+\setcounter{liststart}{0}
+\setcounter{liststop}{0}
+\setcounter{citecount}{0}
+\setcounter{citetotal}{0}
+\setcounter{multicitecount}{0}
+\setcounter{multicitetotal}{0}
+\setcounter{instcount}{8}
+\setcounter{maxnames}{3}
+\setcounter{minnames}{3}
+\setcounter{maxitems}{3}
+\setcounter{minitems}{1}
+\setcounter{citecounter}{0}
+\setcounter{maxcitecounter}{0}
+\setcounter{savedcitecounter}{0}
+\setcounter{uniquelist}{0}
+\setcounter{uniquename}{0}
+\setcounter{refsection}{0}
+\setcounter{refsegment}{0}
+\setcounter{maxextratitle}{0}
+\setcounter{maxextratitleyear}{0}
+\setcounter{maxextraname}{0}
+\setcounter{maxextradate}{0}
+\setcounter{maxextraalpha}{0}
+\setcounter{abbrvpenalty}{50}
+\setcounter{highnamepenalty}{50}
+\setcounter{lownamepenalty}{25}
+\setcounter{maxparens}{3}
+\setcounter{parenlevel}{0}
+\setcounter{blx@maxsection}{0}
+\setcounter{mincomprange}{10}
+\setcounter{maxcomprange}{100000}
+\setcounter{mincompwidth}{1}
+\setcounter{afterword}{0}
+\setcounter{savedafterword}{0}
+\setcounter{annotator}{0}
+\setcounter{savedannotator}{0}
+\setcounter{author}{0}
+\setcounter{savedauthor}{0}
+\setcounter{bookauthor}{0}
+\setcounter{savedbookauthor}{0}
+\setcounter{commentator}{0}
+\setcounter{savedcommentator}{0}
+\setcounter{editor}{0}
+\setcounter{savededitor}{0}
+\setcounter{editora}{0}
+\setcounter{savededitora}{0}
+\setcounter{editorb}{0}
+\setcounter{savededitorb}{0}
+\setcounter{editorc}{0}
+\setcounter{savededitorc}{0}
+\setcounter{foreword}{0}
+\setcounter{savedforeword}{0}
+\setcounter{holder}{0}
+\setcounter{savedholder}{0}
+\setcounter{introduction}{0}
+\setcounter{savedintroduction}{0}
+\setcounter{namea}{0}
+\setcounter{savednamea}{0}
+\setcounter{nameb}{0}
+\setcounter{savednameb}{0}
+\setcounter{namec}{0}
+\setcounter{savednamec}{0}
+\setcounter{translator}{0}
+\setcounter{savedtranslator}{0}
+\setcounter{shortauthor}{0}
+\setcounter{savedshortauthor}{0}
+\setcounter{shorteditor}{0}
+\setcounter{savedshorteditor}{0}
+\setcounter{labelname}{0}
+\setcounter{savedlabelname}{0}
+\setcounter{institution}{0}
+\setcounter{savedinstitution}{0}
+\setcounter{lista}{0}
+\setcounter{savedlista}{0}
+\setcounter{listb}{0}
+\setcounter{savedlistb}{0}
+\setcounter{listc}{0}
+\setcounter{savedlistc}{0}
+\setcounter{listd}{0}
+\setcounter{savedlistd}{0}
+\setcounter{liste}{0}
+\setcounter{savedliste}{0}
+\setcounter{listf}{0}
+\setcounter{savedlistf}{0}
+\setcounter{location}{0}
+\setcounter{savedlocation}{0}
+\setcounter{organization}{0}
+\setcounter{savedorganization}{0}
+\setcounter{origlocation}{0}
+\setcounter{savedoriglocation}{0}
+\setcounter{origpublisher}{0}
+\setcounter{savedorigpublisher}{0}
+\setcounter{publisher}{0}
+\setcounter{savedpublisher}{0}
+\setcounter{language}{0}
+\setcounter{savedlanguage}{0}
+\setcounter{origlanguage}{0}
+\setcounter{savedoriglanguage}{0}
+\setcounter{pageref}{0}
+\setcounter{savedpageref}{0}
+\setcounter{textcitecount}{0}
+\setcounter{textcitetotal}{0}
+\setcounter{textcitemaxnames}{0}
+\setcounter{biburlbigbreakpenalty}{100}
+\setcounter{biburlbreakpenalty}{200}
+\setcounter{biburlnumpenalty}{0}
+\setcounter{biburlucpenalty}{0}
+\setcounter{biburllcpenalty}{0}
+\setcounter{smartand}{1}
+\setcounter{bbx:relatedcount}{0}
+\setcounter{bbx:relatedtotal}{0}
+\setcounter{cbx@tempcnta}{0}
+\setcounter{cbx@tempcntb}{3}
+\setcounter{cbx@tempcntc}{0}
+\setcounter{cbx@tempcntd}{-1}
+\setcounter{section@level}{0}
+\setcounter{Item}{0}
+\setcounter{Hfootnote}{0}
+\setcounter{bookmark@seq@number}{50}
+\setcounter{svg@param@lastpage}{0}
+\setcounter{svg@param@currpage}{-1}
+\setcounter{tcbbreakpart}{1}
+\setcounter{tcblayer}{0}
+\setcounter{tcolorbox@number}{4}
+\setcounter{tcbrastercolumn}{1}
+\setcounter{tcbrasterrow}{1}
+\setcounter{tcbrasternum}{1}
+\setcounter{tcbraster}{0}
+\setcounter{parentequation}{0}
+\setcounter{lstnumber}{1}
+\setcounter{tcblisting}{0}
+\setcounter{float@type}{32}
+\setcounter{algorithm}{0}
+\setcounter{ALG@line}{0}
+\setcounter{ALG@rem}{0}
+\setcounter{ALG@nested}{0}
+\setcounter{ALG@Lnr}{2}
+\setcounter{ALG@blocknr}{10}
+\setcounter{ALG@storecount}{0}
+\setcounter{ALG@tmpcounter}{0}
+\setcounter{AM@survey}{0}
+\setcounter{lstlisting}{0}
+}
