@@ -109,7 +109,8 @@ tốt nhất của từng giai đoạn ở mỗi tập dữ liệu:
 \begin{itemize}
     \item Trong giai đoạn trích xuất sự kiện dựa theo luật, số lượng vòng lặp để cập nhật luật được thực hiện là 5, 
 ngưỡng điểm để lọc ra các luật có chất lượng cao là $\gamma = 0.15$ trên cả ba tập dữ liệu.
-    \item Trong giai đoạn trích xuất sự kiện theo ngữ nghĩa, MSKGen sử dụng mô hình \textbf{GPT-4o} cho việc suy luận. 
+    \item Trong giai đoạn trích xuất sự kiện theo ngữ nghĩa, MSKGen sử dụng mô hình \textbf{GPT-4o} cho việc suy luận và
+    \textbf{LangChain} như là một framework để triên khai kĩ thuật RAG.  
     Hệ số suy giảm theo thời gian $\lambda$, trọng số của xếp hạng các thực thể ứng viên được dự đoán bởi LLM $\alpha$ và
     số lượng ứng cử viên tối đa mà LLM có thể trả về $k$ lần lượt là 0.1, 0.5 và 10 trên cả ba tập dữ liệu. 
     \item Ở bước tổng hợp kết quả dự đoán cuối cùng, \textbf{TiRGN} là mô hình theo phương pháp nhúng được chọn để lấy điểm số $score_{G}^{c_i}$. 

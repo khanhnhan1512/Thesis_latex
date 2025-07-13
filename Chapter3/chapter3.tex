@@ -58,14 +58,23 @@ Suy luận đồ thị tri thức thời gian (Temporal Knowledge Graph Reasonin
 
 Mô hình ngôn ngữ lớn (Large Language Models - LLMs) như GPT, LLaMA, và DeepSeek đã thể hiện khả năng đáng kể trong việc hiểu các mối quan hệ ngữ nghĩa và thực hiện các tác vụ suy luận phức tạp. GPT (Generative Pre-trained Transformer) là một dòng mô hình mạng nơ-ron sử dụng kiến trúc transformer và là một tiến bộ quan trọng trong lĩnh vực trí tuệ nhân tạo. Các mô hình GPT được đào tạo trước trên các tập dữ liệu lớn bằng phương pháp không giám sát để tạo văn bản, sử dụng kiến trúc transformer và được đào tạo trước sử dụng mục tiêu tự giám sát để dự đoán từ tiếp theo trong một chuỗi.
 
-LLaMA (Large Language Model Meta AI) là một họ mô hình ngôn ngữ lớn được phát hành bởi Meta AI bắt đầu từ tháng 2 năm 2023. Các mô hình LLaMA có nhiều kích thước khác nhau, từ 1 tỷ đến 2 nghìn tỷ tham số, và được thiết kế để cung cấp hiệu suất cao với chi phí tính toán thấp hơn. DeepSeek là một mô hình ngôn ngữ lớn tiên tiến được xây dựng để giải quyết các tác vụ phát triển phần mềm, xử lý ngôn ngữ tự nhiên và tự động hóa kinh doanh. DeepSeek sử dụng hệ thống Mixture-of-Experts (MoE), chỉ kích hoạt 37 tỷ trong số 671 tỷ tham số cho bất kỳ tác vụ nào, giúp giảm chi phí tính toán.
+% LLaMA (Large Language Model Meta AI) là một họ mô hình ngôn ngữ lớn được phát hành bởi Meta AI bắt đầu từ tháng 2 năm 2023. Các mô hình LLaMA có nhiều kích thước khác nhau, từ 1 tỷ đến 2 nghìn tỷ tham số, và được thiết kế để cung cấp hiệu suất cao với chi phí tính toán thấp hơn. DeepSeek là một mô hình ngôn ngữ lớn tiên tiến được xây dựng để giải quyết các tác vụ phát triển phần mềm, xử lý ngôn ngữ tự nhiên và tự động hóa kinh doanh. DeepSeek sử dụng hệ thống Mixture-of-Experts (MoE), chỉ kích hoạt 37 tỷ trong số 671 tỷ tham số cho bất kỳ tác vụ nào, giúp giảm chi phí tính toán.
 
 Khả năng xử lý thông tin ngữ cảnh và hiểu các mối quan hệ phức tạp của LLMs làm cho chúng đặc biệt phù hợp cho các tác vụ đồ thị tri thức. Những mô hình này xuất sắc trong việc hiểu các kết nối ngữ nghĩa và các mẫu thời gian trong dữ liệu, cung cấp các giải pháp tiềm năng cho những thách thức về khả năng diễn giải trong TKGR.
 
 \vspace{1em}
 \textbf{LangChain}
 
-LangChain là một framework mã nguồn mở được viết bằng Python vào năm 2022 nhằm hỗ trợ việc 
+LangChain là một framework mã nguồn mở được viết bằng Python vào năm 2022 dành cho việc xây dựng các ứng dụng được hỗ trợ bởi mô hình ngôn ngữ lớn (LLM). Nó cung cấp cho các nhà phát triển những thành phần mô-đun, dễ sử dụng để kết nối các mô hình ngôn ngữ với các nguồn dữ liệu và dịch vụ bên ngoài. LangChain giảm bớt thách thức như thiết kế prompt, giảm thiểu thiên lệch (bias), và tích hợp dữ liệu bên ngoài. Ngoài việc sử dụng API LLM cơ bản, LangChain còn tạo điều kiện cho các tương tác nâng cao như ngữ cảnh hội thoại và tính bền vững thông qua các agent và bộ nhớ. Điều này cho phép tạo ra các chatbot, thu thập dữ liệu bên ngoài và nhiều hơn nữa.
+
+Những lợi ích chính mà LangChain mang lại bao gồm:
+\begin{itemize}
+    \item Cho phép tích hợp các mô hình ngôn ngữ lớn (LLM) một cách linh hoạt và dễ dàng tùy chỉnh theo nhu cầu cụ thể.
+    \item Có khả năng kết nối nhiều dịch vụ khác nhau, không chỉ giới hạn ở các mô hình ngôn ngữ, tạo ra những ứng dụng phong phú và mạnh mẽ hơn.
+    \item Hỗ trợ các agent làm việc dựa trên mục tiêu cụ thể thay vì chỉ thực hiện các lần gọi tách rời, từ đó nâng cao hiệu quả làm việc.
+    \item Cung cấp khả năng lưu trữ trạng thái giữa các lần thực hiện, giúp ứng dụng giữ được mạch kết nối và khả năng phản hồi thông minh.
+    \item Có thể truy cập mã nguồn mở.
+\end{itemize}
 
 
 % \section{Suy luận dựa trên luật logic thời gian}

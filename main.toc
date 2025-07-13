@@ -28,10 +28,10 @@
 \contentsline {chapter}{\numberline {3}KIẾN THỨC NỀN TẢNG}{20}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Các khái niệm chung}{20}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Suy luận dựa trên những sự kiện được trích xuất từ luật logic thời gian}{24}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Tạo Sinh Tăng Cường Truy Xuất (Retrieval-Augmented Generation)}{27}{section.3.3}%
+\contentsline {section}{\numberline {3.3}Tạo Sinh Tăng Cường Truy Xuất (Retrieval-Augmented Generation)}{28}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Cấu trúc của hệ thống RAG}{28}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}Các thuật toán truy xuất}{29}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Cơ sở dữ liệu vector}{31}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.3}Cơ sở dữ liệu vector}{32}{subsection.3.3.3}%
 \contentsline {subsection}{\numberline {3.3.4}Các phương pháp tối ưu quá trình truy xuất}{32}{subsection.3.3.4}%
 \contentsline {chapter}{\numberline {4}Phương pháp đề xuất}{35}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Trích xuất sự kiện dựa trên luật}{37}{section.4.1}%
