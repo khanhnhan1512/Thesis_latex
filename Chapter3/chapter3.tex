@@ -56,16 +56,14 @@ Suy luận đồ thị tri thức thời gian (Temporal Knowledge Graph Reasonin
 \vspace{1em}
 \textbf{Mô Hình Ngôn Ngữ Lớn (Large Language Models)}
 
-Mô hình ngôn ngữ lớn (Large Language Models - LLMs) như GPT, LLaMA, và DeepSeek đã thể hiện khả năng đáng kể trong việc hiểu các mối quan hệ ngữ nghĩa và thực hiện các tác vụ suy luận phức tạp. GPT (Generative Pre-trained Transformer) là một dòng mô hình mạng nơ-ron sử dụng kiến trúc transformer và là một tiến bộ quan trọng trong lĩnh vực trí tuệ nhân tạo. Các mô hình GPT được đào tạo trước trên các tập dữ liệu lớn bằng phương pháp không giám sát để tạo văn bản, sử dụng kiến trúc transformer và được đào tạo trước sử dụng mục tiêu tự giám sát để dự đoán từ tiếp theo trong một chuỗi.
-
-% LLaMA (Large Language Model Meta AI) là một họ mô hình ngôn ngữ lớn được phát hành bởi Meta AI bắt đầu từ tháng 2 năm 2023. Các mô hình LLaMA có nhiều kích thước khác nhau, từ 1 tỷ đến 2 nghìn tỷ tham số, và được thiết kế để cung cấp hiệu suất cao với chi phí tính toán thấp hơn. DeepSeek là một mô hình ngôn ngữ lớn tiên tiến được xây dựng để giải quyết các tác vụ phát triển phần mềm, xử lý ngôn ngữ tự nhiên và tự động hóa kinh doanh. DeepSeek sử dụng hệ thống Mixture-of-Experts (MoE), chỉ kích hoạt 37 tỷ trong số 671 tỷ tham số cho bất kỳ tác vụ nào, giúp giảm chi phí tính toán.
+Mô hình ngôn ngữ lớn (Large Language Models - LLMs) như GPT, LLaMA, và DeepSeek đã thể hiện khả năng đáng kể trong việc hiểu các mối quan hệ ngữ nghĩa và thực hiện các tác vụ suy luận phức tạp. GPT (Generative Pre-trained Transformer) là một dòng mô hình mạng nơ-ron sử dụng kiến trúc transformer \cite{ref_article36} và là một tiến bộ quan trọng trong lĩnh vực trí tuệ nhân tạo. Các mô hình GPT được đào tạo trước trên các tập dữ liệu lớn bằng phương pháp không giám sát để tạo văn bản, sử dụng kiến trúc transformer và được đào tạo trước sử dụng mục tiêu tự giám sát để dự đoán từ tiếp theo trong một chuỗi. LLaMA (Large Language Model Meta AI) là một họ mô hình ngôn ngữ lớn được phát hành bởi Meta AI bắt đầu từ tháng 2 năm 2023. Các mô hình LLaMA có nhiều kích thước khác nhau, từ 1 tỷ đến 2 nghìn tỷ tham số, và được thiết kế để cung cấp hiệu suất cao với chi phí tính toán thấp hơn. DeepSeek là một mô hình ngôn ngữ lớn tiên tiến được xây dựng để giải quyết các tác vụ phát triển phần mềm, xử lý ngôn ngữ tự nhiên và tự động hóa kinh doanh. DeepSeek sử dụng hệ thống Mixture-of-Experts (MoE), chỉ kích hoạt 37 tỷ trong số 671 tỷ tham số cho bất kỳ tác vụ nào, giúp giảm chi phí tính toán.
 
 Khả năng xử lý thông tin ngữ cảnh và hiểu các mối quan hệ phức tạp của LLMs làm cho chúng đặc biệt phù hợp cho các tác vụ đồ thị tri thức. Những mô hình này xuất sắc trong việc hiểu các kết nối ngữ nghĩa và các mẫu thời gian trong dữ liệu, cung cấp các giải pháp tiềm năng cho những thách thức về khả năng diễn giải trong TKGR.
 
 \vspace{1em}
 \textbf{LangChain}
 
-LangChain là một framework mã nguồn mở được viết bằng Python vào năm 2022 dành cho việc xây dựng các ứng dụng được hỗ trợ bởi mô hình ngôn ngữ lớn (LLM). Nó cung cấp cho các nhà phát triển những thành phần mô-đun, dễ sử dụng để kết nối các mô hình ngôn ngữ với các nguồn dữ liệu và dịch vụ bên ngoài. LangChain giảm bớt thách thức như thiết kế prompt, giảm thiểu thiên lệch (bias), và tích hợp dữ liệu bên ngoài. Ngoài việc sử dụng API LLM cơ bản, LangChain còn tạo điều kiện cho các tương tác nâng cao như ngữ cảnh hội thoại và tính bền vững thông qua các agent và bộ nhớ. Điều này cho phép tạo ra các chatbot, thu thập dữ liệu bên ngoài và nhiều hơn nữa.
+LangChain \cite{ref_article37} là một framework mã nguồn mở được viết bằng Python vào năm 2022 dành cho việc xây dựng các ứng dụng được hỗ trợ bởi mô hình ngôn ngữ lớn (LLM). Nó cung cấp cho các nhà phát triển những thành phần mô-đun, dễ sử dụng để kết nối các mô hình ngôn ngữ với các nguồn dữ liệu và dịch vụ bên ngoài. LangChain giảm bớt thách thức như thiết kế prompt, giảm thiểu thiên lệch (bias), và tích hợp dữ liệu bên ngoài. Ngoài việc sử dụng API LLM cơ bản, LangChain còn tạo điều kiện cho các tương tác nâng cao như ngữ cảnh hội thoại và tính bền vững thông qua các agent và bộ nhớ. Điều này cho phép tạo ra các chatbot, thu thập dữ liệu bên ngoài và nhiều hơn nữa.
 
 Những lợi ích chính mà LangChain mang lại bao gồm:
 \begin{itemize}
@@ -73,7 +71,7 @@ Những lợi ích chính mà LangChain mang lại bao gồm:
     \item Có khả năng kết nối nhiều dịch vụ khác nhau, không chỉ giới hạn ở các mô hình ngôn ngữ, tạo ra những ứng dụng phong phú và mạnh mẽ hơn.
     \item Hỗ trợ các agent làm việc dựa trên mục tiêu cụ thể thay vì chỉ thực hiện các lần gọi tách rời, từ đó nâng cao hiệu quả làm việc.
     \item Cung cấp khả năng lưu trữ trạng thái giữa các lần thực hiện, giúp ứng dụng giữ được mạch kết nối và khả năng phản hồi thông minh.
-    \item Có thể truy cập mã nguồn mở.
+    \item Có mã nguồn mở.
 \end{itemize}
 
 
@@ -125,9 +123,10 @@ Cấu trúc này đảm bảo tính nhất quán về mặt thời gian, trong �
 
 \textbf{Ví Dụ Về Các Luật Logic Thời Gian}
 
-Để minh họa cách thức hoạt động của các luật logic thời gian, chúng tôi xem xét những luật được tổng hợp từ dữ liệu có dạng:\begin{equation}
+Để minh họa cách thức hoạt động của các luật logic thời gian, chúng tôi xem xét những luật được tổng hợp từ dữ liệu có dạng (\ref{rule1},\ref{rule2},\ref{rule3}):
+
+\begin{equation}
 \text{Make\_a\_visit}(X_0, X_1, T_1) \Leftarrow \text{inv\_Host\_a\_visit}(X_0, X_1, T_0)
-\tag{1}
 \label{rule1}
 \end{equation}
 
@@ -137,7 +136,6 @@ Cấu trúc này đảm bảo tính nhất quán về mặt thời gian, trong �
 &\land\ \text{inv\_Make\_a\_visit}(X_1, X_0, T_1) \\
 &\land\ \text{inv\_Host\_a\_visit}(X_0, X_1, T_2)
 \end{aligned}
-\tag{2}
 \label{rule2}
 \end{equation}
 
@@ -147,7 +145,6 @@ Cấu trúc này đảm bảo tính nhất quán về mặt thời gian, trong �
 &\land\ \text{Engage\_in\_negotiation}(X_1, X_0, T_1) \\
 &\land\ \text{inv\_Host\_a\_visit}(X_0, X_2, T_2)
 \end{aligned}
-\tag{3}
 \label{rule3}
 \end{equation}
 
@@ -201,11 +198,11 @@ Phương pháp này không chỉ cung cấp khả năng dự đoán chính xác 
 
 \section{Tạo Sinh Tăng Cường Truy Xuất (Retrieval-Augmented Generation)}
 
-Tạo sinh tăng cường truy xuất, hay còn gọi tắt là RAG, là một kĩ thuật giúp tăng cường khả năng tạo sinh của mô hình ngôn ngữ lớn bằng cách truy xuất các thông tin liên quan từ những nguồn dữ liệu ngoại. Các nguồn dữ liệu này có thể là dữ liệu cá nhân hoặc từ internet.
+Tạo sinh tăng cường truy xuất, hay còn gọi tắt là RAG \cite{ref_article27}, là một kĩ thuật giúp tăng cường khả năng tạo sinh của mô hình ngôn ngữ lớn bằng cách truy xuất các thông tin liên quan từ những nguồn dữ liệu ngoại. Các nguồn dữ liệu này có thể là dữ liệu cá nhân hoặc từ internet.
 
-Việc "truy xuất rồi tạo sinh" lần đầu được xuất hiện trong bài báo "Reading Wikipedia to Answer Open-Domain Questions" (trích dẫn). Trong công trình này, hệ thống của tác giả đầu tiên sẽ truy xuất 5 trang Wikipedia liên quan nhất đến câu hỏi đầu vào, sau đó một mô hình sẽ sử dụng thông tin từ 5 trang này để tạo ra câu trả lời.
+Việc "truy xuất rồi tạo sinh" lần đầu được xuất hiện trong bài báo "Reading Wikipedia to Answer Open-Domain Questions" \cite{ref_article38}. Trong công trình này, hệ thống của tác giả đầu tiên sẽ truy xuất 5 trang Wikipedia liên quan nhất đến câu hỏi đầu vào, sau đó một mô hình sẽ sử dụng thông tin từ 5 trang này để tạo ra câu trả lời.
 
-Thuật ngữ tạo sinh tăng cường truy xuất được đặt ra trong bài báo "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks" (trích dẫn). Bài báo đã đề xuất RAG như là một giải pháp cho các nhiệm vụ đòi hỏi nhiều nguồn kiến thức trong khi các kiến thức có sẵn lại không thể được đưa toàn bộ vào mô hình một cách trực tiếp. Với RAG thì chỉ những thông tin liên quan nhất với câu truy vấn  mới được truy xuất và đưa vào mô hình bởi bộ truy xuất (retriever). Điều này sẽ giúp mô hình ngôn ngữ lớn có thể tạo ra câu trả lời chi tiết và giảm thiểu hiện tượng "ảo giác" ở các mô hình ngôn ngữ lớn.
+Thuật ngữ tạo sinh tăng cường truy xuất được đặt ra trong bài báo "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks" \cite{ref_article27}. Bài báo đã đề xuất RAG như là một giải pháp cho các nhiệm vụ đòi hỏi nhiều nguồn kiến thức trong khi các kiến thức có sẵn lại không thể được đưa toàn bộ vào mô hình một cách trực tiếp. Với RAG thì chỉ những thông tin liên quan nhất với câu truy vấn  mới được truy xuất và đưa vào mô hình bởi bộ truy xuất (retriever). Điều này sẽ giúp mô hình ngôn ngữ lớn có thể tạo ra câu trả lời chi tiết và giảm thiểu hiện tượng "ảo giác" (hallucination) \cite{ref_article39} ở các mô hình ngôn ngữ lớn.
 
 Cụ thể hơn, RAG là một kĩ thuật xây dựng ngữ cảnh cụ thể cho mỗi câu truy vấn thay vì sử dụng cùng một ngữ cảnh cho tất cả câu truy vấn. Điều này giúp quản lí dữ liệu người dùng bởi vì nó cho phép chúng ta đưa những dữ liệu cụ thể của một người dùng vào mô hình khi mô hình cần giải quyết những câu truy vấn liên quan trực tiếp đến người dùng này.
 
@@ -235,11 +232,12 @@ Với một câu truy vấn đầu vào, cách đơn giản nhất là tìm ki�
     \item Một số câu truy vấn có thể dài và chứa nhiều thuật ngữ. Một số thuật ngữ có vai trò quan trọng hơn các thuật ngữ còn lại. Ví dụ với câu truy vấn "Công thức nấu món ăn Việt Nam ngon tại nhà" chứa rất nhiều thuật ngữ tuy nhiên ta sẽ chỉ muốn tập trung vào các thuật ngữ mang nhiều thông tin như "công thức", "món ăn", "Việt Nam" thay vì "làm", "tại".
 \end{itemize}
 
-Để khắc phục các điểm yếu này, chúng ta sẽ có độ đo để xác định xem thuật ngữ nào quan trọng hơn các thuật ngữ còn lại: \textbf{Tần suất nghịch của tài liệu (Inverse document frequency - IDF)}. IDF thể hiện tầm quan trọng của một thuật ngữ sẽ tỉ lệ nghịch với số lượng tài liệu mà nó xuất hiện vì các từ "làm", "tại" thông thường sẽ có khả năng xuất hiện trong hầu hết các tài liệu, do đó chúng ít thông tin hơn. IDF của một thuật ngữ được tính bằng cách lấy tổng số lượng tài liệu chia cho số lượng tài liệu chứa thuật ngữ này. IDF càng cao chứng tỏ thuật ngữ càng quan trọng.
+Để khắc phục các điểm yếu này, chúng ta sẽ có độ đo để xác định xem thuật ngữ nào quan trọng hơn các thuật ngữ còn lại: \textbf{Tần suất nghịch của tài liệu (Inverse document frequency - IDF)} \cite{ref_article40}. IDF thể hiện tầm quan trọng của một thuật ngữ sẽ tỉ lệ nghịch với số lượng tài liệu mà nó xuất hiện vì các từ "làm", "tại" thông thường sẽ có khả năng xuất hiện trong hầu hết các tài liệu, do đó chúng ít thông tin hơn. IDF của một thuật ngữ được tính bằng cách lấy tổng số lượng tài liệu chia cho số lượng tài liệu chứa thuật ngữ này. IDF càng cao chứng tỏ thuật ngữ càng quan trọng.
 
-Để xếp hạng mức độ liên quan của mỗi tài liệu với một câu truy vấn đầu vào, chúng ta sẽ có một độ đo phổ biến là \textit{TF-IDF}. TF-IDF là một thuật toán kết hợp hai chỉ số \textit{tuần suất của thuật ngữ} và \textit{tần suất nghịch của tài liệu}. Giá trị TF-IDF của tài liệu $\mathcal{D}$ đối với câu truy vấn $\mathcal{Q}$ được tính như sau:
+Để xếp hạng mức độ liên quan của mỗi tài liệu với một câu truy vấn đầu vào, chúng ta sẽ có một độ đo phổ biến là \textit{TF-IDF} \cite{ref_article41}. TF-IDF là một độ đo kết hợp hai chỉ số \textit{tuần suất của thuật ngữ} và \textit{tần suất nghịch của tài liệu}. Giá trị TF-IDF của tài liệu $\mathcal{D}$ đối với câu truy vấn $\mathcal{Q}$ được tính như sau (\ref{eq:tfidf}):
 \begin{equation}
     \text{TF-IDF}(\mathcal{D, Q}) = \sum_{i=1}^{q} IDF(t_i) \times f(t_i, \mathcal{D})
+    \label{eq:tfidf}
 \end{equation}
 Trong công thức trên, $t_1, t_2,..., t_q$ lần lượt là các thuật ngữ trong câu truy vấn $\mathcal{Q}$. $f(t, \mathcal{D})$ là tần suất xuất hiện của thuật ngữ $t$ trong tài liệu $\mathcal{D}$. Với $\mathcal{N}$ là số tổng số tài liệu và $C(t)$ là số lượng tài liệu chứa thuật ngữ $t$, giá trị IDF của thuật ngữ $t$ được tính bằng $\text{IDF}(t) = log \frac{\mathcal{N}}{C(t)}$.
 
@@ -260,11 +258,11 @@ Truy xuất dựa trên nhúng cũng giới thiệu thêm một thành phần m�
 
 Tìm kiếm vector thường được định hình như một bài toán tìm kiếm lân cận gần nhất (nearest-neightbor search):
 \begin{itemize}
-    \item Tính toán độ tương đồng giữa embedding của truy vấn với tất cả vector trong cơ sở dữ liệu, sử dụng các chỉ số như độ tương đồng cosine (cosine similarity).
+    \item Tính toán độ tương đồng giữa embedding của truy vấn với tất cả vector trong cơ sở dữ liệu, sử dụng các chỉ số như độ tương đồng cosine (cosine similarity) \cite{ref_article42}.
     \item Xếp hạng các vector theo điểm tương đồng của chúng với embedding truy vấn.
     \item Trả về $k$ vector có điểm tương đồng cao nhất.
 \end{itemize}
-Hiện nay có nhiều vector database phổ biến có thể kể đến như Chroma, Faiss, Pinecone,...
+Hiện nay có nhiều vector database phổ biến có thể kể đến như Chroma \cite{ref_article17}, Faiss \cite{ref_article43}, Pinecone \cite{ref_article44},...
 
 \vspace{1em}
 \subsection{Các phương pháp tối ưu quá trình truy xuất}

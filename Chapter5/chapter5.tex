@@ -8,7 +8,7 @@ trình bày các độ đo được sử dụng để đánh giá hiệu quả c
 hình cơ sở được lựa chọn. Sau đó, khóa luận sẽ tiến hành các thí nghiệm liên quan để so sánh hiệu suất của mô hình được đề xuất với các mô hình cơ sở này. Quá trình so sánh này sẽ giúp đánh giá hiệu quả của mô hình MSKGen trong bối cảnh chung của nghiên cứu suy luận trên đồ thị tri thức thời gian.
 
 \section{Bộ dữ liệu}
-Khóa luận này tập trung vào việc đánh giá hiệu quả của các mô hình suy luận trên đồ thị tri thức thời gian ở 3 tập dữ liệu: ICEWS14, GDELT và YAGO. 
+Khóa luận này tập trung vào việc đánh giá hiệu quả của các mô hình suy luận trên đồ thị tri thức thời gian ở 3 tập dữ liệu: ICEWS14 \cite{ref_article19}, GDELT \cite{ref_article20} và YAGO \cite{ref_article21}. 
 
 ICEWS14, được trích xuất từ bộ dữ liệu ICEWS (Integrated Crisis Early Warning System), là tập các thông tin liên quan đến vấn đề chính trị. Nó tập chung vào các mối quan hệ giữa các thực thể như thủ tướng, người hoặc nhóm người, các quốc gia, tổ chức chính trị... Các mối quan hệ này được cập nhật hằng ngày, liên quan đến những hành động cụ thể. Các nghiên cứu trước đây đã sử dụng ICEWS nói chung và ICEWS14 nói riêng cho các tác vụ dưới dòng trong lĩnh vực khai thác dữ liệu đồ thị, tiêu biểu là dự đoán liên kết. Là một tập con của tập ICEWS, ICEWS14, như tên của nó, chỉ tập trung vào các sự kiện xảy ra vào năm 2014.
 
@@ -54,22 +54,21 @@ YAGO         & 10778             & 23               & 1 năm                \\ \
 Mean Rank (MR) phản ánh thứ hạng trung bình của các bộ tứ được dự đoán. MR càng cao, mô hình càng có khả năng dự đoán chính xác. Tuy
 nhiên, một bộ tứ có điểm thấp bị ảnh hưởng quá lớn đến giá trị của MR. Để khắc phục hạn chế này, MRR được sử dụng. MRR ưu tiên những lần 
 dự đoán có kết quả tốt bằng cách lấy giá trị nghịch đảo của điểm xếp hạng. Điều này giúp giảm thiểu ảnh hưởng tiêu cực của những lần dự đoán kém 
-chính xác, tăng cường sự phản ánh hiệu quả chung của mô hình.
+chính xác, tăng cường sự phản ánh hiệu quả chung của mô hình (\ref{eq:MRR}):
 \begin{equation}
     \label{eq:MRR}
     MRR = \frac{1}{|p|} \sum_{r \in p} r^{-1}
 \end{equation}
 
-Hits@k cung cấp thông tin về khả năng đoán đúng của mô hình trong phạm vị k kết quả cao nhất. Ví dụ, Hits@10 là xác suất có xuất hiện kết quả đúng trong 10 phần tử có điểm xếp hạng cao nhất của mô hình. Độ đo này không quan tâm tới vị trí chính xác của đáp án mà chỉ quan tâm là nó có nằm trong k phần tử đầu tiên hay không mà thôi. Giá trị Hits@k càng cao thì khả năng dự đoán của mô hình càng cao. Giá trị của k thường được sử dụng là 1, 3 và 10 để biểu diễn khả năng dự đoán ở các giới hạn tương ứng.
+Hits@k cung cấp thông tin về khả năng đoán đúng của mô hình trong phạm vị k kết quả cao nhất. Ví dụ, Hits@10 là xác suất có xuất hiện kết quả đúng trong 10 phần tử có điểm xếp hạng cao nhất của mô hình. Độ đo này không quan tâm tới vị trí chính xác của đáp án mà chỉ quan tâm là nó có nằm trong k phần tử đầu tiên hay không mà thôi. Giá trị Hits@k càng cao thì khả năng dự đoán của mô hình càng cao. Giá trị của k thường được sử dụng là 1, 3 và 10 để biểu diễn khả năng dự đoán ở các giới hạn tương ứng (\ref{eq:hit@k}):
 \begin{equation}
     \label{eq:hit@k}
     Hits@k = \frac{1}{|p|} \sum_{r \in p} (1 \text{ if } r \leq k \text{ else } 0)
-    \tag{x}
 \end{equation}
 
 \section{Thiết lập đánh giá}
 
-Theo bài báo ..., có hai thiết lập đánh giá:
+Theo bài báo \cite{ref_article45}, có hai thiết lập đánh giá:
 \begin{itemize}
     \item \textbf{Thiết lập thô (Raw)}: Thiết lập này sẽ đơn giản là truy xuất thứ hạng của các thực thể ứng viên đã được sắp xếp theo điểm số
     dự đoán và từ đó tính toán độ đo đánh giá dựa theo thứ hạng của thực thể chính xác cho câu truy vấn. 
@@ -85,22 +84,22 @@ Trong khóa luận này, chúng tôi sẽ sử dụng thiết lập bộ lọc n
 
 Nhóm mô hình học sâu theo phương pháp nhúng đồ thị bao gồm:
 \begin{itemize}
-    \item \textbf{RE-NET:} là mô hình autoregressive được thiết kế để dự đoán sự kiện tương lai trên đồ thị tri thức theo thời gian. Mô hình kết hợp Recurrent Event Encoder để mã hóa chuỗi sự kiện quá khứ và Neighborhood Aggregator để tổng hợp thông tin cùng thời điểm. RE-NET có khả năng suy luận đa bước, cho phép dự đoán liên tiếp các sự kiện tương lai qua nhiều thời điểm.
-    \item \textbf{RE-GCN:} là mô hình kết hợp GCN và RNN để dự đoán sự kiện tương lai trên đồ thị tri thức theo thời gian. Mô hình sử dụng relation-aware GCN để nắm bắt các phụ thuộc cấu trúc trong mỗi đồ thị con tại từng thời điểm, và gate recurrent components để mô hình hóa các mẫu tuần tự của chuỗi đồ thị theo thời gian một cách auto-regressive. RE-GCN còn tích hợp thông tin tĩnh của thực thể thông qua static graph constraint component.
-    \item \textbf{TiRGN:}  là mô hình học biểu diễn cho suy luận đồ thị tri thức theo thời gian, tập trung vào việc khai thác các mẫu lịch sử cục bộ-toàn cục. Mô hình kết hợp local recurrent graph encoder để mô hình hóa phụ thuộc lịch sử giữa các sự kiện tại các thời điểm liền kề, và global history encoder để thu thập các sự kiện lịch sử lặp lại. TiRGN còn sử dụng decoder có tính chu kỳ để thực hiện suy luận cuối cùng, nhằm nắm bắt các mẫu tuần tự, lặp lại và chu kỳ trong dữ liệu lịch sử.
-    \item \textbf{HGLS:} là mô hình giải quyết bài toán suy luận đồ thị tri thức theo thời gian bằng cách mô hình hóa rõ ràng các phụ thuộc thời gian dài hạn và tích hợp thích ứng thông tin ngắn hạn-dài hạn. Mô hình chuyển đổi TKG thành đồ thị toàn cục và sử dụng Hierarchical Relational GNN hoạt động trên hai cấp độ: cấp sub-graph để nắm bắt phụ thuộc ngữ nghĩa trong các sự kiện đồng thời, và cấp global-graph để mô hình hóa phụ thuộc thời gian giữa các thực thể. Thông tin dài hạn và ngắn hạn được trích xuất từ hai cấp độ này và kết hợp thông qua Gating Integration để dự đoán thực thể.
+    \item \textbf{RE-NET} \cite{ref_article12}: là mô hình autoregressive được thiết kế để dự đoán sự kiện tương lai trên đồ thị tri thức theo thời gian. Mô hình kết hợp Recurrent Event Encoder để mã hóa chuỗi sự kiện quá khứ và Neighborhood Aggregator để tổng hợp thông tin cùng thời điểm. RE-NET có khả năng suy luận đa bước, cho phép dự đoán liên tiếp các sự kiện tương lai qua nhiều thời điểm.
+    \item \textbf{RE-GCN} \cite{ref_article13}: là mô hình kết hợp GCN và RNN để dự đoán sự kiện tương lai trên đồ thị tri thức theo thời gian. Mô hình sử dụng relation-aware GCN để nắm bắt các phụ thuộc cấu trúc trong mỗi đồ thị con tại từng thời điểm, và gate recurrent components để mô hình hóa các mẫu tuần tự của chuỗi đồ thị theo thời gian một cách auto-regressive. RE-GCN còn tích hợp thông tin tĩnh của thực thể thông qua static graph constraint component.
+    \item \textbf{TiRGN} \cite{ref_article22}:  là mô hình học biểu diễn cho suy luận đồ thị tri thức theo thời gian, tập trung vào việc khai thác các mẫu lịch sử cục bộ-toàn cục. Mô hình kết hợp local recurrent graph encoder để mô hình hóa phụ thuộc lịch sử giữa các sự kiện tại các thời điểm liền kề, và global history encoder để thu thập các sự kiện lịch sử lặp lại. TiRGN còn sử dụng decoder có tính chu kỳ để thực hiện suy luận cuối cùng, nhằm nắm bắt các mẫu tuần tự, lặp lại và chu kỳ trong dữ liệu lịch sử.
+    \item \textbf{HGLS} \cite{ref_article14}: là mô hình giải quyết bài toán suy luận đồ thị tri thức theo thời gian bằng cách mô hình hóa rõ ràng các phụ thuộc thời gian dài hạn và tích hợp thích ứng thông tin ngắn hạn-dài hạn. Mô hình chuyển đổi TKG thành đồ thị toàn cục và sử dụng Hierarchical Relational GNN hoạt động trên hai cấp độ: cấp sub-graph để nắm bắt phụ thuộc ngữ nghĩa trong các sự kiện đồng thời, và cấp global-graph để mô hình hóa phụ thuộc thời gian giữa các thực thể. Thông tin dài hạn và ngắn hạn được trích xuất từ hai cấp độ này và kết hợp thông qua Gating Integration để dự đoán thực thể.
 \end{itemize}
 
 Nhóm mô hình suy luận dựa trên luật bao gồm:
 \begin{itemize}
-    \item \textbf{TLogic:} là mô hình có thể giải thích được cho bài toán dự đoán liên kết trên đồ thị tri thức theo thời gian, khắc phục hạn chế về tính giải thích của các phương pháp nhúng đồ thị truyền thống. Mô hình dựa trên các quy tắc logic theo thời gian được trích xuất thông qua temporal random walks để thực hiện dự đoán liên kết cho các sự kiện tương lai.
+    \item \textbf{TLogic} \cite{ref_article23}: là mô hình có thể giải thích được cho bài toán dự đoán liên kết trên đồ thị tri thức theo thời gian, khắc phục hạn chế về tính giải thích của các phương pháp nhúng đồ thị truyền thống. Mô hình dựa trên các quy tắc logic theo thời gian được trích xuất thông qua temporal random walks để thực hiện dự đoán liên kết cho các sự kiện tương lai.
 \end{itemize}
 
 Nhóm mô hình suy luận nhờ LLM bao gồm:
 \begin{itemize}
-    \item \textbf{GPT-Neox-ICL:} là phương pháp đầu tiên sử dụng LLMs cho bài toán suy luận trên đồ thị tri thức thời gian bằng cách áp dụng học trong ngữ cảnh với các mô hình ngôn ngữ lớn.
-    \item \textbf{TiRGN-CoH:} là phương pháp suy luận được thiết kế để khắc phục các hạn chế của mô hình dựa trên LLM trong dự đoán đồ thị tri thức theo thời gian. CoH giải quyết ba vấn đề chính: (1) chỉ tập trung vào lịch sử bậc nhất, (2) hiệu suất suy luận kém với tải thông tin lịch sử nặng, và (3) khả năng suy luận thời gian hạn chế của LLM. Mô hình đề xuất cơ chế suy luận từng bước để khám phá lịch sử bậc cao một cách hiệu quả, giúp LLM tận dụng tốt hơn thông tin lịch sử đa cấp. CoH được thiết kế như một module plug-and-play có thể tích hợp vào các mô hình dựa trên đồ thị để nâng cao hiệu suất dự đoán TKG.
-    \item \textbf{GenTKG:} là mô hình đề xuất chiến lược truy xuất dựa trên quy tắc logic thời gian và few-shot parameter-efficient instruction tuning để khắc phục chi phí tính toán lớn khi fine-tune LLM trên dữ liệu đồ thị tri thức theo thời gian khổng lồ. Giúp mở ra hướng tiếp cận mới sử dụng LLM làm foundation model cho dự đoán quan hệ thời gian.
+    \item \textbf{GPT-Neox-ICL} \cite{ref_article08}: là phương pháp đầu tiên sử dụng LLMs cho bài toán suy luận trên đồ thị tri thức thời gian bằng cách áp dụng học trong ngữ cảnh với các mô hình ngôn ngữ lớn.
+    \item \textbf{TiRGN-CoH} \cite{ref_article09}: là phương pháp suy luận được thiết kế để khắc phục các hạn chế của mô hình dựa trên LLM trong dự đoán đồ thị tri thức theo thời gian. CoH giải quyết ba vấn đề chính: (1) chỉ tập trung vào lịch sử bậc nhất, (2) hiệu suất suy luận kém với tải thông tin lịch sử nặng, và (3) khả năng suy luận thời gian hạn chế của LLM. Mô hình đề xuất cơ chế suy luận từng bước để khám phá lịch sử bậc cao một cách hiệu quả, giúp LLM tận dụng tốt hơn thông tin lịch sử đa cấp. CoH được thiết kế như một module plug-and-play có thể tích hợp vào các mô hình dựa trên đồ thị để nâng cao hiệu suất dự đoán TKG.
+    \item \textbf{GenTKG} \cite{ref_article10}: là mô hình đề xuất chiến lược truy xuất dựa trên quy tắc logic thời gian và few-shot parameter-efficient instruction tuning để khắc phục chi phí tính toán lớn khi fine-tune LLM trên dữ liệu đồ thị tri thức theo thời gian khổng lồ. Giúp mở ra hướng tiếp cận mới sử dụng LLM làm foundation model cho dự đoán quan hệ thời gian.
 \end{itemize}
 
 \section{Cài đặt siêu tham số thực nghiệm}
@@ -110,7 +109,7 @@ tốt nhất của từng giai đoạn ở mỗi tập dữ liệu:
     \item Trong giai đoạn trích xuất sự kiện dựa theo luật, số lượng vòng lặp để cập nhật luật được thực hiện là 5, 
 ngưỡng điểm để lọc ra các luật có chất lượng cao là $\gamma = 0.15$ trên cả ba tập dữ liệu.
     \item Trong giai đoạn trích xuất sự kiện theo ngữ nghĩa, MSKGen sử dụng mô hình \textbf{GPT-4o} cho việc suy luận và
-    \textbf{LangChain} như là một framework để triên khai kĩ thuật RAG.  
+    \textbf{LangChain} \cite{ref_article37} như là một framework để triên khai kĩ thuật RAG.  
     Hệ số suy giảm theo thời gian $\lambda$, trọng số của xếp hạng các thực thể ứng viên được dự đoán bởi LLM $\alpha$ và
     số lượng ứng cử viên tối đa mà LLM có thể trả về $k$ lần lượt là 0.1, 0.5 và 10 trên cả ba tập dữ liệu. 
     \item Ở bước tổng hợp kết quả dự đoán cuối cùng, \textbf{TiRGN} là mô hình theo phương pháp nhúng được chọn để lấy điểm số $score_{G}^{c_i}$. 

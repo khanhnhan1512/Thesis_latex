@@ -4,9 +4,9 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces MSKGen bắt đầu với hai quá trình song song: Trích xuất sự kiện dựa trên luật (Rule-based Facts Extraction) liên tục sử dụng LLMs để tạo luật từ các luật lịch sử được lấy mẫu, tinh chỉnh lặp đi lặp lại các luật mới dựa trên đánh giá từ dữ liệu hiện tại, và trích xuất các sự kiện chất lượng cao từ các luật đã tinh chỉnh; và Truy xuất sự kiện ngữ nghĩa (Semantic Facts Retrieval) nhúng các sự kiện vào cơ sở dữ liệu vector và truy xuất các sự kiện tương đồng ngữ nghĩa, sự kiện tương đồng chủ thể, và sự kiện chân lý nền sử dụng khái niệm RAG. Các sự kiện này được kết hợp trong Suy luận đa nguồn (Multi-Source Reasoning), nơi LLMs tổng hợp câu trả lời đặc thù cho truy vấn bằng cách tích hợp thông tin đa dạng và đồng bộ về mặt ngữ nghĩa.}}{36}{figure.4.1}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces MSKGen bắt đầu với hai quá trình song song: Trích xuất sự kiện dựa trên luật (Rule-based Facts Extraction) liên tục sử dụng LLMs để tạo luật từ các luật lịch sử được lấy mẫu, tinh chỉnh lặp đi lặp lại các luật mới dựa trên đánh giá từ dữ liệu hiện tại, và trích xuất các sự kiện chất lượng cao từ các luật đã tinh chỉnh; và Truy xuất sự kiện ngữ nghĩa (Semantic Facts Retrieval) nhúng các sự kiện vào cơ sở dữ liệu vector và truy xuất các sự kiện tương đồng ngữ nghĩa, sự kiện tương đồng chủ thể, và sự kiện chân lý nền sử dụng khái niệm RAG. Các sự kiện này được kết hợp trong Suy luận đa nguồn (Multi-Source Reasoning), nơi LLMs tổng hợp câu trả lời đặc thù cho truy vấn bằng cách tích hợp thông tin đa dạng và đồng bộ về mặt ngữ nghĩa.}}{37}{figure.4.1}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Hit@k (k=1,3,10) của MSKGen w/o rule-based facts với các mô hình sử dụng phương pháp suy luận dựa vào LLMs}}{60}{figure.5.1}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Hit@k (k=1,3,10) của MSKGen w/o semantic facts với các mô hình sử dụng phương pháp suy luận dựa vào luật}}{60}{figure.5.2}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Ảnh hưởng của số lượng sự kiện tối đa cung cấp cho LLM khi suy luận}}{62}{figure.5.3}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Hit@k (k=1,3,10) của MSKGen w/o rule-based facts với các mô hình sử dụng phương pháp suy luận dựa vào LLMs}}{61}{figure.5.1}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Hit@k (k=1,3,10) của MSKGen w/o semantic facts với các mô hình sử dụng phương pháp suy luận dựa vào luật}}{61}{figure.5.2}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Ảnh hưởng của số lượng sự kiện tối đa cung cấp cho LLM khi suy luận}}{63}{figure.5.3}%
 \addvspace {10\p@ }
