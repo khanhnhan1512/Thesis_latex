@@ -6,9 +6,11 @@ Trong phần này, chúng tôi trình bày framework MSKGen cho bài toán suy l
 \begin{figure}[!htbp]
 \includegraphics[width=15cm]{images/Framework01.png}
 % \includesvg[width=\textwidth]{images/Framework01.svg}
-\caption{MSKGen bắt đầu với hai quá trình song song: Trích xuất sự kiện dựa trên luật (Rule-based Facts Extraction) liên tục sử dụng LLMs để tạo luật từ các luật lịch sử được lấy mẫu, tinh chỉnh lặp đi lặp lại các luật mới dựa trên đánh giá từ dữ liệu hiện tại, và trích xuất các sự kiện chất lượng cao từ các luật đã tinh chỉnh; và Truy xuất sự kiện ngữ nghĩa (Semantic Facts Retrieval) nhúng các sự kiện vào cơ sở dữ liệu vector và truy xuất các sự kiện tương đồng ngữ nghĩa, sự kiện tương đồng chủ thể, và sự kiện chân lý nền sử dụng khái niệm RAG. Các sự kiện này được kết hợp trong Suy luận đa nguồn (Multi-Source Reasoning), nơi LLMs tổng hợp câu trả lời đặc thù cho truy vấn bằng cách tích hợp thông tin đa dạng và đồng bộ về mặt ngữ nghĩa.} 
+\caption{Framework MSKGen giải quyết bài toán suy luận trong đồ thị tri thức thời gian.} 
 \label{fig1}
 \end{figure}
+
+Trong hình 4.2, MSKGen bắt đầu với hai quá trình song song: Trích xuất sự kiện dựa trên luật (Rule-based Facts Extraction) liên tục sử dụng LLMs để tạo luật từ các luật lịch sử được lấy mẫu, tinh chỉnh lặp đi lặp lại các luật mới dựa trên đánh giá từ dữ liệu hiện tại, và trích xuất các sự kiện chất lượng cao từ các luật đã tinh chỉnh; và Truy xuất sự kiện ngữ nghĩa (Semantic Facts Retrieval) nhúng các sự kiện vào cơ sở dữ liệu vector và truy xuất các sự kiện tương đồng ngữ nghĩa, sự kiện tương đồng chủ thể, và sự kiện chân lý nền sử dụng khái niệm RAG. Các sự kiện này được kết hợp trong Suy luận đa nguồn (Multi-Source Reasoning), nơi LLMs tổng hợp câu trả lời đặc thù cho truy vấn bằng cách tích hợp thông tin đa dạng và đồng bộ về mặt ngữ nghĩa.
 
 \section{Trích xuất sự kiện dựa trên luật}
 
@@ -35,45 +37,59 @@ trong đó: \( r_b \) biểu thị số cặp sự kiện thời gian thỏa mã
 \textit{Quá trình lựa chọn quan hệ.} Sau đánh giá chất lượng luật, với mỗi quan hệ trong dữ liệu hiện tại, chúng tôi triển khai quá trình lựa chọn quan hệ để xác định top-$k$ quan hệ liên quan nhất cho việc xây dựng luật thời gian. Quá trình này tận dụng Large Language Models (LLMs) thông qua phương pháp nhắc có cấu trúc. \textbf{User Message} chứa đầu vào biến đổi đặc thù cho từng truy vấn (đầu luật, các luật điểm cao, và các quan hệ khả dụng), trong khi \textbf{System Message} cung cấp hướng dẫn nhất quán xuyên suốt tất cả các trường hợp nhắc.
 
 
-\begin{promptbox}{Prompt lựa chọn quan hệ liên quan}
-\textbf{User Message:}
-Cho trước một quan hệ đầu luật mục tiêu, hãy phân tích các luật điểm cao và các quan hệ khả dụng để xác định top-$k$ quan hệ liên quan nhất có thể tạo thành các luật thời gian có ý nghĩa.
-\begin{itemize}
-    \item \textbf{Đầu luật:} \texttt{\{rule\_head\}} - Quan hệ mục tiêu cho việc sinh luật
-    \item \textbf{Tổ hợp logic hiện tại:} \texttt{\{high\_scoring\_rules\}} - Các luật điểm cao từ đánh giá luật
-    \item \textbf{Quan hệ khả dụng:} \texttt{\{relation\_list\}} - Các quan hệ ứng viên để xây dựng luật
-\end{itemize}
+% \begin{promptbox}{Prompt lựa chọn quan hệ liên quan}
+% \textbf{User Message:}
+% Cho trước một quan hệ đầu luật mục tiêu, hãy phân tích các luật điểm cao và các quan hệ khả dụng để xác định top-$k$ quan hệ liên quan nhất có thể tạo thành các luật thời gian có ý nghĩa.
+% \begin{itemize}
+%     \item \textbf{Đầu luật:} \texttt{\{rule\_head\}} - Quan hệ mục tiêu cho việc sinh luật
+%     \item \textbf{Tổ hợp logic hiện tại:} \texttt{\{high\_scoring\_rules\}} - Các luật điểm cao từ đánh giá luật
+%     \item \textbf{Quan hệ khả dụng:} \texttt{\{relation\_list\}} - Các quan hệ ứng viên để xây dựng luật
+% \end{itemize}
 
-\textbf{System Message:} Chọn các quan hệ ứng viên thỏa mãn: Có liên kết ngữ nghĩa mạnh với quan hệ đầu luật, thể hiện khả năng dự đoán cao dựa trên các mẫu dữ liệu lịch sử và có thể tạo thành các luật thời gian có ý nghĩa khi kết hợp.
-\end{promptbox}
+% \textbf{System Message:} Chọn các quan hệ ứng viên thỏa mãn: Có liên kết ngữ nghĩa mạnh với quan hệ đầu luật, thể hiện khả năng dự đoán cao dựa trên các mẫu dữ liệu lịch sử và có thể tạo thành các luật thời gian có ý nghĩa khi kết hợp.
+% \end{promptbox}
+
+\begin{figure}[!htbp]
+\includegraphics[width=15cm]{images/RelevantRelationPrompt.png}
+\caption{Prompt lựa chọn mối quan hệ liên quan của một đầu luật.} 
+\label{RelevantRelationPrompt}
+\end{figure}
 
 \subsection{Sinh luật và tinh chỉnh lặp}
 
 \paragraph{Sinh luật mới.}
-Quá trình tạo các luật thời gian mới tận dụng Large Language Models (LLMs) thông qua phương pháp nhắc có cấu trúc. Cách tiếp cận này sử dụng các luật lịch sử điểm cao và các quan hệ liên quan top-k làm đầu vào. Chiến lược nhắc được thiết kế để hướng dẫn LLM tạo ra các luật logic thời gian toàn diện và có ý nghĩa....
-\begin{promptbox}{Prompt sinh luật mới}
-\textbf{User Message:}
-Sinh các luật logic thời gian cho quan hệ mục tiêu thông qua Suy luận từng bước.
-\begin{itemize}
-    \item \textbf{Quan hệ mục tiêu:} \texttt{\{head\_relation\}(X, Y, T)} - Quan hệ mục tiêu cho việc sinh luật
-    \item \textbf{Luật tham chiếu:} \texttt{\{high\_scoring\_rules\}} - Các luật tham chiếu điểm cao
-    \item \textbf{Quan hệ ứng viên được cung cấp:} \texttt{\{relevant\_relations\}} - Các quan hệ ứng viên được cung cấp
-\end{itemize}
+Quá trình tạo các luật thời gian mới tận dụng Large Language Models (LLMs) thông qua phương pháp nhắc có cấu trúc. Cách tiếp cận này sử dụng các luật lịch sử điểm cao và các quan hệ liên quan top-k làm đầu vào. Chiến lược nhắc được thiết kế để hướng dẫn LLM tạo ra các luật logic thời gian toàn diện và có ý nghĩa.
 
-\textbf{System Message:} Sử dụng các quan hệ từ phần thân của các luật tham chiếu và các quan hệ ứng viên được cung cấp, đảm bảo mỗi luật được sinh ra: duy trì tính nhất quán thời gian, tạo ra các liên kết ngữ nghĩa có ý nghĩa và hình thành các đường dẫn suy luận thời gian hợp lệ.\\
-Ví dụ:
+% \begin{promptbox}{Prompt sinh luật mới}
+% \textbf{User Message:}
+% Sinh các luật logic thời gian cho quan hệ mục tiêu thông qua Suy luận từng bước.
+% \begin{itemize}
+%     \item \textbf{Quan hệ mục tiêu:} \texttt{\{head\_relation\}(X, Y, T)} - Quan hệ mục tiêu cho việc sinh luật
+%     \item \textbf{Luật tham chiếu:} \texttt{\{high\_scoring\_rules\}} - Các luật tham chiếu điểm cao
+%     \item \textbf{Quan hệ ứng viên được cung cấp:} \texttt{\{relevant\_relations\}} - Các quan hệ ứng viên được cung cấp
+% \end{itemize}
 
-\begin{itemize}
-    \item \textbf{Quan hệ mục tiêu:} Make a visit(X0, X1, T)
-    \item \textbf{Luật tham chiếu:}
-    \begin{itemize}
-        \item Make a visit(X0, X1, T) $\leftarrow$ Host a visit(X1, X0, T0)
-        \item Make a visit(X0, X2, T3) $\leftarrow$ Consult(X0, X1, T0)
-    \end{itemize}
-    \item \textbf{Quan hệ ứng viên được cung cấp:} Praise or endorse(X0, X1, T), Plan to meet(X0, X1, T), Engage in negotiation(X0, X1, T)
-    $\Rightarrow$ \textbf{Luật sinh ra:} Make a visit(X0, X1, T3) $\leftarrow$ Endorse(X0, X1, T0) $\land$ Plan to meet(X1, X0, T1) $\land$ Host a visit(X0, X1, T2)
-\end{itemize}
-\end{promptbox}
+% \textbf{System Message:} Sử dụng các quan hệ từ phần thân của các luật tham chiếu và các quan hệ ứng viên được cung cấp, đảm bảo mỗi luật được sinh ra: duy trì tính nhất quán thời gian, tạo ra các liên kết ngữ nghĩa có ý nghĩa và hình thành các đường dẫn suy luận thời gian hợp lệ.\\
+% Ví dụ:
+
+% \begin{itemize}
+%     \item \textbf{Quan hệ mục tiêu:} Make a visit(X0, X1, T)
+%     \item \textbf{Luật tham chiếu:}
+%     \begin{itemize}
+%         \item Make a visit(X0, X1, T) $\leftarrow$ Host a visit(X1, X0, T0)
+%         \item Make a visit(X0, X2, T3) $\leftarrow$ Consult(X0, X1, T0)
+%     \end{itemize}
+%     \item \textbf{Quan hệ ứng viên được cung cấp:} Praise or endorse(X0, X1, T), Plan to meet(X0, X1, T), Engage in negotiation(X0, X1, T)
+%     $\Rightarrow$ \textbf{Luật sinh ra:} Make a visit(X0, X1, T3) $\leftarrow$ Endorse(X0, X1, T0) $\land$ Plan to meet(X1, X0, T1) $\land$ Host a visit(X0, X1, T2)
+% \end{itemize}
+% \end{promptbox}
+
+\begin{figure}[!htbp]
+\includegraphics[width=15cm]{images/NewRuleGenerationPrompt.png}
+\caption{Prompt sinh ra những luật mới dựa trên Top k mối quan hệ liên quan và những luật chất lượng cao trên historical data.} 
+\label{NewRuleGenerationPrompt}
+\end{figure}
+    
 
 
 \paragraph{Đánh giá và xếp hạng luật.}
@@ -88,18 +104,24 @@ Với mỗi đầu luật, chúng tôi đánh giá chất lượng quan hệ th�
 
 trong đó $N_{high}(rel_i)$ biểu thị số lượng luật điểm cao chứa quan hệ $i$, và $N_{total}(rel_i)$ biểu thị tổng số luật được tạo ra chứa quan hệ $i$. Quá trình tinh chỉnh xác định $n$ quan hệ cuối (trong số $k$) dựa trên điểm chất lượng và cập nhật chúng thông qua lựa chọn có hướng dẫn bởi LLM:
 
-\begin{promptbox}{Prompt tinh chỉnh tập quan hệ liên quan}
-\textbf{User Message:}
-Cho trước một đầu luật và các quan hệ hiệu suất thấp của nó, phân tích các luật điểm cao và các quan hệ khả dụng để xác định các quan hệ thay thế có thể nâng cao chất lượng luật thời gian.
-\begin{itemize}
-    \item \textbf{Đầu luật:} \texttt{\{rule\_head\}} - Quan hệ mục tiêu cho việc sinh luật
-    \item \textbf{Tổ hợp logic hiện tại:} \texttt{\{high\_scoring\_rules\}} - Các luật điểm cao từ đánh giá luật
-    \item \textbf{Quan hệ hiệu suất thấp:} \texttt{\{low\_quality\_relations\}} - Các quan hệ cần thay thế
-    \item \textbf{Quan hệ khả dụng:} \texttt{\{relation\_list\}} - Các quan hệ ứng viên để thay thế
-\end{itemize}
+% \begin{promptbox}{Prompt tinh chỉnh tập quan hệ liên quan}
+% \textbf{User Message:}
+% Cho trước một đầu luật và các quan hệ hiệu suất thấp của nó, phân tích các luật điểm cao và các quan hệ khả dụng để xác định các quan hệ thay thế có thể nâng cao chất lượng luật thời gian.
+% \begin{itemize}
+%     \item \textbf{Đầu luật:} \texttt{\{rule\_head\}} - Quan hệ mục tiêu cho việc sinh luật
+%     \item \textbf{Tổ hợp logic hiện tại:} \texttt{\{high\_scoring\_rules\}} - Các luật điểm cao từ đánh giá luật
+%     \item \textbf{Quan hệ hiệu suất thấp:} \texttt{\{low\_quality\_relations\}} - Các quan hệ cần thay thế
+%     \item \textbf{Quan hệ khả dụng:} \texttt{\{relation\_list\}} - Các quan hệ ứng viên để thay thế
+% \end{itemize}
 
-\textbf{System Message:} Lựa chọn các quan hệ thay thế có: Kết nối ngữ nghĩa mạnh với đầu luật và thể hiện khả năng dự đoán cao dựa trên các tổ hợp logic hiện tại.
-\end{promptbox}
+% \textbf{System Message:} Lựa chọn các quan hệ thay thế có: Kết nối ngữ nghĩa mạnh với đầu luật và thể hiện khả năng dự đoán cao dựa trên các tổ hợp logic hiện tại.
+% \end{promptbox}
+
+\begin{figure}[!htbp]
+\includegraphics[width=15cm]{images/RelationRefinementPrompt.png}
+\caption{Prompt tinh chỉnh tập mối quan hệ liên quan của một đầu luật.} 
+\label{RelationRefinementPrompt.png}
+\end{figure}    
 
 \paragraph{Cải tiến lặp.}
 Toàn bộ quá trình hoạt động theo chu kỳ liên tục, nơi các luật mới được tạo ra bằng cách sử dụng các quan hệ đã cập nhật và các luật điểm cao mới, sau đó tiến hành đánh giá chất lượng và tinh chỉnh quan hệ. Quá trình này tiếp tục cho đến khi tập luật đạt được số lần lặp xác định trước, cuối cùng tạo ra tập luật hoàn thiện.
