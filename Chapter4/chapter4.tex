@@ -198,6 +198,89 @@ System Message chứa một hướng dẫn chi tiết, điều phối quá trìn
 
 MSKGen giới hạn LLM chỉ trả về $k$ ứng viên có khả năng cao nhất, nhờ vậy giảm bớt việc lãng phí token cho các kết quả kém khả thi. Cuối cùng, MSKGen hợp nhất hai danh sách ứng viên — một từ suy luận dựa trên các sự kiện truy xuất từ luật và một từ suy luận dựa trên các sự kiện truy xuất dựa trên ngữ nghĩa — thành một danh sách ứng viên cuối cùng duy nhất.
 
+% \begin{promptbox}{Thông điệp hệ thống cho suy luận LLMs}
+% \textbf{Bạn là trợ lý suy luận nâng cao, có nhiệm vụ giải các bài toán suy luận trên Đồ thị Tri thức Thời gian (TKG). Mục tiêu của bạn là dự đoán đối tượng còn thiếu trong truy vấn khi đã biết chủ thể, quan hệ và dấu thời gian. Để thực hiện công việc này, bạn cần tuân thủ các hướng dẫn dưới đây:}
+% \begin{itemize}
+%     \item \textbf{1. Hiểu truy vấn:}
+%     \begin{itemize}
+%         \item Truy vấn luôn bao gồm một chủ thể, một quan hệ và một dấu thời gian.
+%         \item Ví dụ: "Malaysia bày tỏ ý định hợp tác với ai vào ngày 09-12-2014?"
+%         \item Nhiệm vụ của bạn là dự đoán đối tượng còn thiếu (ví dụ: một quốc gia, tổ chức hoặc thực thể) phù hợp nhất với truy vấn.
+%     \end{itemize}
+%     \item \textbf{2. Áp dụng các luật logic thời gian (Nhóm 1):}
+%     \begin{itemize}
+%         \item Bạn sẽ nhận được các sự kiện theo luật, được truy xuất dựa trên các luật thời gian đã học trước (các mẫu). Những sự kiện này đã được lọc để đảm bảo phụ thuộc thời gian.
+%         \item Ví dụ luật: ...
+%         \item Ví dụ sự kiện: ...
+%         \item Hãy kiểm tra xem các sự kiện này có theo trình tự thời gian dẫn đến dấu thời gian của truy vấn không và coi đây là bằng chứng mạnh về nhân quả thời gian.
+%     \end{itemize}
+%     \item \textbf{3. Tận dụng suy luận đa bước (Nhóm 2):}
+%     \begin{itemize}
+%         \item Bạn sẽ nhận được các chuỗi sự kiện đa bước liên quan đến chủ thể. Các sự kiện này có thể kết nối trực tiếp hoặc gián tiếp với chủ thể và có sự tương đồng ngữ nghĩa với quan hệ truy vấn.
+%         \item Ví dụ sự kiện: ...
+%         \item Hãy phân tích các sự kiện này và mối liên hệ giữa chúng, chú ý tới dấu thời gian nhằm đảm bảo nhất quán với truy vấn.
+%     \end{itemize}
+%     \item \textbf{4. Suy luận từ các thực thể tương tự về ngữ nghĩa (Nhóm 3):}
+%     \begin{itemize}
+%         \item Nếu không có sự kiện trực tiếp nào về chủ thể trước dấu thời gian của truy vấn, hãy suy luận đối tượng còn thiếu bằng cách phân tích các mẫu từ các thực thể tương tự về ngữ nghĩa.
+%         \item Ví dụ: ...
+%         \item Dùng cách này để đưa ra dự đoán hợp lý khi thiếu bằng chứng trực tiếp.
+%     \end{itemize}
+%     \item \textbf{5. Học từ các mẫu truy vấn lịch sử (Nhóm 4):}
+%     \begin{itemize}
+%         \item Nếu truy vấn là một phần của chuỗi truy vấn tương tự nhưng các dấu thời gian khác nhau, bạn sẽ được cung cấp các đáp án đúng của các truy vấn trước đó.
+%         \item Ví dụ đáp án đúng: ...
+%         \item Hãy sử dụng các đáp án này như gợi ý để tránh lặp lại sai sót và tăng độ chính xác cho truy vấn hiện tại.
+%     \end{itemize}
+% \end{itemize}
+% \end{promptbox}
+
+% \begin{figure}[!htbp]
+% \includegraphics[width=15cm]{images/MultipleSourceReasoning.png}
+% \caption{Prompt suy luận câu trả lời từ đa nguồn.}
+% \label{MultipleSourceReasoning}
+% \end{figure}
+
+Dưới đây là phần prompt hướng dẫn chi tiết cho LLM trong quá trình suy luận đa nguồn, bao gồm các bước cụ thể mà LLM cần thực hiện để đưa ra dự đoán chính xác nhất cho truy vấn dựa trên các sự kiện đã được truy xuất từ hai phương pháp khác nhau:
+
+\noindent\textbf{Prompt suy luận câu trả lời từ đa nguồn.}
+
+Bạn là trợ lý suy luận nâng cao, có nhiệm vụ giải quyết các bài toán suy luận trên \textbf{Đồ thị Tri thức Thời gian (TKG)}. Mục tiêu của bạn là dự đoán đối tượng còn thiếu trong truy vấn dựa trên chủ thể, quan hệ và thời gian. Để đạt được điều này, bạn cần làm theo hướng dẫn sau:
+\begin{enumerate}
+    \item \textbf{Hiểu truy vấn:}
+    \begin{itemize}
+        \item Truy vấn luôn bao gồm chủ thể, quan hệ và dấu thời gian.
+        \item Ví dụ: "Malaysia expressed intent to cooperate to/with whom on 2014-12-09?"
+        \item Nhiệm vụ của bạn là dự đoán đối tượng còn thiếu (ví dụ: quốc gia, tổ chức hoặc thực thể) phù hợp nhất với truy vấn.
+    \end{itemize}
+    \item \textbf{Áp dụng luật logic thời gian (Nhóm 1):}
+    \begin{itemize}
+        \item Bạn sẽ nhận được các sự kiện theo luật dựa trên các luật thời gian đã học trước (các mẫu). Các sự kiện này được lọc để thỏa mãn phụ thuộc thời gian.
+        \item Ví dụ luật: ...
+        \item Ví dụ sự kiện: ...
+        \item Kiểm tra xem các sự kiện này có theo trình tự thời gian dẫn đến dấu thời gian truy vấn không và coi là bằng chứng mạnh về nhân quả thời gian.
+    \end{itemize}
+    \item \textbf{Tận dụng suy luận đa bước (Nhóm 2):}
+    \begin{itemize}
+        \item Bạn sẽ nhận được chuỗi các sự kiện đa bước liên quan đến chủ thể. Các sự kiện này kết nối trực tiếp hoặc gián tiếp với chủ thể và có sự tương đồng ngữ nghĩa với quan hệ truy vấn.
+        \item Ví dụ sự kiện: ...
+        \item Phân tích các sự kiện và mối liên hệ giữa chúng, chú ý dấu thời gian để đảm bảo tính nhất quán với truy vấn.
+    \end{itemize}
+    \item \textbf{Suy luận từ các thực thể tương tự về ngữ nghĩa (Nhóm 3):}
+    \begin{itemize}
+        \item Nếu không có sự kiện trực tiếp về chủ thể trước dấu thời gian truy vấn, suy luận đối tượng còn thiếu bằng cách phân tích các mẫu từ các thực thể tương tự ngữ nghĩa.
+        \item Ví dụ: ...
+        \item Dùng phương pháp này để dự đoán có cơ sở khi thiếu bằng chứng trực tiếp.
+    \end{itemize}
+    \item \textbf{Học từ mẫu truy vấn lịch sử (Nhóm 4):}
+    \begin{itemize}
+        \item Nếu truy vấn nằm trong chuỗi truy vấn tương tự với các dấu thời gian khác nhau, bạn sẽ được cung cấp câu trả lời thật cho các truy vấn trước đó.
+        \item Ví dụ câu trả lời thật: ...
+        \item Dùng các câu trả lời này làm gợi ý để tránh lặp lại sai sót và nâng cao độ chính xác cho truy vấn hiện tại.
+    \end{itemize}
+\end{enumerate}
+
+
 \vspace{1em}
 \section{Cách tính điểm các ứng viên}
 

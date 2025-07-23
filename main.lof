@@ -4,12 +4,12 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Framework MSKGen giải quyết bài toán suy luận trong đồ thị tri thức thời gian.}}{38}{figure.4.1}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Prompt lựa chọn mối quan hệ liên quan của một đầu luật.}}{40}{figure.4.2}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Prompt sinh ra những luật mới dựa trên Top k mối quan hệ liên quan và những luật chất lượng cao trên historical data.}}{41}{figure.4.3}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Prompt tinh chỉnh tập mối quan hệ liên quan của một đầu luật.}}{43}{figure.4.4}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Framework MSKGen giải quyết bài toán suy luận trong đồ thị tri thức thời gian.}}{37}{figure.4.1}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Prompt lựa chọn mối quan hệ liên quan của một đầu luật.}}{39}{figure.4.2}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Prompt sinh ra những luật mới dựa trên Top k mối quan hệ liên quan và những luật chất lượng cao trên historical data.}}{40}{figure.4.3}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Prompt tinh chỉnh tập mối quan hệ liên quan của một đầu luật.}}{42}{figure.4.4}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Hit@k (k=1,3,10) của MSKGen w/o rule-based facts với các mô hình sử dụng phương pháp suy luận dựa vào LLMs}}{60}{figure.5.1}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Hit@k (k=1,3,10) của MSKGen w/o semantic facts với các mô hình sử dụng phương pháp suy luận dựa vào luật}}{60}{figure.5.2}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Ảnh hưởng của số lượng sự kiện tối đa cung cấp cho LLM khi suy luận}}{62}{figure.5.3}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Hit@k (k=1,3,10) của MSKGen w/o rule-based facts với các mô hình sử dụng phương pháp suy luận dựa vào LLMs}}{61}{figure.5.1}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Hit@k (k=1,3,10) của MSKGen w/o semantic facts với các mô hình sử dụng phương pháp suy luận dựa vào luật}}{61}{figure.5.2}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Ảnh hưởng của số lượng sự kiện tối đa cung cấp cho LLM khi suy luận}}{63}{figure.5.3}%
 \addvspace {10\p@ }

@@ -44,24 +44,24 @@ Cả hai nhánh tiếp cận đều có những ưu điểm riêng trong việc 
 \section{Thách thức của bài toán}
 
 \subsection{Hạn chế trong khai thác ngữ nghĩa của LLMs}
-Các phương pháp hiện tại ứng dụng LLMs vào TKGR chủ yếu tập trung vào kỹ thuật prompt engineering đơn giản mà chưa tận dụng hết tiềm năng hiểu ngữ nghĩa sâu của mô hình. Việc phụ thuộc vào các phương pháp truy xuất truyền thống dựa trên khớp lược đồ (schema matching) dẫn đến việc bỏ qua các mối quan hệ ngữ nghĩa tiềm ẩn trong dữ liệu lịch sử. Ví dụ, khi dự đoán sự kiện "công ty A hợp tác với công ty B", các phương pháp hiện tại chỉ xem xét các sự kiện trực tiếp liên quan đến hai công ty này mà không nhận biết được mối liên hệ gián tiếp thông qua các thực thể trung gian hoặc ngữ cảnh thời gian mở rộng. Điều này làm giảm khả năng phát hiện các khuôn mẫu phức tạp và quan hệ đa tầng trong TKGs.
+Các phương pháp LLMs cho TKGR chủ yếu dựa vào prompt đơn giản, vẫn chưa khai thác hết hiểu biết ngữ nghĩa sâu và thường bỏ qua các mối quan hệ ngữ nghĩa tiềm ẩn trong dữ liệu lịch sử. Điều này khiến mô hình khó phát hiện quan hệ gián tiếp, các khuôn mẫu phức tạp và quan hệ đa tầng giữa các sự kiện.
 
 \subsection{Thiếu tính cá nhân hóa trong suy luận}
-Các hệ thống TKGR hiện có thường áp dụng cùng một chiến lược suy luận cho mọi truy vấn mà không xem xét đặc thù ngữ nghĩa của từng yêu cầu cụ thể. Việc không phân biệt được sự khác biệt giữa các loại truy vấn (ví dụ: truy vấn về sự kiện kinh tế vs. sự kiện chính trị) dẫn đến việc tạo ra các phản hồi chung chung. Hệ quả là các dự đoán thiếu tính chính xác cục bộ và không phản ánh được sắc thái thời gian đặc thù của từng sự kiện. Nghiêm trọng hơn, các phương pháp dựa trên LLMs hiện tại thường không xử lý được các truy vấn yêu cầu kết hợp nhiều nguồn tri thức đa dạng.
+Phần lớn hệ thống TKGR hiện hành sử dụng chung một chiến lược cho mọi truy vấn, không phân biệt đặc thù ngữ nghĩa của từng loại. Vì vậy, các dự đoán thường chung chung, thiếu chính xác cục bộ và khó xử lý truy vấn tích hợp nhiều nguồn tri thức khác nhau.
 
 \subsection{Khó khăn trong xử lý thông tin thời gian đa tầng}
-TKGs chứa các mối quan hệ thời gian ở nhiều mức độ phức tạp khác nhau, từ các sự kiện đơn lẻ (event-level) đến các xu hướng dài hạn (trend-level). Các phương pháp hiện tại gặp khó khăn trong việc đồng thời xử lý:
+Các phương pháp hiện tại gặp khó trong việc xử lý đồng thời:
 \begin{itemize}
-    \item Thông tin lịch sử bậc cao (high-order dependencies) giữa các sự kiện cách biệt về thời gian
-    \item Tương tác phi tuyến tính giữa các yếu tố thời gian ngắn hạn và dài hạn
-    \item Sự mâu thuẫn tiềm ẩn giữa các nguồn tri thức khác nhau
+    \item Thông tin lịch sử bậc cao giữa các sự kiện xa nhau về thời gian
+    \item Tương tác phi tuyến ngắn hạn, dài hạn giữa các yếu tố thời gian
+    \item Xung đột tiềm ẩn giữa các nguồn tri thức khác nhau
 \end{itemize}
 
 \subsection{Giới hạn trong tích hợp tri thức đa nguồn}
 Phần lớn các phương pháp TKGR hiện nay chỉ tập trung vào khai thác thông tin từ cấu trúc đồ thị mà bỏ qua các nguồn tri thức bổ sung như văn bản phi cấu trúc, cơ sở dữ liệu quan hệ, hay tri thức miền chuyên gia. Sự thiếu hụt này dẫn đến hai hệ quả chính: (1) Các dự đoán không thể tận dụng được thông tin ngữ cảnh phong phú từ các nguồn dữ liệu đa phương thức, (2) Hệ thống khó duy trì tính nhất quán khi xử lý các truy vấn đòi hỏi tích hợp tri thức liên ngành.
 
 \subsection{Thách thức về tính giải thích}
-Mặc dù LLMs có khả năng suy luận phức tạp, các phương pháp TKGR hiện tại chưa cung cấp được cơ chế giải thích rõ ràng cho từng dự đoán. Việc thiếu minh bạch trong quá trình ra quyết định đặc biệt nghiêm trọng trong các ứng dụng nhạy cảm như dự báo tài chính hoặc chẩn đoán y tế, nơi cần theo dõi được logic suy luận và nguồn gốc của từng dự đoán. Hơn nữa, sự phụ thuộc quá mức vào các mô hình hộp đen (black-box models) làm hạn chế khả năng hiệu chỉnh và tối ưu hệ thống.
+Các phương pháp TKGR hiện tại chưa cung cấp cơ chế giải thích rõ ràng, thiếu minh bạch trong quyết định, đặc biệt bất lợi trong các ứng dụng nhạy cảm và phụ thuộc nhiều vào mô hình hộp đen, khiến việc tối ưu, hiệu chỉnh hệ thống bị hạn chế.
 
 
 \section{Động lực và hướng tiếp cận}
