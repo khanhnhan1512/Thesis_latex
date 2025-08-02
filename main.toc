@@ -1,10 +1,10 @@
 \contentsline {chapter}{Lời cảm ơn}{i}{section*.1}%
 \contentsline {chapter}{Đề cương chi tiết}{ii}{chapter*.2}%
-\contentsline {chapter}{Mục lục}{ii}{chapter*.2}%
-\contentsline {chapter}{Danh sách hình ảnh}{vi}{section*.4}%
-\contentsline {chapter}{Danh sách bảng}{vii}{section*.6}%
-\contentsline {chapter}{Tóm tắt}{viii}{section*.8}%
-\contentsline {chapter}{Danh sách các từ viết tắt}{x}{section*.10}%
+\contentsline {chapter}{Mục lục}{ii}{chapter*.3}%
+\contentsline {chapter}{Danh sách hình ảnh}{vi}{section*.5}%
+\contentsline {chapter}{Danh sách bảng}{vii}{section*.7}%
+\contentsline {chapter}{Tóm tắt}{viii}{section*.9}%
+\contentsline {chapter}{Danh sách các từ viết tắt}{x}{section*.11}%
 \contentsline {chapter}{\numberline {1}GIỚI THIỆU}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Giới thiệu tổng quan}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Thách thức của bài toán}{6}{section.1.2}%
@@ -33,7 +33,7 @@
 \contentsline {subsection}{\numberline {3.3.2}Các thuật toán truy xuất}{30}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}Cơ sở dữ liệu vector}{32}{subsection.3.3.3}%
 \contentsline {subsection}{\numberline {3.3.4}Các phương pháp tối ưu quá trình truy xuất}{33}{subsection.3.3.4}%
-\contentsline {chapter}{\numberline {4}Phương pháp đề xuất}{36}{chapter.4}%
+\contentsline {chapter}{\numberline {4}PHƯƠNG PHÁP ĐỀ XUẤT}{36}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Trích xuất sự kiện dựa trên luật}{37}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Trích xuất các luật lịch sử điểm cao và các quan hệ liên quan top k}{37}{subsection.4.1.1}%
 \contentsline {paragraph}{Lấy mẫu luật lịch sử.}{37}{subsection.4.1.1}%
@@ -55,7 +55,7 @@
 \contentsline {subsection}{\numberline {4.4.1}Điểm số dự đoán của LLM}{49}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}Điểm số từ dự đoán của mô hình học sâu theo phương pháp nhúng đồ thị}{49}{subsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.4.3}Điểm số cuối cùng}{50}{subsection.4.4.3}%
-\contentsline {chapter}{\numberline {5}Kết quả thí nghiệm}{51}{chapter.5}%
+\contentsline {chapter}{\numberline {5}KẾT QUẢ THÍ NGHIỆM}{51}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Bộ dữ liệu}{51}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Độ đo đánh giá}{53}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Thiết lập đánh giá}{54}{section.5.3}%
@@ -77,4 +77,4 @@
 \contentsline {subsection}{\numberline {6.3.3}Tự động hóa hệ thống}{68}{subsection.6.3.3}%
 \contentsline {subsection}{\numberline {6.3.4}Mở rộng nguồn tri thức}{68}{subsection.6.3.4}%
 \contentsline {chapter}{Công trình của tác giả}{70}{subsection.6.3.4}%
-\contentsline {chapter}{Tài liệu tham khảo}{71}{Item.6}%
+\contentsline {chapter}{Tài liệu tham khảo}{93}{chapter*.15}%
