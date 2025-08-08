@@ -1,7 +1,8 @@
 \chapter{PHƯƠNG PHÁP ĐỀ XUẤT}
 \label{Chapter4}  
 
-Trong phần này, chúng tôi trình bày framework MSKGen cho bài toán suy luận đồ thị tri thức thời gian. Mục 4.1 giới thiệu quá trình Trích xuất sự kiện dựa trên luật (Rule-based Facts Extraction), tạo và tinh chỉnh các luật thời gian lặp đi lặp lại bằng LLMs đồng thời trích xuất các sự kiện từ các luật đã tinh chỉnh. Mục 4.2 mô tả cơ chế Truy xuất sự kiện ngữ nghĩa (Semantic Facts Retrieval) sử dụng RAG để thu thập các sự kiện tương đồng ngữ nghĩa, sự kiện tương đồng chủ thể và sự kiện chân lý nền từ cơ sở dữ liệu vector. Mục 4.3 giải thích cơ chế Suy luận đa nguồn (Multi-Source Reasoning) nơi các sự kiện được trích xuất và truy xuất được kết hợp để lý luận theo truy vấn cụ thể bằng LLMs. Cuối cùng, Mục 4.4 chi tiết cơ chế Tính điểm ứng viên (Candidate Scoring) tích hợp các ứng viên do LLM tạo ra với dự đoán từ mô hình đồ thị để xếp hạng và lựa chọn câu trả lời chính xác nhất cho mỗi truy vấn.
+Trong phần này, chúng tôi trình bày framework MSKGen cho bài toán suy luận đồ thị tri thức thời gian. MSKGen bắt đầu với hai quá trình song song: Trích xuất sự kiện dựa trên luật (Rule-based Facts Extraction) liên tục sử dụng LLMs để tạo luật từ các luật lịch sử được lấy mẫu, tinh chỉnh lặp đi lặp lại các luật mới dựa trên đánh giá từ dữ liệu hiện tại, và trích xuất các sự kiện chất lượng cao từ các luật đã tinh chỉnh; và Truy xuất sự kiện ngữ nghĩa (Semantically Similar Facts Retrieval) nhúng các sự kiện vào cơ sở dữ liệu vector và truy xuất các sự kiện tương đồng ngữ nghĩa, sự kiện tương đồng chủ thể, và sự kiện chân lý nền sử dụng khái niệm RAG. Các sự kiện này được kết hợp trong Suy luận đa nguồn (Multi-Source Reasoning), nơi LLMs tổng hợp câu trả lời đặc thù cho truy vấn bằng cách tích hợp các tri thức đa dạng và đồng bộ về mặt ngữ nghĩa.
+Cuối cùng, MSKGEN tính điểm các ứng viên (Candidate Scoring) và tích hợp điểm số này với điểm số từ dự đoán của mô hình học sâu theo phương pháp nhúng đồ thị để lựa chọn câu trả lời chính xác nhất cho mỗi truy vấn.
 
 \begin{figure}[!htbp]
 \includegraphics[width=15cm]{images/Framework01.png}
@@ -9,8 +10,6 @@ Trong phần này, chúng tôi trình bày framework MSKGen cho bài toán suy l
 \caption{Framework MSKGen giải quyết bài toán suy luận trong đồ thị tri thức thời gian.} 
 \label{fig1}
 \end{figure}
-
-Trong hình 4.2, MSKGen bắt đầu với hai quá trình song song: Trích xuất sự kiện dựa trên luật (Rule-based Facts Extraction) liên tục sử dụng LLMs để tạo luật từ các luật lịch sử được lấy mẫu, tinh chỉnh lặp đi lặp lại các luật mới dựa trên đánh giá từ dữ liệu hiện tại, và trích xuất các sự kiện chất lượng cao từ các luật đã tinh chỉnh; và Truy xuất sự kiện ngữ nghĩa (Semantic Facts Retrieval) nhúng các sự kiện vào cơ sở dữ liệu vector và truy xuất các sự kiện tương đồng ngữ nghĩa, sự kiện tương đồng chủ thể, và sự kiện chân lý nền sử dụng khái niệm RAG. Các sự kiện này được kết hợp trong Suy luận đa nguồn (Multi-Source Reasoning), nơi LLMs tổng hợp câu trả lời đặc thù cho truy vấn bằng cách tích hợp thông tin đa dạng và đồng bộ về mặt ngữ nghĩa.
 
 \section{Trích xuất sự kiện dựa trên luật}
 
@@ -24,71 +23,71 @@ Giai đoạn đầu tiên của quá trình trích xuất sự kiện dựa trê
     \label{eq2}
     P(u; m, e_m, t_m) = \frac{\exp(t_u - t_m)}{\sum_{u' \in A(m, e_m, t_m)} \exp(t_{u'} - t_m)}
 \end{equation}
-nơi các cạnh gần thời gian hơn với nút hiện tại có xác suất lấy mẫu cao hơn. Điều này đảm bảo thứ tự thời gian được bảo toàn trong suốt quá trình duyệt và các sự kiện tương lai không thể ảnh hưởng đến sự kiện quá khứ. Cuối cùng, các chuỗi duyệt được lấy mẫu được chuyển đổi thành các luật bằng cách thay thế các thực thể thành biến số trong khi duy trì tham chiếu thực thể và bảo toàn các ràng buộc thời gian giữa các sự kiện.
+Công thức trên đảm bảo các cạnh gần thời gian hơn với nút hiện tại có xác suất lấy mẫu cao hơn. Điều này đảm bảo thứ tự thời gian được bảo toàn trong suốt quá trình duyệt và các sự kiện tương lai không thể ảnh hưởng đến sự kiện quá khứ. Cuối cùng, các chuỗi duyệt được lấy mẫu được chuyển đổi thành các luật bằng cách thay thế các thực thể thành biến số trong khi duy trì tham chiếu thực thể và bảo toàn các ràng buộc thời gian giữa các sự kiện.
 
 \paragraph{Đánh giá chất lượng luật.}
 Sau khi thu được các luật mẫu từ dữ liệu lịch sử thông qua duyệt ngẫu nhiên thời gian, chúng tôi triển khai quá trình trích xuất để xác thực chất lượng luật và tạo ra các quan hệ liên quan. Các luật mẫu trải qua quá trình đánh giá chất lượng sử dụng thước đo Kulczynski \cite{ref_article16} trên dữ liệu lịch sử, được định nghĩa (\ref{eq3}):
 \begin{equation}
 \label{eq3}
-    Kulczynski(R) = \frac{1}{2} \left( \frac{r}{r_b} + \frac{r}{r_h} \right)
+    Kulc(R) = \frac{1}{2} \left( \frac{r}{r_b} + \frac{r}{r_h} \right)
 \end{equation}
 trong đó: \( r_b \) biểu thị số cặp sự kiện thời gian thỏa mãn thân luật (rule body), \( r_h \) biểu thị số cặp sự kiện thời gian thỏa mãn đầu luật (rule head), \( r \) biểu thị số cặp sự kiện thỏa mãn cả điều kiện thân luật và đầu luật. Các luật vượt ngưỡng \( \gamma \) được phân loại là luật điểm cao.
 
-\textit{Quá trình lựa chọn quan hệ.} Sau đánh giá chất lượng luật, với mỗi quan hệ trong dữ liệu hiện tại, chúng tôi triển khai quá trình lựa chọn quan hệ để xác định top-$k$ quan hệ liên quan nhất cho việc xây dựng luật thời gian. Quá trình này tận dụng Large Language Models (LLMs) thông qua phương pháp nhắc có cấu trúc. \textbf{User Message} chứa đầu vào biến đổi đặc thù cho từng truy vấn (đầu luật, các luật điểm cao, và các quan hệ khả dụng), trong khi \textbf{System Message} cung cấp hướng dẫn nhất quán xuyên suốt tất cả các trường hợp nhắc.
+\paragraph{Quá trình lựa chọn quan hệ.} Sau đánh giá chất lượng luật, với mỗi quan hệ trong dữ liệu hiện tại, chúng tôi triển khai quá trình lựa chọn quan hệ để xác định top-$k$ quan hệ liên quan nhất cho việc xây dựng luật thời gian. Quá trình này tận dụng Large Language Models (LLMs) thông qua phương pháp nhắc có cấu trúc. \textbf{User Message} chứa đầu vào biến đổi đặc thù cho từng truy vấn (đầu luật, các luật điểm cao, và các quan hệ khả dụng), trong khi \textbf{System Message} cung cấp hướng dẫn nhất quán xuyên suốt tất cả các trường hợp nhắc.
 
 
-% \begin{promptbox}{Prompt lựa chọn quan hệ liên quan}
-% \textbf{User Message:}
-% Cho trước một quan hệ đầu luật mục tiêu, hãy phân tích các luật điểm cao và các quan hệ khả dụng để xác định top-$k$ quan hệ liên quan nhất có thể tạo thành các luật thời gian có ý nghĩa.
-% \begin{itemize}
-%     \item \textbf{Đầu luật:} \texttt{\{rule\_head\}} - Quan hệ mục tiêu cho việc sinh luật
-%     \item \textbf{Tổ hợp logic hiện tại:} \texttt{\{high\_scoring\_rules\}} - Các luật điểm cao từ đánh giá luật
-%     \item \textbf{Quan hệ khả dụng:} \texttt{\{relation\_list\}} - Các quan hệ ứng viên để xây dựng luật
-% \end{itemize}
+\begin{promptbox}{Prompt lựa chọn quan hệ liên quan}
+\textbf{User Message:}
+Cho trước một quan hệ đầu luật mục tiêu, hãy phân tích các luật điểm cao và các quan hệ khả dụng để xác định top-$k$ quan hệ liên quan nhất có thể tạo thành các luật thời gian có ý nghĩa.
+\begin{itemize}
+    \item \textbf{Đầu luật:} \texttt{\{rule\_head\}} - Quan hệ mục tiêu cho việc sinh luật
+    \item \textbf{Tổ hợp logic hiện tại:} \texttt{\{high\_scoring\_rules\}} - Các luật điểm cao từ đánh giá luật
+    \item \textbf{Quan hệ khả dụng:} \texttt{\{relation\_list\}} - Các quan hệ ứng viên để xây dựng luật
+\end{itemize}
 
-% \textbf{System Message:} Chọn các quan hệ ứng viên thỏa mãn: Có liên kết ngữ nghĩa mạnh với quan hệ đầu luật, thể hiện khả năng dự đoán cao dựa trên các mẫu dữ liệu lịch sử và có thể tạo thành các luật thời gian có ý nghĩa khi kết hợp.
-% \end{promptbox}
+\textbf{System Message:} Chọn các quan hệ ứng viên thỏa mãn: có liên kết ngữ nghĩa mạnh với quan hệ đầu luật, thể hiện khả năng dự đoán cao dựa trên các mẫu dữ liệu lịch sử và có thể tạo thành các luật thời gian có ý nghĩa khi kết hợp.
+\end{promptbox}
 
-\begin{figure}[!htbp]
-\includegraphics[width=15cm]{images/RelevantRelationPrompt.png}
-\caption{Prompt lựa chọn mối quan hệ liên quan của một đầu luật.} 
-\label{RelevantRelationPrompt}
-\end{figure}
+% \begin{figure}[!htbp]
+% \includegraphics[width=15cm]{images/RelevantRelationPrompt.png}
+% \caption{Prompt lựa chọn mối quan hệ liên quan của một đầu luật.} 
+% \label{RelevantRelationPrompt}
+% \end{figure}
 
 \subsection{Sinh luật và tinh chỉnh lặp}
 
 \paragraph{Sinh luật mới.}
-Quá trình tạo các luật thời gian mới tận dụng Large Language Models (LLMs) thông qua phương pháp nhắc có cấu trúc. Cách tiếp cận này sử dụng các luật lịch sử điểm cao và các quan hệ liên quan top-k làm đầu vào. Chiến lược nhắc được thiết kế để hướng dẫn LLM tạo ra các luật logic thời gian toàn diện và có ý nghĩa.
+Quá trình tạo các luật thời gian mới tận dụng Large Language Models (LLMs) thông qua phương pháp xây dựng prompt có cấu trúc. Cách tiếp cận này sử dụng các luật lịch sử điểm cao và các quan hệ liên quan top-k làm đầu vào. Prompt được thiết kế để hướng dẫn LLM tạo ra các luật logic thời gian toàn diện và có ý nghĩa.
 
-% \begin{promptbox}{Prompt sinh luật mới}
-% \textbf{User Message:}
-% Sinh các luật logic thời gian cho quan hệ mục tiêu thông qua Suy luận từng bước.
-% \begin{itemize}
-%     \item \textbf{Quan hệ mục tiêu:} \texttt{\{head\_relation\}(X, Y, T)} - Quan hệ mục tiêu cho việc sinh luật
-%     \item \textbf{Luật tham chiếu:} \texttt{\{high\_scoring\_rules\}} - Các luật tham chiếu điểm cao
-%     \item \textbf{Quan hệ ứng viên được cung cấp:} \texttt{\{relevant\_relations\}} - Các quan hệ ứng viên được cung cấp
-% \end{itemize}
+\begin{promptbox}{Prompt sinh luật mới}
+\textbf{User Message:}
+Sinh các luật logic thời gian cho quan hệ mục tiêu thông qua Suy luận từng bước.
+\begin{itemize}
+    \item \textbf{Quan hệ mục tiêu:} \texttt{\{head\_relation\}(X, Y, T)} - Quan hệ mục tiêu cho việc sinh luật
+    \item \textbf{Luật tham chiếu:} \texttt{\{high\_scoring\_rules\}} - Các luật tham chiếu điểm cao
+    \item \textbf{Quan hệ ứng viên được cung cấp:} \texttt{\{relevant\_relations\}} - Các quan hệ ứng viên được cung cấp
+\end{itemize}
 
-% \textbf{System Message:} Sử dụng các quan hệ từ phần thân của các luật tham chiếu và các quan hệ ứng viên được cung cấp, đảm bảo mỗi luật được sinh ra: duy trì tính nhất quán thời gian, tạo ra các liên kết ngữ nghĩa có ý nghĩa và hình thành các đường dẫn suy luận thời gian hợp lệ.\\
-% Ví dụ:
+\textbf{System Message:} Sử dụng các quan hệ từ phần thân của các luật tham chiếu và các quan hệ ứng viên được cung cấp, đảm bảo mỗi luật được sinh ra: duy trì tính nhất quán thời gian, tạo ra các liên kết ngữ nghĩa có ý nghĩa và hình thành các đường dẫn suy luận thời gian hợp lệ.\\
+Ví dụ:
 
-% \begin{itemize}
-%     \item \textbf{Quan hệ mục tiêu:} Make a visit(X0, X1, T)
-%     \item \textbf{Luật tham chiếu:}
-%     \begin{itemize}
-%         \item Make a visit(X0, X1, T) $\leftarrow$ Host a visit(X1, X0, T0)
-%         \item Make a visit(X0, X2, T3) $\leftarrow$ Consult(X0, X1, T0)
-%     \end{itemize}
-%     \item \textbf{Quan hệ ứng viên được cung cấp:} Praise or endorse(X0, X1, T), Plan to meet(X0, X1, T), Engage in negotiation(X0, X1, T)
-%     $\Rightarrow$ \textbf{Luật sinh ra:} Make a visit(X0, X1, T3) $\leftarrow$ Endorse(X0, X1, T0) $\land$ Plan to meet(X1, X0, T1) $\land$ Host a visit(X0, X1, T2)
-% \end{itemize}
-% \end{promptbox}
+\begin{itemize}
+    \item \textbf{Quan hệ mục tiêu:} Make a visit(X0, X1, T)
+    \item \textbf{Luật tham chiếu:}
+    \begin{itemize}
+        \item Make a visit(X0, X1, T) $\leftarrow$ Host a visit(X1, X0, T0)
+        \item Make a visit(X0, X2, T3) $\leftarrow$ Consult(X0, X1, T0)
+    \end{itemize}
+    \item \textbf{Quan hệ ứng viên được cung cấp:} Praise or endorse(X0, X1, T), Plan to meet(X0, X1, T), Engage in negotiation(X0, X1, T)
+    $\Rightarrow$ \textbf{Luật sinh ra:} Make a visit(X0, X1, T3) $\leftarrow$ Endorse(X0, X1, T0) $\land$ Plan to meet(X1, X0, T1) $\land$ Host a visit(X0, X1, T2)
+\end{itemize}
+\end{promptbox}
 
-\begin{figure}[!htbp]
-\includegraphics[width=15cm]{images/NewRuleGenerationPrompt.png}
-\caption{Prompt sinh ra những luật mới dựa trên Top k mối quan hệ liên quan và những luật chất lượng cao trên historical data.} 
-\label{NewRuleGenerationPrompt}
-\end{figure}
+% \begin{figure}[!htbp]
+% \includegraphics[width=15cm]{images/NewRuleGenerationPrompt.png}
+% \caption{Prompt sinh ra những luật mới dựa trên Top k mối quan hệ liên quan và những luật chất lượng cao trên historical data.} 
+% \label{NewRuleGenerationPrompt}
+% \end{figure}
     
 
 
@@ -103,28 +102,31 @@ Với mỗi đầu luật, chúng tôi đánh giá chất lượng quan hệ th�
 \end{equation}
 
 trong đó $N_{high}(rel_i)$ biểu thị số lượng luật điểm cao chứa quan hệ $i$, và $N_{total}(rel_i)$ biểu thị tổng số luật được tạo ra chứa quan hệ $i$. Quá trình tinh chỉnh xác định $n$ quan hệ cuối (trong số $k$) dựa trên điểm chất lượng và cập nhật chúng thông qua lựa chọn có hướng dẫn bởi LLM:
-
-% \begin{promptbox}{Prompt tinh chỉnh tập quan hệ liên quan}
-% \textbf{User Message:}
-% Cho trước một đầu luật và các quan hệ hiệu suất thấp của nó, phân tích các luật điểm cao và các quan hệ khả dụng để xác định các quan hệ thay thế có thể nâng cao chất lượng luật thời gian.
-% \begin{itemize}
-%     \item \textbf{Đầu luật:} \texttt{\{rule\_head\}} - Quan hệ mục tiêu cho việc sinh luật
-%     \item \textbf{Tổ hợp logic hiện tại:} \texttt{\{high\_scoring\_rules\}} - Các luật điểm cao từ đánh giá luật
-%     \item \textbf{Quan hệ hiệu suất thấp:} \texttt{\{low\_quality\_relations\}} - Các quan hệ cần thay thế
-%     \item \textbf{Quan hệ khả dụng:} \texttt{\{relation\_list\}} - Các quan hệ ứng viên để thay thế
-% \end{itemize}
-
-% \textbf{System Message:} Lựa chọn các quan hệ thay thế có: Kết nối ngữ nghĩa mạnh với đầu luật và thể hiện khả năng dự đoán cao dựa trên các tổ hợp logic hiện tại.
-% \end{promptbox}
-
-\begin{figure}[!htbp]
-\includegraphics[width=15cm]{images/RelationRefinementPrompt.png}
-\caption{Prompt tinh chỉnh tập mối quan hệ liên quan của một đầu luật.} 
-\label{RelationRefinementPrompt.png}
-\end{figure}    
-
 \paragraph{Cải tiến lặp.}
 Toàn bộ quá trình hoạt động theo chu kỳ liên tục, nơi các luật mới được tạo ra bằng cách sử dụng các quan hệ đã cập nhật và các luật điểm cao mới, sau đó tiến hành đánh giá chất lượng và tinh chỉnh quan hệ. Quá trình này tiếp tục cho đến khi tập luật đạt được số lần lặp xác định trước, cuối cùng tạo ra tập luật hoàn thiện.
+
+
+\begin{promptbox}{Prompt tinh chỉnh tập quan hệ liên quan}
+\textbf{User Message:}
+Cho trước một đầu luật và các quan hệ hiệu suất thấp của nó, phân tích các luật điểm cao và các quan hệ khả dụng để xác định các quan hệ thay thế có thể nâng cao chất lượng luật thời gian.
+\begin{itemize}
+    \item \textbf{Đầu luật:} \texttt{\{rule\_head\}} - Quan hệ mục tiêu cho việc sinh luật
+    \item \textbf{Tổ hợp logic hiện tại:} \texttt{\{high\_scoring\_rules\}} - Các luật điểm cao từ đánh giá luật
+    \item \textbf{Quan hệ hiệu suất thấp:} \texttt{\{low\_quality\_relations\}} - Các quan hệ cần thay thế
+    \item \textbf{Quan hệ khả dụng:} \texttt{\{relation\_list\}} - Các quan hệ ứng viên để thay thế
+\end{itemize}
+
+\textbf{System Message:} Lựa chọn các quan hệ thay thế có: kết nối ngữ nghĩa mạnh với đầu luật và thể hiện khả năng dự đoán cao dựa trên các tổ hợp logic hiện tại.
+\end{promptbox}
+
+% \begin{figure}[!htbp]
+% \includegraphics[width=15cm]{images/RelationRefinementPrompt.png}
+% \caption{Prompt tinh chỉnh tập mối quan hệ liên quan của một đầu luật.} 
+% \label{RelationRefinementPrompt.png}
+% \end{figure}    
+
+% \paragraph{Cải tiến lặp.}
+% Toàn bộ quá trình hoạt động theo chu kỳ liên tục, nơi các luật mới được tạo ra bằng cách sử dụng các quan hệ đã cập nhật và các luật điểm cao mới, sau đó tiến hành đánh giá chất lượng và tinh chỉnh quan hệ. Quá trình này tiếp tục cho đến khi tập luật đạt được số lần lặp xác định trước, cuối cùng tạo ra tập luật hoàn thiện.
 
 \subsection{Trích xuất sự kiện dựa trên luật}
 
@@ -149,9 +151,9 @@ MSKGen bắt đầu bắt việc chuyển đổi tất cả các sự kiện t�
 
 Cơ sở dữ liệu trong MSKGen được thiết kế để không chỉ đơn giản là một hệ thống lưu trữ vector nâng cao mà còn cung cấp một cấu trúc lưu trữ tài liệu linh hoạt. Cụ thể, mỗi sự kiện sẽ được chuyển đổi thành một tài liệu (document) với ba thành phần chính:
 \begin{itemize}
-    \item \textbf{Metadata:} Thành phần này đóng vai trò như một bộ lọc (filter) trước khi quá trình tìm kiếm tài liệu được thực hiện. Metadata của mỗi tài liệu được thiết kế dưới dạng một từ điển (dictionary) $\mathcal{M} = \{\mathcal{S, R, E, T}\}$, trong đó $\mathcal{S, R, E, T}$ lần lượt là thực thể chủ ngữ, mối quan hệ giữa 2 thực thể trong sự kiện, thực thể vị ngữ và mốc thời gian. Cách thiết kế này giúp lọc ra các tài liệu khônng muốn, thu hẹp không gian tìm kiếm, đồng thời nâng cao cả độ chính xác lẫn tốc độ tìm kiếm.
+    \item \textbf{Metadata:} Thành phần này đóng vai trò như một bộ lọc (filter) trước khi quá trình tìm kiếm tài liệu được thực hiện. Metadata của mỗi tài liệu được thiết kế dưới dạng một từ điển (dictionary) $\mathcal{M} = \{\mathcal{S, R, E, T}\}$, trong đó $\mathcal{S, R, E, T}$ lần lượt là thực thể chủ ngữ, mối quan hệ giữa 2 thực thể trong sự kiện, thực thể vị ngữ và mốc thời gian. Cách thiết kế metadata này giúp lọc ra các tài liệu khônng muốn, thu hẹp không gian tìm kiếm, đồng thời nâng cao cả độ chính xác lẫn tốc độ tìm kiếm.
     \item \textbf{Nội dung trang (page content):} Đây là chuỗi văn bản mô tả sự kiện có được sau giai đoạn tiền xử lý. Thành phần này sẽ được nhúng thành vector và vector đó sẽ được dùng để so sánh sự tương đồng với vector của truy vấn.
-    \item \textbf{Vector nhúng (vector embedding):} Đây là vector số biểu diễn cho nội dung trang của tài liệu sau khi đã được nhúng. Việc chuyển đổi nội dung trang sang vector nhúng được thực hiện bởi mô hình nhúng được huấn luyện sẵn của OpenAI - \textbf{text-embedding-3-large} \cite{ref_article18}.
+    \item \textbf{Vector nhúng (vector embedding):} Đây là vector số biểu diễn cho nội dung trang của tài liệu sau khi đã được nhúng. Việc chuyển đổi nội dung trang sang vector nhúng được thực hiện bởi mô hình nhúng được huấn luyện sẵn của OpenAI là \textbf{text-embedding-3-large} \cite{ref_article18}.
 \end{itemize}
 
 \vspace{1em}
@@ -183,7 +185,7 @@ Trong đó $\cdot$ là phép nhân vô hướng, $\|\cdot\|$ biểu diễn chu�
 
 Dự đoán của các mô hình ngôn ngữ lớn phụ thuộc rất nhiều vào ngữ cảnh được cung cấp. Việc chỉ truy xuất các sự kiện khớp cứng với từ khóa cho trước (ICL) hoặc các sự kiện dạng chuỗi lịch sử (CoH) sẽ bỏ qua những kết nối ngữ nghĩa quan trọng. Chẳng hạn, các quyết định hợp tác của Malaysia có thể chịu ảnh hưởng không chỉ bởi các đối tác trước đây mà còn bởi các sự kiện khác như việc viếng thăm hoặc những cuộc họp quan trọng. Vì vậy đối với một truy vấn dạng bộ bốn $\mathcal{Q = (S, R, ?, T})$, MSKGen thực hiện chiến lược truy xuất cho ba tập hợp sự kiện sau:
 \begin{itemize}
-    \item \textbf{Chuỗi các sự kiện tương đồng về mặt ngữ nghĩa:} Đây là một chuỗi các sự kiện bắt đầu từ chủ thể $\mathcal{S}$ và có quan hệ tương đồng về mặt ngữ nghĩa với quan hệ $\mathcal{R}$. Các chuỗi sự kiện này sẽ được lưu vào một tập hợp, kí hiệu là $H_C$. Tập $H_C$ sẽ giúp LLM thực hiện suy luận đa bước (multi-hop reasoning), do đó các sự kiện trong $H_C$ sẽ được sắp xếp theo thứ tự tăng dần của thời gian.
+    \item \textbf{Chuỗi các sự kiện có quan hệ tương đồng về mặt ngữ nghĩa:} Đây là một chuỗi các sự kiện bắt đầu từ chủ thể $\mathcal{S}$ và có quan hệ tương đồng về mặt ngữ nghĩa với quan hệ $\mathcal{R}$. Các chuỗi sự kiện này sẽ được lưu vào một tập hợp, kí hiệu là $H_C$. Tập $H_C$ sẽ giúp LLM thực hiện suy luận đa bước (multi-hop reasoning), do đó các sự kiện trong $H_C$ sẽ được sắp xếp theo thứ tự tăng dần của thời gian.
     \item \textbf{Các sự kiện có chủ thể tương đồng với chủ thể truy vấn:} Một hạn chế lớn thường bị bỏ qua là khi chủ thể $\mathcal{S}$ trong truy vấn hoàn toàn mới và không có dữ liệu lịch sử, khiến LLM thiếu thông tin để suy luận. Để khắc phục điều này, MSKGen thay thế $\mathcal{S}$ bằng các thực thể tương tự có các mối quan hệ liên quan. Nếu không có sự kiện lịch sử nào liên quan tới $\mathcal{S}$, LLM sẽ sử dụng các sự kiện từ các thực thể tương tự này vì chúng thường chia sẻ những hình hành vi chung. Các sự kiện này được lưu trong tập $H_S$ và sẽ được dùng để bổ sung ngữ cảnh cho LLM, đặc biệt khi tập $H_C$ không đủ hoặc bị thiếu.
     \item \textbf{Ground true của những sự kiện tương tự vừa xảy ra trước truy vấn $\mathcal{Q}$:} Để tránh việc LLM liên tục trả lời sai đối với các truy vấn cùng chủ thể $\mathcal{S}$ và quan hệ $\mathcal{R}$ và có mốc thời gian gần nhau, MSKGen sẽ cung cấp thêm cho LLM các ground true của những sự kiện tương tự vừa xảy ra trước sự kiện truy vấn $\mathcal{Q}$. Những sự kiện này sẽ được lưu vào tập $H_G$.
 \end{itemize}
@@ -196,7 +198,7 @@ Việc lưu trữ các sự kiện được truy xuất vào 3 tập khác nhau 
 
 System Message chứa một hướng dẫn chi tiết, điều phối quá trình suy luận qua các giai đoạn thao tác rời rạc. Mỗi giai đoạn kết hợp các chỉ dẫn theo ngữ cảnh với ví dụ minh họa cho từng nhóm sự kiện, giúp mô hình tổng hợp dần dần các bằng chứng thời gian trong khi vẫn duy trì mạch suy luận nhất quán. Tất cả các sự kiện được cung cấp cho LLM sẽ được gửi thông qua User Message.
 
-MSKGen giới hạn LLM chỉ trả về $k$ ứng viên có khả năng cao nhất, nhờ vậy giảm bớt việc lãng phí token cho các kết quả kém khả thi. Cuối cùng, MSKGen hợp nhất hai danh sách ứng viên — một từ suy luận dựa trên các sự kiện truy xuất từ luật và một từ suy luận dựa trên các sự kiện truy xuất dựa trên ngữ nghĩa — thành một danh sách ứng viên cuối cùng duy nhất.
+MSKGen giới hạn LLM chỉ trả về $k$ ứng viên có khả năng cao nhất, nhờ vậy giảm bớt việc lãng phí token cho các kết quả kém khả thi.
 
 % \begin{promptbox}{Thông điệp hệ thống cho suy luận LLMs}
 % \textbf{Bạn là trợ lý suy luận nâng cao, có nhiệm vụ giải các bài toán suy luận trên Đồ thị Tri thức Thời gian (TKG). Mục tiêu của bạn là dự đoán đối tượng còn thiếu trong truy vấn khi đã biết chủ thể, quan hệ và dấu thời gian. Để thực hiện công việc này, bạn cần tuân thủ các hướng dẫn dưới đây:}
@@ -243,7 +245,7 @@ MSKGen giới hạn LLM chỉ trả về $k$ ứng viên có khả năng cao nh�
 
 Dưới đây là phần prompt hướng dẫn chi tiết cho LLM trong quá trình suy luận đa nguồn, bao gồm các bước cụ thể mà LLM cần thực hiện để đưa ra dự đoán chính xác nhất cho truy vấn dựa trên các sự kiện đã được truy xuất từ hai phương pháp khác nhau:
 
-\noindent\textbf{Prompt suy luận câu trả lời từ đa nguồn.}
+\noindent\textbf{Ví dụ prompt suy luận câu trả lời từ đa nguồn.}
 
 Bạn là trợ lý suy luận nâng cao, có nhiệm vụ giải quyết các bài toán suy luận trên \textbf{Đồ thị Tri thức Thời gian (TKG)}. Mục tiêu của bạn là dự đoán đối tượng còn thiếu trong truy vấn dựa trên chủ thể, quan hệ và thời gian. Để đạt được điều này, bạn cần làm theo hướng dẫn sau:
 \begin{enumerate}
@@ -256,26 +258,26 @@ Bạn là trợ lý suy luận nâng cao, có nhiệm vụ giải quyết các b
     \item \textbf{Áp dụng luật logic thời gian (Nhóm 1):}
     \begin{itemize}
         \item Bạn sẽ nhận được các sự kiện theo luật dựa trên các luật thời gian đã học trước (các mẫu). Các sự kiện này được lọc để thỏa mãn phụ thuộc thời gian.
-        \item Ví dụ luật: ...
-        \item Ví dụ sự kiện: ...
+        % \item Ví dụ luật: ...
+        % \item Ví dụ sự kiện: ...
         \item Kiểm tra xem các sự kiện này có theo trình tự thời gian dẫn đến dấu thời gian truy vấn không và coi là bằng chứng mạnh về nhân quả thời gian.
     \end{itemize}
     \item \textbf{Tận dụng suy luận đa bước (Nhóm 2):}
     \begin{itemize}
         \item Bạn sẽ nhận được chuỗi các sự kiện đa bước liên quan đến chủ thể. Các sự kiện này kết nối trực tiếp hoặc gián tiếp với chủ thể và có sự tương đồng ngữ nghĩa với quan hệ truy vấn.
-        \item Ví dụ sự kiện: ...
+        % \item Ví dụ sự kiện: ...
         \item Phân tích các sự kiện và mối liên hệ giữa chúng, chú ý dấu thời gian để đảm bảo tính nhất quán với truy vấn.
     \end{itemize}
     \item \textbf{Suy luận từ các thực thể tương tự về ngữ nghĩa (Nhóm 3):}
     \begin{itemize}
         \item Nếu không có sự kiện trực tiếp về chủ thể trước dấu thời gian truy vấn, suy luận đối tượng còn thiếu bằng cách phân tích các mẫu từ các thực thể tương tự ngữ nghĩa.
-        \item Ví dụ: ...
+        % \item Ví dụ: ...
         \item Dùng phương pháp này để dự đoán có cơ sở khi thiếu bằng chứng trực tiếp.
     \end{itemize}
     \item \textbf{Học từ mẫu truy vấn lịch sử (Nhóm 4):}
     \begin{itemize}
         \item Nếu truy vấn nằm trong chuỗi truy vấn tương tự với các dấu thời gian khác nhau, bạn sẽ được cung cấp câu trả lời thật cho các truy vấn trước đó.
-        \item Ví dụ câu trả lời thật: ...
+        % \item Ví dụ câu trả lời thật: ...
         \item Dùng các câu trả lời này làm gợi ý để tránh lặp lại sai sót và nâng cao độ chính xác cho truy vấn hiện tại.
     \end{itemize}
 \end{enumerate}
@@ -297,7 +299,9 @@ Với mỗi thực thể ứng cử viên $c_i$ từ tập ứng cử viên $C$ 
 \;+\; (1 - \alpha)\,\times\, e^{\lambda \,\bigl(\mathcal{T}_{c_i} - \mathcal{T}\bigr)}   
 \end{equation}
 
-Trong đó, $\lambda$ biểu thị cho hệ số suy giảm theo thời gian (time decay), $k$ là số lượng ứng cử viên tối đa được LLM trả về và $\alpha$ là trọng số cho dự đoán của LLM. Đối với các thực thể nằm trong tập thực thể của bộ dữ liệu nhưng không có trong dự đoán của LLM thì điểm số của chúng sẽ là 0.
+Trong đó, $\lambda$ biểu thị cho hệ số suy giảm theo thời gian (time decay), $k$ là số lượng ứng cử viên tối đa được LLM trả về và $\alpha$ là trọng số cho xếp hạng của LLM. 
+
+Đối với các thực thể nằm trong tập thực thể của bộ dữ liệu nhưng không có trong dự đoán của LLM thì điểm số của chúng sẽ là 0.
 
 \vspace{1em}
 \subsection{Điểm số từ dự đoán của mô hình học sâu theo phương pháp nhúng đồ thị}
@@ -307,7 +311,7 @@ Do hạn chế về đầu ra, danh sách ứng viên được tạo ra bởi LL
 \vspace{1em}
 \subsection{Điểm số cuối cùng}
 
-Điểm số cuối cùng của một thực thể ứng cử viên sẽ là sự tổng hợp từ hai điểm số trên (\ref{eq:final-score}):
+Điểm số cuối cùng của một thực thể ứng cử viên sẽ là sự tổng hợp từ hai điểm số (\ref{eq:final-score}):
 \begin{equation}
     \label{eq:final-score}
     \text{score}^{c_i} = \alpha \times \text{score}^{c_i}_{\text{LLM}} + (1 - \alpha) \times \text{score}_G^{c_i}

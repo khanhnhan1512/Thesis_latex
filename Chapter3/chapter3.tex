@@ -7,7 +7,7 @@
 
 \textbf{Bộ Tứ}
 
-Bộ tứ (quadruple) là đơn vị cấu trúc cơ bản trong đồ thị tri thức thời gian, mở rộng từ khái niệm bộ ba truyền thống trong đồ thị tri thức tĩnh. Một bộ tứ được định nghĩa như sau: với thực thể đầu $h$ và thực thể đuôi $t$ thuộc tập các thực thể $E$, nếu tồn tại một quan hệ $r$ nằm trong tập các quan hệ $R$ nối kết hai thực thể này tại đúng thời điểm $\tau$ trong tập thời gian $T$, ta có một bộ tứ $(h, r, t, \tau)$. Ý nghĩa ngữ nghĩa của bộ tứ $(s, r, o, t)$ là thực thể $s$ có quan hệ $r$ với thực thể $o$ tại thời điểm $t$.
+Bộ tứ (quadruple) là đơn vị cấu trúc cơ bản trong đồ thị tri thức thời gian, mở rộng từ khái niệm bộ ba truyền thống trong đồ thị tri thức tĩnh. Một bộ tứ được định nghĩa như sau: với thực thể đầu $s$ và thực thể đuôi $o$ thuộc tập các thực thể $E$, nếu tồn tại một quan hệ $r$ nằm trong tập các quan hệ $R$ nối kết hai thực thể này tại đúng thời điểm $t$ trong tập thời gian $T$, ta có một bộ tứ $(s, r, o, t)$. Ý nghĩa ngữ nghĩa của bộ tứ $(s, r, o, t)$ là thực thể $s$ có quan hệ $r$ với thực thể $o$ tại thời điểm $t$.
 
 Bộ tứ cho phép biểu diễn các sự kiện có tính thời gian, ví dụ như sau: $(\text{Malaysia}, \text{Make\_a\_visit}, \text{Thailand}, 2014-9-12)$ thể hiện sự kiện Malaysia thực hiện chuyến thăm Thailand vào ngày 12 tháng 9 năm 2014. Cấu trúc này cung cấp khả năng nắm bắt không chỉ mối quan hệ tĩnh giữa các thực thể mà còn cả bối cảnh thời gian khi mối quan hệ đó xảy ra. Tập hợp nhiều bộ tứ $Q$ thể hiện tất cả các quan hệ bên trong một đồ thị tri thức thời gian, tạo thành cơ sở dữ liệu tri thức động có thể phản ánh sự thay đổi theo thời gian.
 
@@ -30,20 +30,20 @@ Suy luận đồ thị tri thức thời gian (Temporal Knowledge Graph Reasonin
 \begin{itemize}
     \item \textbf{Dự đoán thực thể đuôi}
     \begin{itemize}
-        \item \textbf{Dạng chung:} $(h, r, ?, \tau)$
-        \item \textbf{Yêu cầu:} Xác định thực thể đuôi thiếu dựa trên thực thể đầu $(h)$, quan hệ $(r)$ và thời điểm $(\tau)$ đã biết.
-        \item \textbf{Ví dụ:} $(\text{Marie Curie}, \text{receivedAward}, ?, 1911)$, nhiệm vụ là dự đoán thực thể đuôi \textit{Nobel Prize in Chemistry} sao cho khớp với thời điểm năm 1911. Quá trình này đánh giá tính hợp lý của các ứng viên thông qua hàm tính điểm $\theta(h, r, t, \tau)$, xem xét cả yếu tố lịch sử (ví dụ: Marie Curie từng nhận giải Nobel Hóa học năm 1911) và mối quan hệ ngữ nghĩa giữa các thực thể.
+        \item \textbf{Dạng chung:} $(s, r, ?, t)$
+        \item \textbf{Yêu cầu:} Xác định thực thể đuôi thiếu dựa trên thực thể đầu $(s)$, quan hệ $(r)$ và thời điểm $(t)$ đã biết.
+        \item \textbf{Ví dụ:} $(\text{Marie Curie}, \text{receivedAward}, ?, 1911)$, nhiệm vụ là dự đoán thực thể đuôi \textit{Nobel Prize in Chemistry} sao cho khớp với thời điểm năm 1911. Quá trình này đánh giá tính hợp lý của các ứng viên thông qua hàm tính điểm $\theta(s, r, o, t)$, xem xét cả yếu tố lịch sử (ví dụ: Marie Curie từng nhận giải Nobel Hóa học năm 1911) và mối quan hệ ngữ nghĩa giữa các thực thể.
     \end{itemize}
     \item \textbf{Dự đoán thực thể đầu}
     \begin{itemize}
-        \item \textbf{Dạng chung:} $(?, r, t, \tau)$
-        \item \textbf{Yêu cầu:} Xác định thực thể đầu thiếu khi biết quan hệ $(r)$, thực thể đuôi $(t)$ và thời điểm $(\tau)$.
+        \item \textbf{Dạng chung:} $(?, r, o, t)$
+        \item \textbf{Yêu cầu:} Xác định thực thể đầu thiếu khi biết quan hệ $(r)$, thực thể đuôi $(o)$ và thời điểm $(t)$.
         \item \textbf{Ví dụ:} Với bộ tứ $(?, \text{isCEOOf}, \text{Apple Inc.}, 2011)$, hệ thống cần suy luận thực thể đầu là \textit{Steve Jobs} dựa trên dữ liệu lịch sử (Steve Jobs làm CEO Apple đến tháng 8/2011). Tác vụ này thường sử dụng phương pháp xếp hạng để so sánh điểm số giữa các ứng viên tiềm năng (Tim Cook, Jonathan Ive, ...) và xác định kết quả chính xác nhất.
     \end{itemize}
     \item \textbf{Dự đoán mối quan hệ}
     \begin{itemize}
-        \item \textbf{Dạng chung:} $(h, ?, t, \tau)$
-        \item \textbf{Yêu cầu:} Xác định quan hệ thiếu giữa hai thực thể $(h, t)$ trong khoảng thời gian $\tau$.
+        \item \textbf{Dạng chung:} $(s, ?, o, t)$
+        \item \textbf{Yêu cầu:} Xác định quan hệ thiếu giữa hai thực thể $(s, o)$ trong khoảng thời gian $t$.
         \item \textbf{Ví dụ:} Cho bộ tứ $(\text{Bill Gates}, ?, \text{Microsoft}, [1975][2000])$, mục tiêu là dự đoán quan hệ \textit{foundedBy} dựa trên ngữ cảnh thời gian (Bill Gates đồng sáng lập Microsoft năm 1975 và rời công ty năm 2000). Đây là tác vụ phức tạp do đòi hỏi hiểu biết sâu về:
         \begin{itemize}
             \item \textbf{Ngữ nghĩa quan hệ:} Phân biệt giữa \textit{foundedBy}, \textit{investedIn}, \textit{acquiredBy}, ...
@@ -67,11 +67,11 @@ LangChain \cite{ref_article37} là một framework mã nguồn mở được vi�
 
 Những lợi ích chính mà LangChain mang lại bao gồm:
 \begin{itemize}
+    \item Có mã nguồn mở.
     \item Cho phép tích hợp các mô hình ngôn ngữ lớn (LLM) một cách linh hoạt và dễ dàng tùy chỉnh theo nhu cầu cụ thể.
     \item Có khả năng kết nối nhiều dịch vụ khác nhau, không chỉ giới hạn ở các mô hình ngôn ngữ, tạo ra những ứng dụng phong phú và mạnh mẽ hơn.
     \item Hỗ trợ các agent làm việc dựa trên mục tiêu cụ thể thay vì chỉ thực hiện các lần gọi tách rời, từ đó nâng cao hiệu quả làm việc.
     \item Cung cấp khả năng lưu trữ trạng thái giữa các lần thực hiện, giúp ứng dụng giữ được mạch kết nối và khả năng phản hồi thông minh.
-    \item Có mã nguồn mở.
 \end{itemize}
 
 

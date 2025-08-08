@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2025.7.9)  24 JUL 2025 21:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2025.7.9)  8 AUG 2025 21:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1047,11 +1047,30 @@ Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@cntb=\count467
 \multirow@dima=\skip80
 \bigstrutjot=\dimen284
+) (e:/My Document/texlive/2023/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen285
+\lightrulewidth=\dimen286
+\cmidrulewidth=\dimen287
+\belowrulesep=\dimen288
+\belowbottomsep=\dimen289
+\aboverulesep=\dimen290
+\abovetopsep=\dimen291
+\cmidrulesep=\dimen292
+\cmidrulekern=\dimen293
+\defaultaddspace=\dimen294
+\@cmidla=\count468
+\@cmidlb=\count469
+\@aboverulesep=\dimen295
+\@belowrulesep=\dimen296
+\@thisruleclass=\count470
+\@lastruleclass=\count471
+\@thisrulewidth=\dimen297
 ) (e:/My Document/texlive/2023/texmf-dist/tex/latex/tools/array.sty
 Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
-\col@sep=\dimen285
+\col@sep=\dimen298
 \ar@mcellbox=\box84
-\extrarowheight=\dimen286
+\extrarowheight=\dimen299
 \NC@list=\toks45
 \extratabsurround=\skip81
 \backup@length=\skip82
@@ -1061,23 +1080,23 @@ Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
 \UL@hyphenbox=\box87
 \UL@skip=\skip83
 \UL@hook=\toks46
-\UL@height=\dimen287
-\UL@pe=\count468
-\UL@pixel=\dimen288
+\UL@height=\dimen300
+\UL@pe=\count472
+\UL@pixel=\dimen301
 \ULC@box=\box88
 Package: ulem 2019/11/18
-\ULdepth=\dimen289
+\ULdepth=\dimen302
 ) (e:/My Document/texlive/2023/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2021/07/05 v2.14 Sectioning titles
 \ttl@box=\box89
 \beforetitleunit=\skip84
 \aftertitleunit=\skip85
-\ttl@plus=\dimen290
-\ttl@minus=\dimen291
+\ttl@plus=\dimen303
+\ttl@minus=\dimen304
 \ttl@toksa=\toks47
-\titlewidth=\dimen292
-\titlewidthlast=\dimen293
-\titlewidthfirst=\dimen294
+\titlewidth=\dimen305
+\titlewidthlast=\dimen306
+\titlewidthfirst=\dimen307
 ) (e:/My Document/texlive/2023/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
 ) (e:/My Document/texlive/2023/texmf-dist/tex/latex/tools/indentfirst.sty
@@ -1087,17 +1106,17 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
  (e:/My Document/texlive/2023/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count469
-\Gm@cntv=\count470
-\c@Gm@tempcnt=\count471
-\Gm@bindingoffset=\dimen295
-\Gm@wd@mp=\dimen296
-\Gm@odd@mp=\dimen297
-\Gm@even@mp=\dimen298
-\Gm@layoutwidth=\dimen299
-\Gm@layoutheight=\dimen300
-\Gm@layouthoffset=\dimen301
-\Gm@layoutvoffset=\dimen302
+\Gm@cnth=\count473
+\Gm@cntv=\count474
+\c@Gm@tempcnt=\count475
+\Gm@bindingoffset=\dimen308
+\Gm@wd@mp=\dimen309
+\Gm@odd@mp=\dimen310
+\Gm@even@mp=\dimen311
+\Gm@layoutwidth=\dimen312
+\Gm@layoutheight=\dimen313
+\Gm@layouthoffset=\dimen314
+\Gm@layoutvoffset=\dimen315
 \Gm@dimlist=\toks48
 ) (e:/My Document/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -1106,8 +1125,8 @@ Package: acronym 2020/04/17 v1.47 Support for acronyms (Tobias Oetiker)
  (e:/My Document/texlive/2023/texmf-dist/tex/latex/bigfoot/suffix.sty
 Package: suffix 2006/07/15 1.5a Variant command support
 ) (e:/My Document/texlive/2023/texmf-dist/tex/generic/xstring/xstring.sty (e:/My Document/texlive/2023/texmf-dist/tex/generic/xstring/xstring.tex
-\integerpart=\count472
-\decimalpart=\count473
+\integerpart=\count476
+\decimalpart=\count477
 )
 Package: xstring 2023/01/14 v1.85 String manipulations (CT)
 )
@@ -1116,65 +1135,61 @@ Package: xstring 2023/01/14 v1.85 String manipulations (CT)
 Package: pdfpages 2022/12/19 v0.5x Insert pages of external PDF documents (AM)
  (e:/My Document/texlive/2023/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count474
-\calc@Bcount=\count475
-\calc@Adimen=\dimen303
-\calc@Bdimen=\dimen304
+\calc@Acount=\count478
+\calc@Bcount=\count479
+\calc@Adimen=\dimen316
+\calc@Bdimen=\dimen317
 \calc@Askip=\skip86
 \calc@Bskip=\skip87
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count476
+\calc@Ccount=\count480
 \calc@Cskip=\skip88
 ) (e:/My Document/texlive/2023/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
-\ESO@tempdima=\dimen305
-\ESO@tempdimb=\dimen306
+\ESO@tempdima=\dimen318
+\ESO@tempdimb=\dimen319
 )
-\AM@pagewidth=\dimen307
-\AM@pageheight=\dimen308
-\AM@fboxrule=\dimen309
+\AM@pagewidth=\dimen320
+\AM@pageheight=\dimen321
+\AM@fboxrule=\dimen322
  (e:/My Document/texlive/2023/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2022/12/19 v0.5x Pdfpages driver for pdfTeX (AM)
 )
-\pdfpages@includegraphics@status=\count477
+\pdfpages@includegraphics@status=\count481
 \AM@pagebox=\box90
 \AM@global@opts=\toks50
-\AM@pagecnt=\count478
+\AM@pagecnt=\count482
 \AM@toc@title=\toks51
 \AM@lof@heading=\toks52
-\c@AM@survey=\count479
+\c@AM@survey=\count483
 \AM@templatesizebox=\box91
 )
-\@quotelevel=\count480
-\@quotereset=\count481
- (./main.aux (./Appendix/thanks.aux) (./Appendix/proposal.aux) (./Appendix/summary.aux) (./Appendix/listofacronyms.aux) (./Chapter1/chapter1.aux
-
-LaTeX Warning: Label `fig:chatbots_classification' multiply defined.
-
-) (./Chapter2/chapter2.aux) (./Chapter3/chapter3.aux) (./Chapter4/chapter4.aux) (./Chapter5/chapter5.aux) (./Chapter6/chapter6.aux) (./Appendix/publish.aux) (./Appendix/appendix1.aux))
+\@quotelevel=\count484
+\@quotereset=\count485
+ (./main.aux (./Appendix/thanks.aux) (./Appendix/proposal.aux) (./Appendix/summary.aux) (./Appendix/listofacronyms.aux) (./Chapter1/chapter1.aux) (./Chapter2/chapter2.aux) (./Chapter3/chapter3.aux) (./Chapter4/chapter4.aux) (./Chapter5/chapter5.aux) (./Chapter6/chapter6.aux) (./Appendix/publish.aux) (./Appendix/appendix1.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
  (e:/My Document/texlive/2023/texmf-dist/tex/latex/biblatex/lbx/english.lbx
@@ -1188,25 +1203,25 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 188.
-Package biblatex Info: Reference segment=0 on input line 188.
-Package hyperref Info: Link coloring OFF on input line 188.
+Package biblatex Info: Reference section=0 on input line 189.
+Package biblatex Info: Reference segment=0 on input line 189.
+Package hyperref Info: Link coloring OFF on input line 189.
  (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
  (e:/My Document/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count482
-\scratchdimen=\dimen310
+\scratchcounter=\count486
+\scratchdimen=\dimen323
 \scratchbox=\box92
-\nofMPsegments=\count483
-\nofMParguments=\count484
+\nofMPsegments=\count487
+\nofMParguments=\count488
 \everyMPshowfont=\toks53
-\MPscratchCnt=\count485
-\MPscratchDim=\dimen311
-\MPnumerator=\count486
-\makeMPintoPDFobject=\count487
+\MPscratchCnt=\count489
+\MPscratchDim=\dimen324
+\MPnumerator=\count490
+\makeMPintoPDFobject=\count491
 \everyMPtoPDFconversion=\toks54
 ) (e:/My Document/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1214,7 +1229,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (e:/My Document/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-\c@lstlisting=\count488
+\c@lstlisting=\count492
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1493,12 +1508,12 @@ Overfull \hbox (4.19176pt too wide) in paragraph at lines 31--31
 pdfTeX warning (ext4): destination with the same identifier (name{page.iii}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.52 ... xuất sự kiện}{45}{subsection.4.2.4}
+l.53 ... xuất sự kiện}{45}{subsection.4.2.4}
                                                   % [3]
 pdfTeX warning (ext4): destination with the same identifier (name{page.iv}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.79 ...nh của tác giả}{70}{subsection.6.3.4}
+l.80 ...nh của tác giả}{69}{subsection.6.3.4}
                                                   % [4])
 \tf@toc=\write6
 \openout6 = `main.toc'.
@@ -1507,7 +1522,7 @@ l.79 ...nh của tác giả}{70}{subsection.6.3.4}
 pdfTeX warning (ext4): destination with the same identifier (name{page.v}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.229 \cleardoublepage
+l.230 \cleardoublepage
                        [5] (./main.lof)
 \tf@lof=\write7
 \openout7 = `main.lof'.
@@ -1516,7 +1531,7 @@ l.229 \cleardoublepage
 pdfTeX warning (ext4): destination with the same identifier (name{page.vi}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.234 \cleardoublepage
+l.235 \cleardoublepage
                        [6
 
 
@@ -1528,7 +1543,7 @@ l.234 \cleardoublepage
 pdfTeX warning (ext4): destination with the same identifier (name{page.vii}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.240 \cleardoublepage
+l.241 \cleardoublepage
                        [7
 
 
@@ -1544,7 +1559,7 @@ Overfull \hbox (12.36801pt too wide) in paragraph at lines 6--7
 pdfTeX warning (ext4): destination with the same identifier (name{page.viii}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.243 \include{Appendix/summary}
+l.244 \include{Appendix/summary}
                                  [8
 
 
@@ -1553,7 +1568,7 @@ l.243 \include{Appendix/summary}
 pdfTeX warning (ext4): destination with the same identifier (name{page.ix}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.243 \include{Appendix/summary}
+l.244 \include{Appendix/summary}
                                  [9]
 \openout2 = `Appendix/listofacronyms.aux'.
 
@@ -1622,7 +1637,7 @@ LaTeX Warning: Hyper reference `acro:TKGR' on page x undefined on input line 13.
 pdfTeX warning (ext4): destination with the same identifier (name{page.x}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.248 \include{Appendix/listofacronyms}
+l.249 \include{Appendix/listofacronyms}
                                         [10
 
 
@@ -1646,7 +1661,7 @@ l.12
 
 
 ]
-<images/KGexample1.png, id=656, 619.31375pt x 519.9425pt>
+<images/KGexample1.png, id=649, 619.31375pt x 519.9425pt>
 File: images/KGexample1.png Graphic file (type png)
 <use images/KGexample1.png>
 Package pdftex.def Info: images/KGexample1.png  used on input line 15.
@@ -1657,7 +1672,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1.1}) h
                                                   \__shipout_drop_firstpage_...
 l.21 
       <./images/KGexample1.png (PNG copy)>]
-<images/TKGexample1.png, id=664, 4733.685pt x 2145.34833pt>
+<images/TKGexample1.png, id=658, 4733.685pt x 2145.34833pt>
 File: images/TKGexample1.png Graphic file (type png)
 <use images/TKGexample1.png>
 Package pdftex.def Info: images/TKGexample1.png  used on input line 28.
@@ -1729,10 +1744,10 @@ Overfull \hbox (37.47438pt too wide) in paragraph at lines 199--199
 
  (./Chapter4/chapter4.tex
 Chương 4.
-<images/Framework01.png, id=902, 4446.6125pt x 2666.96375pt>
+<images/Framework01.png, id=897, 4446.6125pt x 2666.96375pt>
 File: images/Framework01.png Graphic file (type png)
 <use images/Framework01.png>
-Package pdftex.def Info: images/Framework01.png  used on input line 7.
+Package pdftex.def Info: images/Framework01.png  used on input line 8.
 (pdftex.def)             Requested size: 426.79134pt x 255.96864pt.
 [36
 
@@ -1743,40 +1758,8 @@ Package pdftex.def Info: images/Framework01.png  used on input line 7.
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.21 
-      <./images/Framework01.png>] [38]
-<images/RelevantRelationPrompt.png, id=922, 1249.66875pt x 698.61pt>
-File: images/RelevantRelationPrompt.png Graphic file (type png)
-<use images/RelevantRelationPrompt.png>
-Package pdftex.def Info: images/RelevantRelationPrompt.png  used on input line 53.
-(pdftex.def)             Requested size: 426.79134pt x 238.59024pt.
-<images/NewRuleGenerationPrompt.png, id=923, 816.04875pt x 733.74126pt>
-File: images/NewRuleGenerationPrompt.png Graphic file (type png)
-<use images/NewRuleGenerationPrompt.png>
-Package pdftex.def Info: images/NewRuleGenerationPrompt.png  used on input line 88.
-(pdftex.def)             Requested size: 426.79134pt x 383.74207pt.
- [39
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.97 
-      <./images/RelevantRelationPrompt.png>] [40
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.3}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.97 
-      <./images/NewRuleGenerationPrompt.png>]
-<images/RelationRefinementPrompt.png, id=934, 1211.52625pt x 713.66624pt>
-File: images/RelationRefinementPrompt.png Graphic file (type png)
-<use images/RelationRefinementPrompt.png>
-Package pdftex.def Info: images/RelationRefinementPrompt.png  used on input line 121.
-(pdftex.def)             Requested size: 426.79134pt x 251.40948pt.
- [41] [42
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.4}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.140 \subsection{Tiền xử lý dữ liệu}
-                                               <./images/RelationRefinementPrompt.png>] [43] [44] [45] [46] [47] [48] [49]) [50]
+l.22 \begin{equation}
+                      <./images/Framework01.png>] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49]) [50]
 \openout2 = `Chapter5/chapter5.aux'.
 
  (./Chapter5/chapter5.tex
@@ -1790,55 +1773,55 @@ Chương 5.
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.50 
-     ] [53
+l.48 
+     
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.64 \begin{equation}
-                     ] [54] [55] [56] [57] [58
+l.48 
+     ] [53] [54] [55] [56] [57
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.184 
-      
+l.149 
+      ] [58
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.184 
-      ] [59
+l.214 \end{table}
+                 ] [59
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.233 
-      ] [60
+l.253 \begin{itemize}
+                     ] [60
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.250     \item \textbf
-                       {MSKGen w/o semantic facts:} Đây là biến thể c...]
-<images/abl_study_1.png, id=1064, 455.301pt x 339.669pt>
+l.261 \end{itemize}
+                   ]
+<images/abl_study_1.png, id=1056, 455.301pt x 339.669pt>
 File: images/abl_study_1.png Graphic file (type png)
 <use images/abl_study_1.png>
-Package pdftex.def Info: images/abl_study_1.png  used on input line 259.
+Package pdftex.def Info: images/abl_study_1.png  used on input line 267.
 (pdftex.def)             Requested size: 218.51521pt x 163.01852pt.
-<images/abl_study_2.png, id=1065, 401.8212pt x 314.3745pt>
+<images/abl_study_2.png, id=1057, 401.8212pt x 314.3745pt>
 File: images/abl_study_2.png Graphic file (type png)
 <use images/abl_study_2.png>
-Package pdftex.def Info: images/abl_study_2.png  used on input line 266.
+Package pdftex.def Info: images/abl_study_2.png  used on input line 274.
 (pdftex.def)             Requested size: 218.51521pt x 170.96373pt.
  [61
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.279 
-      
+l.304 T
+       rong khóa luận này, chúng tôi sẽ phân tích hiệu năng c�...
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.279 
-       <./images/abl_study_1.png> <./images/abl_study_2.png>]
-Overfull \hbox (7.84412pt too wide) in paragraph at lines 314--320
+l.304 T
+       rong khóa luận này, chúng tôi sẽ phân tích hiệu năng c�... <./images/abl_study_1.png> <./images/abl_study_2.png>]
+Overfull \hbox (7.84412pt too wide) in paragraph at lines 322--328
 \T5/cmr/m/n/14.4 MSKGen kh�ng c� �nh h��ng quan tr�ng ^^_�n k�t qu� suy lu�n c�a MSKGen,
  []
 
@@ -1846,32 +1829,32 @@ Overfull \hbox (7.84412pt too wide) in paragraph at lines 314--320
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.320 
+l.336 
       ]
-<images/max_number_retrieved_facts.png, id=1079, 451.6875pt x 339.669pt>
+<images/max_number_retrieved_facts.png, id=1071, 451.6875pt x 339.669pt>
 File: images/max_number_retrieved_facts.png Graphic file (type png)
 <use images/max_number_retrieved_facts.png>
-Package pdftex.def Info: images/max_number_retrieved_facts.png  used on input line 331.
+Package pdftex.def Info: images/max_number_retrieved_facts.png  used on input line 339.
 (pdftex.def)             Requested size: 364.19667pt x 273.89166pt.
 ) [63
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.263 \include{Chapter5/chapter5}
-                                  <./images/max_number_retrieved_facts.png>] [64]
+l.264 \include{Chapter5/chapter5}
+                                  <./images/max_number_retrieved_facts.png>]
 \openout2 = `Chapter6/chapter6.aux'.
 
  (./Chapter6/chapter6.tex
 Chương 6.
-[65
+[64
 
 
 
 
-] [66] [67] [68]) [69]
+] [65] [66] [67]) [68]
 \openout2 = `Appendix/publish.aux'.
 
- (./Appendix/publish.tex) [70
+ (./Appendix/publish.tex) [69
 
 
 
@@ -1880,7 +1863,7 @@ Chương 6.
 \openout2 = `Appendix/appendix1.aux'.
 
  (./Appendix/appendix1.tex
-<Appendix/iccci2025.pdf, id=1117, 614.295pt x 794.97pt>
+<Appendix/iccci2025.pdf, id=1105, 614.295pt x 794.97pt>
 File: Appendix/iccci2025.pdf Graphic file (type pdf)
 <use Appendix/iccci2025.pdf>
 Package pdftex.def Info: Appendix/iccci2025.pdf  used on input line 15.
@@ -1889,7 +1872,7 @@ File: Appendix/iccci2025.pdf Graphic file (type pdf)
 <use Appendix/iccci2025.pdf>
 Package pdftex.def Info: Appendix/iccci2025.pdf  used on input line 15.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-<Appendix/iccci2025.pdf, id=1120, page=1, 614.295pt x 794.97pt>
+<Appendix/iccci2025.pdf, id=1108, page=1, 614.295pt x 794.97pt>
 File: Appendix/iccci2025.pdf Graphic file (type pdf)
 <use Appendix/iccci2025.pdf, page 1>
 Package pdftex.def Info: Appendix/iccci2025.pdf , page1 used on input line 15.
@@ -1898,7 +1881,7 @@ File: Appendix/iccci2025.pdf Graphic file (type pdf)
 <use Appendix/iccci2025.pdf, page 1>
 Package pdftex.def Info: Appendix/iccci2025.pdf , page1 used on input line 15.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [71
+ [70
 
 
 
@@ -1915,65 +1898,65 @@ Package pdftex.def Info: Appendix/iccci2025.pdf , page1 used on input line 15.
 File: Appendix/iccci2025.pdf Graphic file (type pdf)
 <use Appendix/iccci2025.pdf, page 1>
 Package pdftex.def Info: Appendix/iccci2025.pdf , page1 used on input line 15.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+ [71 <./Appendix/iccci2025.pdf>]
+<Appendix/iccci2025.pdf, id=1136, page=2, 614.295pt x 794.97pt>
+File: Appendix/iccci2025.pdf Graphic file (type pdf)
+<use Appendix/iccci2025.pdf, page 2>
+Package pdftex.def Info: Appendix/iccci2025.pdf , page2 used on input line 15.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: Appendix/iccci2025.pdf Graphic file (type pdf)
+<use Appendix/iccci2025.pdf, page 2>
+Package pdftex.def Info: Appendix/iccci2025.pdf , page2 used on input line 15.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: Appendix/iccci2025.pdf Graphic file (type pdf)
+<use Appendix/iccci2025.pdf, page 2>
+Package pdftex.def Info: Appendix/iccci2025.pdf , page2 used on input line 15.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [72 <./Appendix/iccci2025.pdf>]
-<Appendix/iccci2025.pdf, id=1149, page=2, 614.295pt x 794.97pt>
+<Appendix/iccci2025.pdf, id=1143, page=3, 614.295pt x 794.97pt>
 File: Appendix/iccci2025.pdf Graphic file (type pdf)
-<use Appendix/iccci2025.pdf, page 2>
-Package pdftex.def Info: Appendix/iccci2025.pdf , page2 used on input line 15.
+<use Appendix/iccci2025.pdf, page 3>
+Package pdftex.def Info: Appendix/iccci2025.pdf , page3 used on input line 15.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/iccci2025.pdf Graphic file (type pdf)
-<use Appendix/iccci2025.pdf, page 2>
-Package pdftex.def Info: Appendix/iccci2025.pdf , page2 used on input line 15.
+<use Appendix/iccci2025.pdf, page 3>
+Package pdftex.def Info: Appendix/iccci2025.pdf , page3 used on input line 15.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/iccci2025.pdf Graphic file (type pdf)
-<use Appendix/iccci2025.pdf, page 2>
-Package pdftex.def Info: Appendix/iccci2025.pdf , page2 used on input line 15.
+<use Appendix/iccci2025.pdf, page 3>
+Package pdftex.def Info: Appendix/iccci2025.pdf , page3 used on input line 15.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [73 <./Appendix/iccci2025.pdf>]
-<Appendix/iccci2025.pdf, id=1155, page=3, 614.295pt x 794.97pt>
+<Appendix/iccci2025.pdf, id=1149, page=4, 614.295pt x 794.97pt>
 File: Appendix/iccci2025.pdf Graphic file (type pdf)
-<use Appendix/iccci2025.pdf, page 3>
-Package pdftex.def Info: Appendix/iccci2025.pdf , page3 used on input line 15.
+<use Appendix/iccci2025.pdf, page 4>
+Package pdftex.def Info: Appendix/iccci2025.pdf , page4 used on input line 15.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/iccci2025.pdf Graphic file (type pdf)
-<use Appendix/iccci2025.pdf, page 3>
-Package pdftex.def Info: Appendix/iccci2025.pdf , page3 used on input line 15.
+<use Appendix/iccci2025.pdf, page 4>
+Package pdftex.def Info: Appendix/iccci2025.pdf , page4 used on input line 15.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/iccci2025.pdf Graphic file (type pdf)
-<use Appendix/iccci2025.pdf, page 3>
-Package pdftex.def Info: Appendix/iccci2025.pdf , page3 used on input line 15.
+<use Appendix/iccci2025.pdf, page 4>
+Package pdftex.def Info: Appendix/iccci2025.pdf , page4 used on input line 15.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [74 <./Appendix/iccci2025.pdf>]
-<Appendix/iccci2025.pdf, id=1161, page=4, 614.295pt x 794.97pt>
+<Appendix/iccci2025.pdf, id=1155, page=5, 614.295pt x 794.97pt>
 File: Appendix/iccci2025.pdf Graphic file (type pdf)
-<use Appendix/iccci2025.pdf, page 4>
-Package pdftex.def Info: Appendix/iccci2025.pdf , page4 used on input line 15.
+<use Appendix/iccci2025.pdf, page 5>
+Package pdftex.def Info: Appendix/iccci2025.pdf , page5 used on input line 15.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/iccci2025.pdf Graphic file (type pdf)
-<use Appendix/iccci2025.pdf, page 4>
-Package pdftex.def Info: Appendix/iccci2025.pdf , page4 used on input line 15.
+<use Appendix/iccci2025.pdf, page 5>
+Package pdftex.def Info: Appendix/iccci2025.pdf , page5 used on input line 15.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/iccci2025.pdf Graphic file (type pdf)
-<use Appendix/iccci2025.pdf, page 4>
-Package pdftex.def Info: Appendix/iccci2025.pdf , page4 used on input line 15.
+<use Appendix/iccci2025.pdf, page 5>
+Package pdftex.def Info: Appendix/iccci2025.pdf , page5 used on input line 15.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [75 <./Appendix/iccci2025.pdf>]
-<Appendix/iccci2025.pdf, id=1167, page=5, 614.295pt x 794.97pt>
-File: Appendix/iccci2025.pdf Graphic file (type pdf)
-<use Appendix/iccci2025.pdf, page 5>
-Package pdftex.def Info: Appendix/iccci2025.pdf , page5 used on input line 15.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/iccci2025.pdf Graphic file (type pdf)
-<use Appendix/iccci2025.pdf, page 5>
-Package pdftex.def Info: Appendix/iccci2025.pdf , page5 used on input line 15.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/iccci2025.pdf Graphic file (type pdf)
-<use Appendix/iccci2025.pdf, page 5>
-Package pdftex.def Info: Appendix/iccci2025.pdf , page5 used on input line 15.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [76 <./Appendix/iccci2025.pdf>]
-<Appendix/Paper01.pdf, id=1173, 614.295pt x 794.97pt>
+<Appendix/Paper01.pdf, id=1161, 614.295pt x 794.97pt>
 File: Appendix/Paper01.pdf Graphic file (type pdf)
 <use Appendix/Paper01.pdf>
 Package pdftex.def Info: Appendix/Paper01.pdf  used on input line 17.
@@ -1982,7 +1965,7 @@ File: Appendix/Paper01.pdf Graphic file (type pdf)
 <use Appendix/Paper01.pdf>
 Package pdftex.def Info: Appendix/Paper01.pdf  used on input line 17.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-<Appendix/Paper01.pdf, id=1176, page=1, 614.295pt x 794.97pt>
+<Appendix/Paper01.pdf, id=1164, page=1, 614.295pt x 794.97pt>
 File: Appendix/Paper01.pdf Graphic file (type pdf)
 <use Appendix/Paper01.pdf, page 1>
 Package pdftex.def Info: Appendix/Paper01.pdf , page1 used on input line 17.
@@ -1991,7 +1974,7 @@ File: Appendix/Paper01.pdf Graphic file (type pdf)
 <use Appendix/Paper01.pdf, page 1>
 Package pdftex.def Info: Appendix/Paper01.pdf , page1 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [77
+ [76
 
 ]
 File: Appendix/Paper01.pdf Graphic file (type pdf)
@@ -2006,190 +1989,190 @@ File: Appendix/Paper01.pdf Graphic file (type pdf)
 <use Appendix/Paper01.pdf, page 1>
 Package pdftex.def Info: Appendix/Paper01.pdf , page1 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+ [77 <./Appendix/Paper01.pdf>]
+<Appendix/Paper01.pdf, id=1239, page=2, 614.295pt x 794.97pt>
+File: Appendix/Paper01.pdf Graphic file (type pdf)
+<use Appendix/Paper01.pdf, page 2>
+Package pdftex.def Info: Appendix/Paper01.pdf , page2 used on input line 17.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: Appendix/Paper01.pdf Graphic file (type pdf)
+<use Appendix/Paper01.pdf, page 2>
+Package pdftex.def Info: Appendix/Paper01.pdf , page2 used on input line 17.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: Appendix/Paper01.pdf Graphic file (type pdf)
+<use Appendix/Paper01.pdf, page 2>
+Package pdftex.def Info: Appendix/Paper01.pdf , page2 used on input line 17.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [78 <./Appendix/Paper01.pdf>]
-<Appendix/Paper01.pdf, id=1251, page=2, 614.295pt x 794.97pt>
+<Appendix/Paper01.pdf, id=1250, page=3, 614.295pt x 794.97pt>
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 2>
-Package pdftex.def Info: Appendix/Paper01.pdf , page2 used on input line 17.
+<use Appendix/Paper01.pdf, page 3>
+Package pdftex.def Info: Appendix/Paper01.pdf , page3 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 2>
-Package pdftex.def Info: Appendix/Paper01.pdf , page2 used on input line 17.
+<use Appendix/Paper01.pdf, page 3>
+Package pdftex.def Info: Appendix/Paper01.pdf , page3 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 2>
-Package pdftex.def Info: Appendix/Paper01.pdf , page2 used on input line 17.
+<use Appendix/Paper01.pdf, page 3>
+Package pdftex.def Info: Appendix/Paper01.pdf , page3 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [79 <./Appendix/Paper01.pdf>]
-<Appendix/Paper01.pdf, id=1262, page=3, 614.295pt x 794.97pt>
+<Appendix/Paper01.pdf, id=1285, page=4, 614.295pt x 794.97pt>
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 3>
-Package pdftex.def Info: Appendix/Paper01.pdf , page3 used on input line 17.
+<use Appendix/Paper01.pdf, page 4>
+Package pdftex.def Info: Appendix/Paper01.pdf , page4 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 3>
-Package pdftex.def Info: Appendix/Paper01.pdf , page3 used on input line 17.
+<use Appendix/Paper01.pdf, page 4>
+Package pdftex.def Info: Appendix/Paper01.pdf , page4 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 3>
-Package pdftex.def Info: Appendix/Paper01.pdf , page3 used on input line 17.
+<use Appendix/Paper01.pdf, page 4>
+Package pdftex.def Info: Appendix/Paper01.pdf , page4 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [80 <./Appendix/Paper01.pdf>]
-<Appendix/Paper01.pdf, id=1297, page=4, 614.295pt x 794.97pt>
+<Appendix/Paper01.pdf, id=1427, page=5, 614.295pt x 794.97pt>
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 4>
-Package pdftex.def Info: Appendix/Paper01.pdf , page4 used on input line 17.
+<use Appendix/Paper01.pdf, page 5>
+Package pdftex.def Info: Appendix/Paper01.pdf , page5 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 4>
-Package pdftex.def Info: Appendix/Paper01.pdf , page4 used on input line 17.
+<use Appendix/Paper01.pdf, page 5>
+Package pdftex.def Info: Appendix/Paper01.pdf , page5 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 4>
-Package pdftex.def Info: Appendix/Paper01.pdf , page4 used on input line 17.
+<use Appendix/Paper01.pdf, page 5>
+Package pdftex.def Info: Appendix/Paper01.pdf , page5 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [81 <./Appendix/Paper01.pdf>]
-<Appendix/Paper01.pdf, id=1439, page=5, 614.295pt x 794.97pt>
+<Appendix/Paper01.pdf, id=1444, page=6, 614.295pt x 794.97pt>
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 5>
-Package pdftex.def Info: Appendix/Paper01.pdf , page5 used on input line 17.
+<use Appendix/Paper01.pdf, page 6>
+Package pdftex.def Info: Appendix/Paper01.pdf , page6 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 5>
-Package pdftex.def Info: Appendix/Paper01.pdf , page5 used on input line 17.
+<use Appendix/Paper01.pdf, page 6>
+Package pdftex.def Info: Appendix/Paper01.pdf , page6 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 5>
-Package pdftex.def Info: Appendix/Paper01.pdf , page5 used on input line 17.
+<use Appendix/Paper01.pdf, page 6>
+Package pdftex.def Info: Appendix/Paper01.pdf , page6 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [82 <./Appendix/Paper01.pdf>]
-<Appendix/Paper01.pdf, id=1456, page=6, 614.295pt x 794.97pt>
+<Appendix/Paper01.pdf, id=1450, page=7, 614.295pt x 794.97pt>
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 6>
-Package pdftex.def Info: Appendix/Paper01.pdf , page6 used on input line 17.
+<use Appendix/Paper01.pdf, page 7>
+Package pdftex.def Info: Appendix/Paper01.pdf , page7 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 6>
-Package pdftex.def Info: Appendix/Paper01.pdf , page6 used on input line 17.
+<use Appendix/Paper01.pdf, page 7>
+Package pdftex.def Info: Appendix/Paper01.pdf , page7 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 6>
-Package pdftex.def Info: Appendix/Paper01.pdf , page6 used on input line 17.
+<use Appendix/Paper01.pdf, page 7>
+Package pdftex.def Info: Appendix/Paper01.pdf , page7 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [83 <./Appendix/Paper01.pdf>]
-<Appendix/Paper01.pdf, id=1463, page=7, 614.295pt x 794.97pt>
+<Appendix/Paper01.pdf, id=1463, page=8, 614.295pt x 794.97pt>
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 7>
-Package pdftex.def Info: Appendix/Paper01.pdf , page7 used on input line 17.
+<use Appendix/Paper01.pdf, page 8>
+Package pdftex.def Info: Appendix/Paper01.pdf , page8 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 7>
-Package pdftex.def Info: Appendix/Paper01.pdf , page7 used on input line 17.
+<use Appendix/Paper01.pdf, page 8>
+Package pdftex.def Info: Appendix/Paper01.pdf , page8 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 7>
-Package pdftex.def Info: Appendix/Paper01.pdf , page7 used on input line 17.
+<use Appendix/Paper01.pdf, page 8>
+Package pdftex.def Info: Appendix/Paper01.pdf , page8 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [84 <./Appendix/Paper01.pdf>]
-<Appendix/Paper01.pdf, id=1475, page=8, 614.295pt x 794.97pt>
+<Appendix/Paper01.pdf, id=1468, page=9, 614.295pt x 794.97pt>
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 8>
-Package pdftex.def Info: Appendix/Paper01.pdf , page8 used on input line 17.
+<use Appendix/Paper01.pdf, page 9>
+Package pdftex.def Info: Appendix/Paper01.pdf , page9 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 8>
-Package pdftex.def Info: Appendix/Paper01.pdf , page8 used on input line 17.
+<use Appendix/Paper01.pdf, page 9>
+Package pdftex.def Info: Appendix/Paper01.pdf , page9 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 8>
-Package pdftex.def Info: Appendix/Paper01.pdf , page8 used on input line 17.
+<use Appendix/Paper01.pdf, page 9>
+Package pdftex.def Info: Appendix/Paper01.pdf , page9 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [85 <./Appendix/Paper01.pdf>]
-<Appendix/Paper01.pdf, id=1480, page=9, 614.295pt x 794.97pt>
+<Appendix/Paper01.pdf, id=1473, page=10, 614.295pt x 794.97pt>
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 9>
-Package pdftex.def Info: Appendix/Paper01.pdf , page9 used on input line 17.
+<use Appendix/Paper01.pdf, page 10>
+Package pdftex.def Info: Appendix/Paper01.pdf , page10 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 9>
-Package pdftex.def Info: Appendix/Paper01.pdf , page9 used on input line 17.
+<use Appendix/Paper01.pdf, page 10>
+Package pdftex.def Info: Appendix/Paper01.pdf , page10 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 9>
-Package pdftex.def Info: Appendix/Paper01.pdf , page9 used on input line 17.
+<use Appendix/Paper01.pdf, page 10>
+Package pdftex.def Info: Appendix/Paper01.pdf , page10 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [86 <./Appendix/Paper01.pdf>]
-<Appendix/Paper01.pdf, id=1485, page=10, 614.295pt x 794.97pt>
+<Appendix/Paper01.pdf, id=1478, page=11, 614.295pt x 794.97pt>
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 10>
-Package pdftex.def Info: Appendix/Paper01.pdf , page10 used on input line 17.
+<use Appendix/Paper01.pdf, page 11>
+Package pdftex.def Info: Appendix/Paper01.pdf , page11 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 10>
-Package pdftex.def Info: Appendix/Paper01.pdf , page10 used on input line 17.
+<use Appendix/Paper01.pdf, page 11>
+Package pdftex.def Info: Appendix/Paper01.pdf , page11 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 10>
-Package pdftex.def Info: Appendix/Paper01.pdf , page10 used on input line 17.
+<use Appendix/Paper01.pdf, page 11>
+Package pdftex.def Info: Appendix/Paper01.pdf , page11 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [87 <./Appendix/Paper01.pdf>]
-<Appendix/Paper01.pdf, id=1490, page=11, 614.295pt x 794.97pt>
+<Appendix/Paper01.pdf, id=1489, page=12, 614.295pt x 794.97pt>
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 11>
-Package pdftex.def Info: Appendix/Paper01.pdf , page11 used on input line 17.
+<use Appendix/Paper01.pdf, page 12>
+Package pdftex.def Info: Appendix/Paper01.pdf , page12 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 11>
-Package pdftex.def Info: Appendix/Paper01.pdf , page11 used on input line 17.
+<use Appendix/Paper01.pdf, page 12>
+Package pdftex.def Info: Appendix/Paper01.pdf , page12 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 11>
-Package pdftex.def Info: Appendix/Paper01.pdf , page11 used on input line 17.
+<use Appendix/Paper01.pdf, page 12>
+Package pdftex.def Info: Appendix/Paper01.pdf , page12 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [88 <./Appendix/Paper01.pdf>]
-<Appendix/Paper01.pdf, id=1501, page=12, 614.295pt x 794.97pt>
+<Appendix/Paper01.pdf, id=1494, page=13, 614.295pt x 794.97pt>
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 12>
-Package pdftex.def Info: Appendix/Paper01.pdf , page12 used on input line 17.
+<use Appendix/Paper01.pdf, page 13>
+Package pdftex.def Info: Appendix/Paper01.pdf , page13 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 12>
-Package pdftex.def Info: Appendix/Paper01.pdf , page12 used on input line 17.
+<use Appendix/Paper01.pdf, page 13>
+Package pdftex.def Info: Appendix/Paper01.pdf , page13 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 12>
-Package pdftex.def Info: Appendix/Paper01.pdf , page12 used on input line 17.
+<use Appendix/Paper01.pdf, page 13>
+Package pdftex.def Info: Appendix/Paper01.pdf , page13 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [89 <./Appendix/Paper01.pdf>]
-<Appendix/Paper01.pdf, id=1507, page=13, 614.295pt x 794.97pt>
+<Appendix/Paper01.pdf, id=1505, page=14, 614.295pt x 794.97pt>
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 13>
-Package pdftex.def Info: Appendix/Paper01.pdf , page13 used on input line 17.
+<use Appendix/Paper01.pdf, page 14>
+Package pdftex.def Info: Appendix/Paper01.pdf , page14 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 13>
-Package pdftex.def Info: Appendix/Paper01.pdf , page13 used on input line 17.
+<use Appendix/Paper01.pdf, page 14>
+Package pdftex.def Info: Appendix/Paper01.pdf , page14 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 13>
-Package pdftex.def Info: Appendix/Paper01.pdf , page13 used on input line 17.
+<use Appendix/Paper01.pdf, page 14>
+Package pdftex.def Info: Appendix/Paper01.pdf , page14 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [90 <./Appendix/Paper01.pdf>]
-<Appendix/Paper01.pdf, id=1517, page=14, 614.295pt x 794.97pt>
-File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 14>
-Package pdftex.def Info: Appendix/Paper01.pdf , page14 used on input line 17.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 14>
-Package pdftex.def Info: Appendix/Paper01.pdf , page14 used on input line 17.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/Paper01.pdf Graphic file (type pdf)
-<use Appendix/Paper01.pdf, page 14>
-Package pdftex.def Info: Appendix/Paper01.pdf , page14 used on input line 17.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [91 <./Appendix/Paper01.pdf>]
-<Appendix/Paper01.pdf, id=1522, page=15, 614.295pt x 794.97pt>
+<Appendix/Paper01.pdf, id=1510, page=15, 614.295pt x 794.97pt>
 File: Appendix/Paper01.pdf Graphic file (type pdf)
 <use Appendix/Paper01.pdf, page 15>
 Package pdftex.def Info: Appendix/Paper01.pdf , page15 used on input line 17.
@@ -2202,20 +2185,20 @@ File: Appendix/Paper01.pdf Graphic file (type pdf)
 <use Appendix/Paper01.pdf, page 15>
 Package pdftex.def Info: Appendix/Paper01.pdf , page15 used on input line 17.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [92 <./Appendix/Paper01.pdf>])
+ [91 <./Appendix/Paper01.pdf>])
 
-Package biblatex Warning: Keyword 'Viet' not found on input line 282.
+Package biblatex Warning: Keyword 'Viet' not found on input line 283.
 
 
 Package biblatex Warning: Option 'resetnumbers' requires 'defernumbers=true'.
-(biblatex)                Ignoring 'resetnumbers=true' on input line 282.
+(biblatex)                Ignoring 'resetnumbers=true' on input line 283.
 
 
-LaTeX Warning: Empty bibliography on input line 282.
+LaTeX Warning: Empty bibliography on input line 283.
 
 
 Package biblatex Warning: Option 'resetnumbers' requires 'defernumbers=true'.
-(biblatex)                Ignoring 'resetnumbers=true' on input line 287.
+(biblatex)                Ignoring 'resetnumbers=true' on input line 288.
 
 
 Package biblatex Warning: Name format 'last-first' deprecated.
@@ -2223,45 +2206,42 @@ Package biblatex Warning: Name format 'last-first' deprecated.
 (biblatex)                Using 'family-given' now.
 
 
-Overfull \hbox (0.4654pt too wide) in paragraph at lines 287--287
+Overfull \hbox (0.4654pt too wide) in paragraph at lines 288--288
 \T5/cmr/m/n/14.4 knowl-edge-base,'' \T5/cmr/m/it/14.4 Com-mu-ni-ca-tions of the ACM\T5/cmr/m/n/14.4 , vol. 57, no. 10, pp. 78^^U
  []
 
-[93
+[92
 
 
 
 ]
-Overfull \hbox (4.35204pt too wide) in paragraph at lines 287--287
+Overfull \hbox (4.35204pt too wide) in paragraph at lines 288--288
 []\T5/cmr/m/n/14.4 LangChain. ``Chroma vec-tor store in-te-gra-tion.'' (2023), [On-line]. Avail-
  []
 
-[94]
-Overfull \hbox (8.90619pt too wide) in paragraph at lines 287--287
+[93]
+Overfull \hbox (8.90619pt too wide) in paragraph at lines 288--288
 []\T5/cmr/m/n/14.4 Bordes, A., Usunier, N., Garcia-Duran, A., We-ston, J., and Yakhnenko,
  []
 
-[95] [96]
-Overfull \hbox (2.73453pt too wide) in paragraph at lines 287--287
+[94] [95]
+Overfull \hbox (2.73453pt too wide) in paragraph at lines 288--288
 []\T5/cmr/m/n/14.4 Aizawa, A., ``An information-theoretic per-spec-tive of tf--idf mea-sures,''
  []
 
 
-Overfull \hbox (26.78813pt too wide) in paragraph at lines 287--287
+Overfull \hbox (26.78813pt too wide) in paragraph at lines 288--288
 []\T5/cmr/m/n/14.4 OpenAI. ``Text-embedding-3-large model. ope-nai doc-u-men-ta-tion.'' (2023),
  []
 
 
-Overfull \hbox (3.04947pt too wide) in paragraph at lines 287--287
+Overfull \hbox (3.04947pt too wide) in paragraph at lines 288--288
 []$\T5/cmtt/m/n/14.4 https : / / dataverse . harvard . edu / dataset . xhtml ? persistentId =
  []
 
-[97] (./main.aux (./Appendix/thanks.aux) (./Appendix/proposal.aux) (./Appendix/summary.aux) (./Appendix/listofacronyms.aux) (./Chapter1/chapter1.aux) (./Chapter2/chapter2.aux) (./Chapter3/chapter3.aux) (./Chapter4/chapter4.aux) (./Chapter5/chapter5.aux) (./Chapter6/chapter6.aux) (./Appendix/publish.aux) (./Appendix/appendix1.aux))
+[96] (./main.aux (./Appendix/thanks.aux) (./Appendix/proposal.aux) (./Appendix/summary.aux) (./Appendix/listofacronyms.aux) (./Chapter1/chapter1.aux) (./Chapter2/chapter2.aux) (./Chapter3/chapter3.aux) (./Chapter4/chapter4.aux) (./Chapter5/chapter5.aux) (./Chapter6/chapter6.aux) (./Appendix/publish.aux) (./Appendix/appendix1.aux))
 
 LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 746CE4B40FDDFFA8D0BE8E2223D4FDED;15613.
@@ -2270,18 +2250,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40420 strings out of 476025
- 819686 string characters out of 5787994
+ 40476 strings out of 476025
+ 820325 string characters out of 5787994
  1873382 words of memory out of 5000000
- 59834 multiletter control sequences out of 15000+600000
+ 59893 multiletter control sequences out of 15000+600000
  526782 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,17n,100p,1761b,1548s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/vntex/vnr/vnbx10.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/vntex/vnr/vnbx12.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/vntex/vnr/vnbxti10.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/vntex/vnr/vncsc10.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/vntex/vnr/vnr10.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/vntex/vnr/vnr12.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/vntex/vnr/vnti12.pfb><e:/My Document/texlive/2023/texmf-dist/fonts/type1/vntex/vnr/vntt12.pfb>
-Output written on main.pdf (123 pages, 9139572 bytes).
+Output written on main.pdf (122 pages, 8881176 bytes).
 PDF statistics:
- 1703 PDF objects out of 1728 (max. 8388607)
- 1298 compressed objects within 13 object streams
- 283 named destinations out of 1000 (max. 500000)
- 996 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1690 PDF objects out of 1728 (max. 8388607)
+ 1289 compressed objects within 13 object streams
+ 279 named destinations out of 1000 (max. 500000)
+ 981 words of extra memory for PDF output out of 10000 (max. 10000000)
 

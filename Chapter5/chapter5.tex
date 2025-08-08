@@ -1,11 +1,6 @@
 \chapter{KẾT QUẢ THÍ NGHIỆM}
 \label{Chapter5}
-Chương này sẽ bắt đầu bằng việc giới thiệu chi tiết về các tập dữ liệu
-chuẩn được sử dụng trong quá trình thí nghiệm. Tiếp theo, khóa luận sẽ
-trình bày các độ đo được sử dụng để đánh giá hiệu quả của mô hình dự
-đoán liên kết đã được đề xuất. Để so sánh hiệu quả của mô hình được
-đề xuất với các phương pháp đã có, khóa luận tiếp tục tóm tắt những mô
-hình cơ sở được lựa chọn. Sau đó, khóa luận sẽ tiến hành các thí nghiệm liên quan để so sánh hiệu suất của mô hình được đề xuất với các mô hình cơ sở này. Quá trình so sánh này sẽ giúp đánh giá hiệu quả của mô hình MSKGen trong bối cảnh chung của nghiên cứu suy luận trên đồ thị tri thức thời gian.
+Chương này trình bày các thí nghiệm nhằm đánh giá hiệu quả của mô hình đề xuất. Nội dung bao gồm việc giới thiệu tập dữ liệu, các độ đo, mô hình cơ sở và kết quả so sánh hiệu suất để xác thực hiệu quả của mô hình MSKGen.
 
 \section{Bộ dữ liệu}
 Khóa luận này tập trung vào việc đánh giá hiệu quả của các mô hình suy luận trên đồ thị tri thức thời gian ở 3 tập dữ liệu: ICEWS14 \cite{ref_article19}, GDELT \cite{ref_article20} và YAGO \cite{ref_article21}. 
@@ -114,20 +109,34 @@ ngưỡng điểm để lọc ra các luật có chất lượng cao là $\gamma
     số lượng ứng cử viên tối đa mà LLM có thể trả về $k$ lần lượt là 0.1, 0.5 và 10 trên cả ba tập dữ liệu. 
     \item Ở bước tổng hợp kết quả dự đoán cuối cùng, \textbf{TiRGN} là mô hình theo phương pháp nhúng được chọn để lấy điểm số $score_{G}^{c_i}$. 
     Trọng số cho điểm số từ dự đoán của LLM $\alpha$ và của TiRGN $1 - \alpha$
-    trong điểm số cuối cùng trên từng tập dữ liệu được thể hiện trong bảng~\ref{tab:table53}.
+    trong điểm số cuối cùng trên từng tập dữ liệu được thể hiện trong bảng~\ref{tab:table53_professional}.
 \end{itemize}
 
+% \begin{table}[H]
+% \caption{Trọng số của mỗi điểm số thành phần trong điểm số cuối cùng trên từng tập dữ liệu}
+% \label{tab:table53}
+% \begin{adjustbox}{width=\textwidth}
+% \begin{tabular}{|l|l|l|l|}
+% \hline
+%            & ICEWS14 & GDELT & YAGO \\ \hline
+% $\alpha$   & 0.6     & 0.6   & 0.85 \\ \hline
+% $1-\alpha$ & 0.4     & 0.4   & 0.15 \\ \hline
+% \end{tabular}
+% \end{adjustbox}  
+% \end{table}
 \begin{table}[H]
-\caption{Trọng số của mỗi điểm số thành phần trong điểm số cuối cùng trên từng tập dữ liệu}
-\label{tab:table53}
-\begin{adjustbox}{width=\textwidth}
-\begin{tabular}{|l|l|l|l|}
-\hline
-           & ICEWS14 & GDELT & YAGO \\ \hline
-$\alpha$   & 0.6     & 0.6   & 0.85 \\ \hline
-$1-\alpha$ & 0.4     & 0.4   & 0.15 \\ \hline
-\end{tabular}
-\end{adjustbox}  
+    \centering
+    \caption{Trọng số của mỗi điểm số thành phần trong điểm số cuối cùng trên từng tập dữ liệu}
+    \label{tab:table53_professional}
+    % 'l' căn trái cột đầu, 'c' căn giữa các cột dữ liệu
+    \begin{tabular}{l ccc} 
+        \toprule % Đường kẻ dày trên cùng
+        & \textbf{ICEWS14} & \textbf{GDELT} & \textbf{YAGO} \\
+        \midrule % Đường kẻ giữa tiêu đề và nội dung
+        $\alpha$   & 0.6     & 0.6   & 0.85 \\
+        $1-\alpha$ & 0.4     & 0.4   & 0.15 \\
+        \bottomrule % Đường kẻ dày dưới cùng
+    \end{tabular}
 \end{table}
   
 
@@ -208,7 +217,11 @@ và các sự kiện ngữ nghĩa của MSKGen trở nên hiệu quả hơn.
 \textbf{So sánh với phương pháp dựa trên nhúng đồ thị:} MSKGen hoàn toàn vượt trội hai mô hình tốt nhất của phương pháp nhúng đồ thị là TiRGN 
 trên cả ba tập dữ liệu ở mọi chỉ số đánh giá. Cụ thể ở chỉ số Hit@1, MSKGen cao hơn TiRGN 4.6\% trên ICEWS14, 0.9\% trên GDELT và 1.3\% trên YAGO.
 
-\begin{table}[H]
+\textbf{So sánh với phương pháp suy luận dựa trên luật:} So sánh với mô hình của phương pháp suy luận dựa trên luật là TLogic,
+MSKGen đều có các chỉ số cao hơn một cách vượt trội trên cả ba tập dữ liệu. Điều này chứng tỏ MSKGen có khả năng tổng quát hóa tốt
+hơn và độ chính xác cao hơn.
+
+\begin{table}
 \caption{Kết quả thực nghiệm của MSKGen và các mô hình khác trên tập dữ liệu YAGO với thiết lập bộ lọc nhận thức thời gian. 
 Điểm số cao nhất được \textbf{bôi đen} và điểm số tốt thứ hai được \underline{gạch chân}.}
 \label{tab:table56}
@@ -229,11 +242,6 @@ trên cả ba tập dữ liệu ở mọi chỉ số đánh giá. Cụ thể ở
 \end{tabular}
 \end{adjustbox}  
 \end{table}
-\vspace{-5mm}
-
-\textbf{So sánh với phương pháp suy luận dựa trên luật:} So sánh với mô hình của phương pháp suy luận dựa trên luật là TLogic,
-MSKGen đều có các chỉ số cao hơn một cách vượt trội trên cả ba tập dữ liệu. Điều này chứng tỏ MSKGen có khả năng tổng quát hóa tốt
-hơn và độ chính xác cao hơn.
 
 \textbf{So sánh với phương pháp suy luận nhờ LLM:} Việc so sánh với các mô hình suy luận nhờ LLM cho thấy sự vượt trội của MSKGen, chứng
 tỏ rằng việc kết hợp thêm LLMs vào quá trình xây dựng luật và áp dụng kĩ thuật RAG vào quá trình truy xuất sự kiện tương đồng ngữ nghĩa đã giúp việc suy luận
@@ -247,7 +255,7 @@ sẽ có 2 biến thể của MSKGen và với mỗi biến thể, chúng tôi s
     trích xuất dựa trên luật trong quá trình suy luận. Biến thể này sẽ chỉ sử dụng các sự kiện tương đồng về mặt ngữ nghĩa trong quá trình 
     suy luận nhằm đánh giá mức độ ảnh hưởng của các sự kiện được trích xuất dựa trên luật cũng như so sánh khả năng suy luận của MSKGen sẽ như thế 
     nào so với các mô hình theo phương pháp suy luận dựa trên LLM nếu chỉ sử dụng các sự kiện tương đồng về ngữ nghĩa được truy xuất thông qua kĩ thuật RAG.
-    \item \textbf{MSKGen w/o semantic facts:} Đây là biến thể của MSKGen không có giai đoạn truy xuất các sự kiện tương đồng về ngữ nghĩa.
+    \item \textbf{MSKGen w/o semantically similar facts:} Đây là biến thể của MSKGen không có giai đoạn truy xuất các sự kiện tương đồng về ngữ nghĩa.
     Biến thể này chỉ sử dụng các sự kiện được trích xuất dựa trên luật trong quá trình suy luận, điều này sẽ giúp đánh giá hiệu quả của MSKGen
     với các mô hình suy luận dựa trên luật trong việc xây dựng luật cũng như trích xuất các sự kiện dựa theo luật.
 \end{itemize}
@@ -264,16 +272,16 @@ sẽ có 2 biến thể của MSKGen và với mỗi biến thể, chúng tôi s
     \begin{minipage}[b]{0.48\textwidth}  
         \centering
         \includegraphics[width=\textwidth]{images/abl_study_2.png}  
-        \caption{Hit@k (k=1,3,10) của MSKGen w/o semantic facts với các mô hình sử dụng phương pháp suy luận dựa vào luật}
+        \caption{Hit@k (k=1,3,10) của MSKGen w/o semantically similar facts với các mô hình sử dụng phương pháp suy luận dựa vào luật}
         \label{fig2: ablation study}
     \end{minipage}  
      
 \end{figure} 
 
-Quan sát kết quả từ hình~\ref{fig1: ablation study} và~\ref{fig2: ablation study}, MSKGen w/o rule-based facts vẫn có kết quả
+Quan sát kết quả từ hình~\ref{fig1: ablation study} và~\ref{fig2: ablation study}, biến thể "MSKGen w/o rule-based facts" vẫn có kết quả
 vượt trội so với những mô hình trước đây sử dụng phương pháp suy luận dựa vào LLMs, điều này chứng tỏ tính hiệu quả của việc 
 trích xuất các sự kiện tương đồng về ngữ nghĩa thông qua kĩ thuật RAG so với kĩ thuật trích xuất "cứng" mà các mô hình trước 
-đây sử dụng. Ngoài ra, MSKGen w/o semantics facts cũng có kết quá tốt hơn hoàn toàn so với các mô hình suy luận dựa trên luật.
+đây sử dụng. Ngoài ra, biến thể "MSKGen w/o semantically similar facts" cũng có kết quá tốt hơn hoàn toàn so với các mô hình suy luận dựa trên luật.
 Điều này chứng tỏ những luật được MSKGen xây dựng có chất lượng cao hơn và có tính tổng quát hơn nhờ vào lớp ngữ nghĩa của LLMs, thứ mà 
 các mô hình suy luận dựa trên luật không có.
 
@@ -297,21 +305,21 @@ Trong khóa luận này, chúng tôi sẽ phân tích hiệu năng của MSKGen 
 đánh giá xem chất lượng của mô hình ngôn ngữ lớn có ảnh hưởng nhiều đến kết quả suy luận của MSKGen hay không.
 
 \begin{table}[H]
-\caption{Hit@1 của MSKGen với các LLM khác nhau trên ba bộ dữ liệu tiêu chuẩn}
-\label{tab:table57}
-\begin{adjustbox}{width=\textwidth}
-\begin{tabular}{|l|l|l|l|}
-\hline
-               & ICEWS14 & GDELT & YAGO  \\ \hline
-GPT-3.5-turbo  & 0.379   & 0.140 & 0.838 \\ \hline
-GPT-4o         & 0.384   & 0.145 & 0.856 \\ \hline
-Gemini 2.5 pro & 0.386   & 0.145 & 0.861 \\ \hline
-\end{tabular}
-\end{adjustbox}  
+    \centering
+    \caption{Hit@1 của MSKGen với các LLM khác nhau trên ba bộ dữ liệu tiêu chuẩn}
+    \label{tab:table57_professional}
+    \begin{tabular}{l ccc} 
+        \toprule
+                       & \textbf{ICEWS14} & \textbf{GDELT} & \textbf{YAGO} \\
+        \midrule
+        GPT-3.5-turbo  & 0.379            & 0.140          & 0.838         \\
+        GPT-4o         & 0.384            & 0.145          & 0.856         \\
+        Gemini 2.5 Pro & 0.386            & 0.145          & 0.861         \\
+        \bottomrule
+    \end{tabular}
 \end{table}
-\vspace{-5mm}
 
-Từ bảng~\ref{tab:table57}, việc thay đổi mô hình ngôn ngữ lớn sử dụng trong MSKGen không có ảnh hưởng quan trọng
+Từ bảng~\ref{tab:table57_professional}, việc thay đổi mô hình ngôn ngữ lớn sử dụng trong MSKGen không có ảnh hưởng quan trọng
 đến kết quả suy luận của MSKGen, bởi vì độ chính xác của dự đoán cho một câu truy vấn phụ thuộc nhiều vào các thông
 tin, ngữ cảnh (ở đây là các sự kiện truy xuất được dựa trên luật hoặc RAG) cung cấp cho LLM. Nếu như các sự kiện
 được cung cấp không có ý nghĩa, thì dù mô hình ngôn ngữ lớn sử dụng có tốt thế nào cũng không thể đưa ra những dự

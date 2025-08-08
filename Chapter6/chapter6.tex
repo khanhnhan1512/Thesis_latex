@@ -4,7 +4,7 @@
 Chương này trình bày những kết quả nghiên cứu đạt được, những đóng góp mới, chỉ ra những hạn chế và thách thức còn tồn đọng, từ đó đưa ra những đề xuất, kiến nghị cho các hướng nghiên cứu tiếp theo, nhằm mở rộng và ứng dụng hiệu quả hơn các kết quả nghiên cứu trong thực tế.
 
 \section{Kết luận chung}
-Trong nghiên cứu này, chúng tôi đã giới thiệu MSKGen - một phương pháp tiếp cận mới cho bài toán suy luận đồ thị tri thức thời gian (TKGR) với khả năng tích hợp đa nguồn tri thức để tạo ra các dự đoán chính xác. Framework của chúng tôi bắt đầu bằng quá trình trích xuất sự kiện dựa trên luật logic thời gian, nơi chúng tôi áp dụng kỹ thuật temporal random walk để lấy mẫu các luật lịch sử, sau đó đánh giá chất lượng thông qua thước đo Kulczynski để xác định các luật có điểm số cao. Thông qua cơ chế lựa chọn quan hệ được hướng dẫn bởi các mô hình ngôn ngữ lớn (LLMs) và quá trình tinh chỉnh luật lặp đi lặp lại, chúng tôi đã tạo ra các luật có tính nhất quán thời gian, nắm bắt được các mẫu quan hệ phức tạp giữa các loại quan hệ khác nhau.
+Trong nghiên cứu này, chúng tôi đã giới thiệu MSKGen - một phương pháp tiếp cận mới cho bài toán suy luận đồ thị tri thức thời gian (TKGR) với khả năng tích hợp đa nguồn tri thức để tạo ra các dự đoán chính xác. Framework của chúng tôi bắt đầu bằng quá trình trích xuất sự kiện dựa trên luật logic thời gian, nơi chúng tôi áp dụng thuật toán "temporal random walk" để lấy mẫu các luật lịch sử, sau đó đánh giá chất lượng thông qua thước đo Kulczynski để xác định các luật có điểm số cao. Thông qua cơ chế lựa chọn quan hệ được hướng dẫn bởi các mô hình ngôn ngữ lớn (LLMs) và quá trình tinh chỉnh luật lặp đi lặp lại, chúng tôi đã tạo ra các luật có tính nhất quán thời gian, nắm bắt được các mẫu quan hệ phức tạp giữa các loại quan hệ khác nhau.
 
 Bổ sung cho phương pháp trên, quá trình truy xuất sự kiện ngữ nghĩa của chúng tôi tận dụng kỹ thuật embedding vector để xây dựng cơ sở dữ liệu toàn diện về các sự kiện lịch sử, cho phép truy xuất thông minh các nguồn tri thức đa dạng. Các nguồn sự kiện này được kết hợp trong mô-đun suy luận đa nguồn, nơi LLMs tổng hợp các câu trả lời đặc thù cho từng truy vấn bằng cách tích hợp các sự kiện có cấu trúc đa dạng trong khi vẫn duy trì tính mạch lạc về mặt ngữ nghĩa. Kết quả thực nghiệm trên nhiều bộ dữ liệu chuẩn cho thấy MSKGen đạt được sự cải thiện đáng kể về hiệu suất so với các phương pháp tiên tiến hiện nay, khẳng định tính hiệu quả của cách tiếp cận tích hợp tri thức đa nguồn trong các nhiệm vụ suy luận đồ thị tri thức thời gian.
 
@@ -16,54 +16,48 @@ Nghiên cứu này vẫn tồn tại một số hạn chế cần được giả
 \subsection{Hạn chế về chi phí tính toán}
 Việc sử dụng các mô hình ngôn ngữ lớn như GPT-4 và GPT-4o dẫn đến chi phí vận hành đáng kể. Cụ thể:
 \begin{itemize}
-\item Chi phí cho GPT-4 là \$30 cho mỗi triệu token đầu vào và \$60 cho mỗi triệu token đầu ra
-\item Ví dụ: Một truy vấn với 1000 token đầu vào và 1000 token đầu ra sẽ tốn \$0.09
+\item Chi phí cho GPT-4 là \$30 cho mỗi triệu token đầu vào và \$60 cho mỗi triệu token đầu ra. Ví dụ: một truy vấn với 1000 token đầu vào và 1000 token đầu ra sẽ tốn \$0.09.
 \item Tổng chi phí cho các thí nghiệm quy mô lớn có thể lên đến hàng trăm USD, hạn chế khả năng tối ưu hóa LLMs.
 \end{itemize}
 
 \subsection{Phụ thuộc vào chất lượng LLMs}
-\begin{itemize}
-\item Hiệu suất hệ thống chịu ảnh hưởng trực tiếp từ khả năng suy luận của LLMs, đặc biệt về vấn đề hallucination và bias
-\item Việc tối ưu chủ yếu tập trung vào prompt engineering mà chưa khai thác hết tiềm năng của các mô hình đồ thị
-\item Mô hình graph-based reasoning hiện tại (TiRGN) được sử dụng ở dạng "black-box" chưa qua tối ưu hóa
-\end{itemize}
+% \item Hiệu suất hệ thống chịu ảnh hưởng trực tiếp từ khả năng suy luận của LLMs, đặc biệt về vấn đề hallucination và bias
+Việc tối ưu chủ yếu tập trung vào prompt engineering mà chưa khai thác hết tiềm năng của các mô hình đồ thị. Ngoài ra, mô hình theo phương pháp graph-based hiện tại (TiRGN) được sử dụng ở dạng "black-box" chưa qua tối ưu hóa.
 
 \subsection{Thách thức trong triển khai hệ thống}
-\begin{itemize}
-\item Quy trình xử lý chưa hoàn toàn tự động hóa, đòi hỏi điều chỉnh thủ công khi thay đổi dataset
-\item Việc xây dựng thủ công các prompt tốn khoảng 10\% thời gian phát triển
-\item Thiếu phân tích chi tiết về resource allocation và timing trong quá trình vận hành
-\end{itemize}
+Đầu tiên, quy trình xử lý vẫn chưa hoàn toàn tự động hóa, đòi hỏi điều chỉnh thủ công khi thay đổi dataset và việc xây dựng thủ công các prompt tốn khoảng 10\% thời gian phát triển. Cuối cùng, hệ thống còn thiếu phân tích chi tiết về resource allocation và timing trong quá trình vận hành
 
 \section{Hướng nghiên cứu tiềm năng}
 Để khắc phục các hạn chế và mở rộng phạm vi ứng dụng, các hướng nghiên cứu sau được đề xuất:
 
 \subsection{Tối ưu hóa mô hình đồ thị}
-\begin{itemize}
-\item Phát triển kiến trúc deep learning mới kết hợp temporal graph neural networks với cơ chế attention để cải thiện graph-based scoring
-\item Thử nghiệm các phương pháp ensemble learning để kết hợp dự đoán từ nhiều mô hình đồ thị khác nhau
-\item Áp dụng kỹ thuật knowledge distillation để thu gọn mô hình đồ thị mà vẫn giữ được hiệu suất
-\end{itemize}
+% \begin{itemize}
+% \item Phát triển kiến trúc deep learning mới kết hợp temporal graph neural networks với cơ chế attention để cải thiện graph-based scoring
+% \item Thử nghiệm các phương pháp ensemble learning để kết hợp dự đoán từ nhiều mô hình đồ thị khác nhau
+% % \item Áp dụng kỹ thuật knowledge distillation để thu gọn mô hình đồ thị mà vẫn giữ được hiệu suất
+% \end{itemize}
+% Để tối ưu hóa mô hình đồ thị, hướng nghiên cứu có thể tập trung vào việc phát triển một kiến trúc học sâu (deep learning) mới, kết hợp giữa mạng nơ-ron đồ thị thời gian (temporal graph neural networks) và cơ chế chú ý (attention mechanism) nhằm cải thiện phương pháp tính điểm dựa trên đồ thị (graph-based scoring). Bên cạnh việc cải tiến kiến trúc cốt lõi, nghiên cứu cũng sẽ thử nghiệm các phương pháp học tập tổ hợp (ensemble learning) để kết hợp kết quả dự đoán từ nhiều mô hình đồ thị khác nhau, qua đó nâng cao độ chính xác tổng thể.
+Một hướng phát triển tiềm năng là tiếp tục tối ưu hóa mô hình đồ thị. Trong tương lai, nghiên cứu có thể tập trung vào việc phát triển các kiến trúc học sâu mới, ví dụ như kết hợp mạng nơ-ron đồ thị thời gian (temporal graph neural networks) với các cơ chế chú ý (attention mechanism) phức tạp hơn để cải thiện hiệu quả tính điểm. Bên cạnh đó, việc thử nghiệm các phương pháp học tập tổ hợp (ensemble learning) để kết hợp dự đoán từ nhiều mô hình đồ thị khác nhau cũng là một hướng đi hứa hẹn, có khả năng nâng cao đáng kể độ chính xác và tính ổn định của kết quả.
 
 \subsection{Cải tiến quy trình LLMs}
-\begin{itemize}
-\item Nghiên cứu cơ chế dynamic LLM selection để tự động chọn mô hình phù hợp dựa trên độ phức tạp của truy vấn
-\item Phát triển pipeline fine-tuning hiệu quả cho các LLMs mã nguồn mở (LLaMA, DeepSeek) để giảm chi phí
-\item Triển khai cơ chế cache cho các truy vấn lặp để tối ưu hóa việc sử dụng token
-\end{itemize}
+% \begin{itemize}
+% \item Nghiên cứu cơ chế dynamic LLM selection để tự động chọn mô hình phù hợp dựa trên độ phức tạp của truy vấn
+% \item Phát triển pipeline fine-tuning hiệu quả cho các LLMs mã nguồn mở (LLaMA, DeepSeek) để giảm chi phí
+% \item Triển khai cơ chế cache cho các truy vấn lặp để tối ưu hóa việc sử dụng token
+% \end{itemize}
+% Để cải tiến quy trình làm việc với các mô hình ngôn ngữ Lớn (LLMs), nghiên cứu này đề xuất ba hướng tối ưu hóa chính. Đầu tiên, một cơ chế lựa chọn LLM động (dynamic LLM selection) sẽ được nghiên cứu để hệ thống có thể tự động chọn mô hình phù hợp dựa trên độ phức tạp của từng truy vấn. Tiếp theo, một quy trình tinh chỉnh (fine-tuning) hiệu quả sẽ được phát triển cho các LLM mã nguồn mở phổ biến như LLaMA và DeepSeek, với mục tiêu chính là giảm thiểu chi phí tính toán. Cuối cùng, nhằm tối ưu hóa việc sử dụng token và giảm thời gian phản hồi, một cơ chế lưu trữ đệm (cache) sẽ được triển khai cho các truy vấn thường xuyên lặp lại.
+Để nâng cao hiệu quả và tính kinh tế khi vận hành, quy trình làm việc với các mô hình ngôn ngữ Lớn (LLMs) có thể được cải tiến theo nhiều hướng. Một lĩnh vực đầy hứa hẹn là nghiên cứu cơ chế lựa chọn LLM động (dynamic LLM selection), cho phép hệ thống tự động chọn mô hình phù hợp nhất với độ phức tạp của từng truy vấn. Hướng phát triển khác là xây dựng một quy trình tinh chỉnh (fine-tuning) hiệu quả cho các LLM mã nguồn mở (như LLaMA, DeepSeek) nhằm giảm thiểu chi phí. Ngoài ra, việc triển khai cơ chế lưu trữ đệm (cache) cho các truy vấn lặp lại cũng là một cải tiến thiết thực, giúp tối ưu hóa việc sử dụng token và tăng tốc độ phản hồi của hệ thống.
 
 \subsection{Tự động hóa hệ thống}
-\begin{itemize}
-\item Xây dựng framework tự động điều chỉnh prompt dựa trên đặc trưng của dataset
-\item Phát triển công cụ tự sinh template prompt sử dụng reinforcement learning
-\item Thiết kế module tiền xử lý dữ liệu thông minh có khả năng nhận biết schema tự động
-\end{itemize}
+% \begin{itemize}
+% \item Xây dựng framework tự động điều chỉnh prompt dựa trên đặc trưng của dataset.
+% \item Phát triển công cụ tự sinh template prompt sử dụng reinforcement learning.
+% \item Thiết kế module tiền xử lý dữ liệu thông minh có khả năng nhận biết schema tự động.
+% \end{itemize}
+% Nghiên cứu sẽ tập trung phát triển các thành phần thông minh ở nhiều giai đoạn. Trước hết, một module tiền xử lý dữ liệu sẽ được thiết kế với khả năng tự động nhận biết cấu trúc (schema), giúp đơn giản hóa khâu chuẩn bị dữ liệu. Tiếp theo, ở khâu tương tác với mô hình, một framework sẽ được xây dựng để tự động điều chỉnh câu lệnh gợi ý (prompt) dựa trên đặc trưng của từng tập dữ liệu. Để tiến xa hơn, một công cụ có khả năng tự sinh các mẫu prompt (template) bằng cách áp dụng học tăng cường (reinforcement learning) cũng sẽ được phát triển, hướng tới việc tự động hóa hoàn toàn quá trình tạo prompt.
+Một hướng phát triển quan trọng trong tương lai là đẩy mạnh tự động hóa hệ thống để giảm thiểu sự can thiệp thủ công. Nghiên cứu có thể mở rộng bằng cách xây dựng một framework có khả năng tự động điều chỉnh câu lệnh prompt dựa trên đặc trưng của bộ dữ liệu. Xa hơn nữa, có thể phát triển một công cụ tự sinh các mẫu prompt bằng học tăng cường (reinforcement learning). Để hoàn thiện quy trình, việc thiết kế một module tiền xử lý dữ liệu thông minh có khả năng tự động nhận biết cấu trúc (schema) cũng là một hướng đi cần thiết, giúp tạo ra một hệ thống khép kín và tự chủ hơn trong tương lai.
 
 \subsection{Mở rộng nguồn tri thức}
-\begin{itemize}
-\item Khảo sát khả năng tích hợp thêm các nguồn tri thức phi cấu trúc (văn bản, hình ảnh)
-\item Nghiên cứu cơ chế đa phương thức (multimodal) để xử lý các sự kiện phức hợp
-\item Thử nghiệm với các cơ chế truy xuất lai (hybrid retrieval) kết hợp semantic search và symbolic reasoning
-\end{itemize}
+Để hệ thống có thể xử lý các bài toán phức tạp và toàn diện hơn, một hướng phát triển trọng yếu là mở rộng khả năng tiếp nhận và xử lý dữ liệu. Trong tương lai, nghiên cứu có thể khảo sát khả năng tích hợp thêm các nguồn tri thức phi cấu trúc như văn bản và hình ảnh. Việc này sẽ đòi hỏi phải nghiên cứu và phát triển các cơ chế đa phương thức (multimodal) để có thể hiểu và xử lý các sự kiện phức hợp chứa thông tin từ nhiều nguồn khác nhau. Song song đó, để nâng cao năng lực suy luận, hướng đi thử nghiệm các cơ chế truy xuất lai (hybrid retrieval), kết hợp tìm kiếm ngữ nghĩa (semantic search) từ LLMs với suy luận dựa trên ký hiệu (symbolic reasoning) từ đồ thị tri thức, được xem là một hướng đi đầy hứa hẹn.
 
-Những hướng phát triển này không chỉ giải quyết các hạn chế hiện tại mà còn mở ra khả năng ứng dụng MSKGen trong các lĩnh vực mới như dự báo khủng hoảng chính trị, phân tích xu hướng thị trường tài chính, và hệ thống hỗ trợ ra quyết định y tế dựa trên dữ liệu lịch sử. 
+% Những hướng phát triển này không chỉ giải quyết các hạn chế hiện tại mà còn mở ra khả năng ứng dụng MSKGen trong các lĩnh vực mới như dự báo khủng hoảng chính trị, phân tích xu hướng thị trường tài chính, và hệ thống hỗ trợ ra quyết định y tế dựa trên dữ liệu lịch sử. 
