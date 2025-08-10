@@ -112,18 +112,6 @@ ngưỡng điểm để lọc ra các luật có chất lượng cao là $\gamma
     trong điểm số cuối cùng trên từng tập dữ liệu được thể hiện trong bảng~\ref{tab:table53_professional}.
 \end{itemize}
 
-% \begin{table}[H]
-% \caption{Trọng số của mỗi điểm số thành phần trong điểm số cuối cùng trên từng tập dữ liệu}
-% \label{tab:table53}
-% \begin{adjustbox}{width=\textwidth}
-% \begin{tabular}{|l|l|l|l|}
-% \hline
-%            & ICEWS14 & GDELT & YAGO \\ \hline
-% $\alpha$   & 0.6     & 0.6   & 0.85 \\ \hline
-% $1-\alpha$ & 0.4     & 0.4   & 0.15 \\ \hline
-% \end{tabular}
-% \end{adjustbox}  
-% \end{table}
 \begin{table}[H]
     \centering
     \caption{Trọng số của mỗi điểm số thành phần trong điểm số cuối cùng trên từng tập dữ liệu}
@@ -152,20 +140,6 @@ ICEWS14, GDELT và YAGO.
 Điểm số cao nhất được \textbf{bôi đen} và điểm số tốt thứ hai được \underline{gạch chân}.}
 \label{tab:table54}
 \begin{adjustbox}{width=\textwidth}
-% \begin{tabular}{|cc|ccc|ccc|ccc|}
-% \hline
-% \multicolumn{1}{|c|}{\multirow{2}{*}{Method}}      & \multirow{2}{*}{Model} & \multicolumn{3}{c|}{ICEWS14}                                             & \multicolumn{3}{c|}{GDELT}                                               & \multicolumn{3}{c|}{YAGO}                                                \\ \cline{3-11} 
-% \multicolumn{1}{|c|}{}                             &                        & \multicolumn{1}{c|}{Hit@1} & \multicolumn{1}{c|}{Hit@3} & Hit@10         & \multicolumn{1}{c|}{Hit@1} & \multicolumn{1}{c|}{Hit@3} & Hit@10         & \multicolumn{1}{c|}{Hit@1} & \multicolumn{1}{c|}{Hit@3} & Hit@10         \\ \hline
-% \multicolumn{1}{|c|}{\multirow{5}{*}{Graph-based}} & RE-NET~\cite{ref_article12}                 & 0.301                      & 0.440                      & 0.582          & 0.081                      & 0.158                      & 0.261          & 0.404                      & 0.530                      & 0.629          \\ \cline{2-2}
-% \multicolumn{1}{|c|}{}                             & RE-GCN~\cite{ref_article13}                 & 0.313                      & 0.470                      & 0.613          & 0.084                      & 0.171                      & 0.299          & 0.468                      & 0.607                      & 0.729          \\ \cline{2-2}
-% \multicolumn{1}{|c|}{}                             & TiRGN~\cite{ref_article22}                  & 0.338                      & {\ul 0.497}                & 0.650          & 0.136                      & {\ul 0.233}             & {\ul 0.376}    & {\ul 0.843}             & {\ul 0.913}             & {\ul 0.929}    \\ \cline{2-2}
-% \multicolumn{1}{|c|}{}                             & HGLS~\cite{ref_article14}                   & 0.350                      & 0.490                      & {\ul 0.704}    & 0.118                      & 0.217                      & 0.332          & 0.806                      & 0.901                      & 0.919          \\ \hline
-% \multicolumn{1}{|c|}{Rule-based}                   & TLogic~\cite{ref_article23}                 & 0.326                      & 0.483                      & 0.612          & 0.113                      & 0.212                      & 0.351          & 0.740                      & 0.789                      & 0.791          \\ \hline
-% \multicolumn{1}{|c|}{\multirow{3}{*}{LLM-based}}   & GPT-Neox-ICL~\cite{ref_article08}           & 0.295                      & 0.406                      & 0.475          & 0.068                      & 0.120                      & 0.211          & 0.720                      & 0.810                      & 0.846          \\ \cline{2-2}
-% \multicolumn{1}{|c|}{}                             & TiRGN-CoH~\cite{ref_article09}              & 0.330                      & 0.496                      & 0.649          & -                          & -                          & -              & -                          & -                          & -              \\ \cline{2-2}
-% \multicolumn{1}{|c|}{}                             & GenTKG~\cite{ref_article10}                 & {\ul 0.363}                & 0.473                      & 0.528          & {\ul 0.134}                & 0.220                      & 0.300          & 0.792                      & 0.830                      & 0.843          \\ \hline
-% \multicolumn{2}{|c|}{MSKGen (TiRGN)}                                        & \textbf{0.384}             & \textbf{0.525}             & \textbf{0.710} & \textbf{0.145}             & \textbf{0.235}                & \textbf{0.402} & \textbf{0.856}                & \textbf{0.929}                & \textbf{0.947} \\ \hline
-% \end{tabular}
 \begin{tabular}{|cc|cccc|}
 \hline
 \multicolumn{1}{|c|}{\multirow{2}{*}{Phương pháp}}     & \multirow{2}{*}{Mô hình} & \multicolumn{4}{c|}{ICEWS14}                                                                        \\ \cline{3-6} 
@@ -285,18 +259,6 @@ trích xuất các sự kiện tương đồng về ngữ nghĩa thông qua kĩ 
 Điều này chứng tỏ những luật được MSKGen xây dựng có chất lượng cao hơn và có tính tổng quát hơn nhờ vào lớp ngữ nghĩa của LLMs, thứ mà 
 các mô hình suy luận dựa trên luật không có.
 
-% \begin{figure}[ht] 
-%     \centering  
-%     \begin{subfigure}[b]{0.48\textwidth}  
-%         \includegraphics[width=\textwidth]{img/abl_study_1.png}  
-%     \end{subfigure}  
-%     \hfill  
-%     \begin{subfigure}[b]{0.48\textwidth}  
-%         \includegraphics[width=\textwidth]{img/abl_study_2.png}  
-%     \end{subfigure}  
-%     \caption{Ablation studies.}  
-%     \label{fig2: ablation study}  
-% \end{figure} 
 \subsection{Một số phân tích khác}
 \vspace{1em}
 \textbf{So sánh hiệu năng của MSKGen khi sử dụng các LLM khác nhau}

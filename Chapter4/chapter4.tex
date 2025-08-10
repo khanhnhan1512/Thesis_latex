@@ -31,7 +31,7 @@ Sau khi thu được các luật mẫu từ dữ liệu lịch sử thông qua d
 \label{eq3}
     Kulc(R) = \frac{1}{2} \left( \frac{r}{r_b} + \frac{r}{r_h} \right)
 \end{equation}
-trong đó: \( r_b \) biểu thị số cặp sự kiện thời gian thỏa mãn thân luật (rule body), \( r_h \) biểu thị số cặp sự kiện thời gian thỏa mãn đầu luật (rule head), \( r \) biểu thị số cặp sự kiện thỏa mãn cả điều kiện thân luật và đầu luật. Các luật vượt ngưỡng \( \gamma \) được phân loại là luật điểm cao.
+Trong đó: \( r_b \) biểu thị số cặp sự kiện thời gian thỏa mãn thân luật (rule body), \( r_h \) biểu thị số cặp sự kiện thời gian thỏa mãn đầu luật (rule head), \( r \) biểu thị số cặp sự kiện thỏa mãn cả điều kiện thân luật và đầu luật. Các luật vượt ngưỡng \( \gamma \) được phân loại là luật điểm cao.
 
 \paragraph{Quá trình lựa chọn quan hệ.} Sau đánh giá chất lượng luật, với mỗi quan hệ trong dữ liệu hiện tại, chúng tôi triển khai quá trình lựa chọn quan hệ để xác định top-$k$ quan hệ liên quan nhất cho việc xây dựng luật thời gian. Quá trình này tận dụng Large Language Models (LLMs) thông qua phương pháp nhắc có cấu trúc. \textbf{User Message} chứa đầu vào biến đổi đặc thù cho từng truy vấn (đầu luật, các luật điểm cao, và các quan hệ khả dụng), trong khi \textbf{System Message} cung cấp hướng dẫn nhất quán xuyên suốt tất cả các trường hợp nhắc.
 
@@ -101,7 +101,7 @@ Với mỗi đầu luật, chúng tôi đánh giá chất lượng quan hệ th�
     Quality(rel_i) = \frac{N_{high}(rel_i)}{N_{total}(rel_i)}
 \end{equation}
 
-trong đó $N_{high}(rel_i)$ biểu thị số lượng luật điểm cao chứa quan hệ $i$, và $N_{total}(rel_i)$ biểu thị tổng số luật được tạo ra chứa quan hệ $i$. Quá trình tinh chỉnh xác định $n$ quan hệ cuối (trong số $k$) dựa trên điểm chất lượng và cập nhật chúng thông qua lựa chọn có hướng dẫn bởi LLM:
+Trong đó $N_{high}(rel_i)$ biểu thị số lượng luật điểm cao chứa quan hệ $i$, và $N_{total}(rel_i)$ biểu thị tổng số luật được tạo ra chứa quan hệ $i$. Quá trình tinh chỉnh xác định $n$ quan hệ cuối (trong số $k$) dựa trên điểm chất lượng và cập nhật chúng thông qua lựa chọn có hướng dẫn bởi LLM:
 \paragraph{Cải tiến lặp.}
 Toàn bộ quá trình hoạt động theo chu kỳ liên tục, nơi các luật mới được tạo ra bằng cách sử dụng các quan hệ đã cập nhật và các luật điểm cao mới, sau đó tiến hành đánh giá chất lượng và tinh chỉnh quan hệ. Quá trình này tiếp tục cho đến khi tập luật đạt được số lần lặp xác định trước, cuối cùng tạo ra tập luật hoàn thiện.
 
