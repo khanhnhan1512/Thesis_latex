@@ -193,11 +193,11 @@
 
 \cleardoublepage
 
-\pagenumbering{roman} % Đánh số i, ii, iii, ...
+% \pagenumbering{roman} % Đánh số i, ii, iii, ...
 
 
 \phantomsection
-\addcontentsline{toc}{chapter}{Lời cam đoan}
+% \addcontentsline{toc}{chapter}{Lời cam đoan}
 \include{Appendix/reassurances}
 % \include{Appendix/commitment}
 
@@ -206,18 +206,20 @@
 % \include{Appendix/edit}
 
 \phantomsection
-\addcontentsline{toc}{chapter}{Nhận xét của giảng viên hướng dẫn}
+% \addcontentsline{toc}{chapter}{Nhận xét của giảng viên hướng dẫn}
 \include{Appendix/advisor}
 
 \phantomsection
-\addcontentsline{toc}{chapter}{Nhận xét của giảng viên phản biện}
+% \addcontentsline{toc}{chapter}{Nhận xét của giảng viên phản biện}
 \include{Appendix/reviewer}
 
+\pagenumbering{roman}
 \phantomsection
 \addcontentsline{toc}{chapter}{Lời cảm ơn}
 \include{Appendix/thanks}
 
-\addcontentsline{toc}{chapter}{Đề cương chi tiết}
+\phantomsection
+% \addcontentsline{toc}{chapter}{Đề cương chi tiết}
 \include{Appendix/proposal}
 
 \setcounter{page}{2}
@@ -269,24 +271,28 @@
 % Công trình của tác giả (nếu không có thì comment 02 dòng dưới)
 \addcontentsline{toc}{chapter}{Công trình của tác giả}
 \include{Appendix/publish}
-\include{Appendix/appendix1}
-% Phần phụ lục
-% \addcontentsline{toc}{chapter}{Phụ lục}
-
 
 % In tài liệu tham khảo
 \addcontentsline{toc}{chapter}{Tài liệu tham khảo}
 \printbibheading[title={Tài liệu tham khảo}]
-
-
-%\printbibliography
-
 \printbibliography[heading=subbibliography, title={Tiếng Việt}, keyword=Viet, resetnumbers=true]
 
 \DeclareNameAlias{sortname}{last-first}
 \DeclareNameAlias{default}{last-first}
 
 \printbibliography[heading=none, title={Tiếng Anh}, notkeyword=Viet, resetnumbers=4] 
+
+\include{Appendix/appendix1}
+% Phần phụ lục
+% \addcontentsline{toc}{chapter}{Phụ lục}
+
+
+
+
+
+%\printbibliography
+
+
 % ===================================================================== %
 % CHÚ Ý: phải gán lại resetnumbers=số tài liệu tham khảo tiếng Việt + 1 %
 % ===================================================================== %

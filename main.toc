@@ -1,13 +1,9 @@
-\contentsline {chapter}{Lời cam đoan}{i}{section*.1}%
-\contentsline {chapter}{Nhận xét của giảng viên hướng dẫn}{ii}{section*.3}%
-\contentsline {chapter}{Nhận xét của giảng viên phản biện}{v}{section*.5}%
-\contentsline {chapter}{Lời cảm ơn}{viii}{section*.7}%
-\contentsline {chapter}{Đề cương chi tiết}{ix}{chapter*.8}%
-\contentsline {chapter}{Mục lục}{ii}{chapter*.9}%
-\contentsline {chapter}{Danh sách hình ảnh}{vi}{section*.11}%
-\contentsline {chapter}{Danh sách bảng}{vii}{section*.13}%
-\contentsline {chapter}{Danh sách các từ viết tắt}{viii}{section*.15}%
-\contentsline {chapter}{Tóm tắt}{ix}{section*.17}%
+\contentsline {chapter}{Lời cảm ơn}{i}{section*.5}%
+\contentsline {chapter}{Mục lục}{ii}{section*.7}%
+\contentsline {chapter}{Danh sách hình ảnh}{vi}{section*.9}%
+\contentsline {chapter}{Danh sách bảng}{vii}{section*.11}%
+\contentsline {chapter}{Danh sách các từ viết tắt}{viii}{section*.13}%
+\contentsline {chapter}{Tóm tắt}{ix}{section*.15}%
 \contentsline {chapter}{\numberline {1}GIỚI THIỆU}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Giới thiệu tổng quan}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Thách thức của bài toán}{6}{section.1.2}%
@@ -81,4 +77,4 @@
 \contentsline {subsection}{\numberline {6.3.3}Tự động hóa hệ thống}{67}{subsection.6.3.3}%
 \contentsline {subsection}{\numberline {6.3.4}Mở rộng nguồn tri thức}{67}{subsection.6.3.4}%
 \contentsline {chapter}{Công trình của tác giả}{69}{subsection.6.3.4}%
-\contentsline {chapter}{Tài liệu tham khảo}{92}{chapter*.21}%
+\contentsline {chapter}{Tài liệu tham khảo}{70}{Item.6}%
